@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:orientation="vertical"
+    tools:context=".activity.HomeActivity" >
+
+    <cn.com.nbd.nbdmobile.view.PullToRefreshListView
+        android:id="@+id/pullview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="@null"
+        android:listSelector="@null"
+         android:divider="@color/gray"  
+        android:dividerHeight="1px"
+      />
+
+</LinearLayout>
