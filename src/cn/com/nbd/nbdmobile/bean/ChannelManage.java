@@ -14,38 +14,42 @@ import cn.com.nbd.nbdmobile.db.SQLHelper;
 public class ChannelManage {
 	public static ChannelManage channelManage;
 	/**
-	 * Ä¬ÈÏµÄÓÃ»§Ñ¡ÔñÆµµÀÁĞ±í
+	 * Ä¬ï¿½Ïµï¿½ï¿½Ã»ï¿½Ñ¡ï¿½ï¿½Æµï¿½ï¿½ï¿½Ğ±ï¿½
 	 * */
 	public static List<ChannelItem> defaultUserChannels;
 	/**
-	 * Ä¬ÈÏµÄÆäËûÆµµÀÁĞ±í
+	 * Ä¬ï¿½Ïµï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½Ğ±ï¿½
 	 * */
 	public static List<ChannelItem> defaultOtherChannels;
-	private ChannelDao channelDao;
-	/** ÅĞ¶ÏÊı¾İ¿âÖĞÊÇ·ñ´æÔÚÓÃ»§Êı¾İ */
+	private  ChannelDao channelDao;
+	/** ï¿½Ğ¶ï¿½ï¿½ï¿½İ¿ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ */
 	private boolean userExist = false;
 	static {
+
+
 		defaultUserChannels = new ArrayList<ChannelItem>();
 		defaultOtherChannels = new ArrayList<ChannelItem>();
-		defaultUserChannels.add(new ChannelItem(1, "¿ìÑ¶", 1, 1));
-		defaultUserChannels.add(new ChannelItem(2, "×ÊÑ¶", 2, 1));
-		defaultUserChannels.add(new ChannelItem(3, "Ö¤È¯", 3, 1));
-		defaultUserChannels.add(new ChannelItem(4, "Àí²Æ", 4, 1));
-//		defaultUserChannels.add(new ChannelItem(5, "¿Æ¼¼", 5, 1));
-//		defaultUserChannels.add(new ChannelItem(6, "ÌåÓı", 6, 1));
-//		defaultUserChannels.add(new ChannelItem(7, "¾üÊÂ", 7, 1));
-//		defaultOtherChannels.add(new ChannelItem(8, "²Æ¾­", 1, 0));
-//		defaultOtherChannels.add(new ChannelItem(9, "Æû³µ", 2, 0));
-//		defaultOtherChannels.add(new ChannelItem(10, "·¿²ú", 3, 0));
-//		defaultOtherChannels.add(new ChannelItem(11, "Éç»á", 4, 0));
-//		defaultOtherChannels.add(new ChannelItem(12, "Çé¸Ğ", 5, 0));
-//		defaultOtherChannels.add(new ChannelItem(13, "Å®ÈË", 6, 0));
-//		defaultOtherChannels.add(new ChannelItem(14, "ÂÃÓÎ", 7, 0));
-//		defaultOtherChannels.add(new ChannelItem(15, "½¡¿µ", 8, 0));
-//		defaultOtherChannels.add(new ChannelItem(16, "ÃÀÅ®", 9, 0));
-//		defaultOtherChannels.add(new ChannelItem(17, "ÓÎÏ·", 10, 0));
-//		defaultOtherChannels.add(new ChannelItem(18, "ÊıÂë", 11, 0));
-//		defaultUserChannels.add(new ChannelItem(19, "ÓéÀÖ", 12, 0));
+		defaultUserChannels.add(new ChannelItem(1, "å¿«è®¯", 1, 1));
+		defaultUserChannels.add(new ChannelItem(2, "èµ„è®¯", 2, 1));
+		defaultUserChannels.add(new ChannelItem(3, "ç†è´¢", 3, 1));
+
+
+		defaultUserChannels.add(new ChannelItem(4, "è¯åˆ¸", 4, 1));
+//		defaultUserChannels.add(new ChannelItem(5, "ï¿½Æ¼ï¿½", 5, 1));
+//		defaultUserChannels.add(new ChannelItem(6, "ï¿½ï¿½ï¿½ï¿½", 6, 1));
+//		defaultUserChannels.add(new ChannelItem(7, "ï¿½ï¿½ï¿½ï¿½", 7, 1));
+//		defaultOtherChannels.add(new ChannelItem(8, "ï¿½Æ¾ï¿½", 1, 0));
+//		defaultOtherChannels.add(new ChannelItem(9, "ï¿½ï¿½", 2, 0));
+//		defaultOtherChannels.add(new ChannelItem(10, "ï¿½ï¿½ï¿½ï¿½", 3, 0));
+//		defaultOtherChannels.add(new ChannelItem(11, "ï¿½ï¿½ï¿½", 4, 0));
+//		defaultOtherChannels.add(new ChannelItem(12, "ï¿½ï¿½ï¿½", 5, 0));
+//		defaultOtherChannels.add(new ChannelItem(13, "Å®ï¿½ï¿½", 6, 0));
+//		defaultOtherChannels.add(new ChannelItem(14, "ï¿½ï¿½ï¿½ï¿½", 7, 0));
+//		defaultOtherChannels.add(new ChannelItem(15, "ï¿½ï¿½ï¿½ï¿½", 8, 0));
+//		defaultOtherChannels.add(new ChannelItem(16, "ï¿½ï¿½Å®", 9, 0));
+//		defaultOtherChannels.add(new ChannelItem(17, "ï¿½ï¿½Ï·", 10, 0));
+//		defaultOtherChannels.add(new ChannelItem(18, "ï¿½ï¿½ï¿½ï¿½", 11, 0));
+//		defaultUserChannels.add(new ChannelItem(19, "ï¿½ï¿½ï¿½ï¿½", 12, 0));
 	}
 
 	private ChannelManage(SQLHelper paramDBHelper) throws SQLException {
@@ -56,8 +60,8 @@ public class ChannelManage {
 	}
 
 	/**
-	 * ³õÊ¼»¯ÆµµÀ¹ÜÀíÀà
-	 * @param paramDBHelper
+	 * ï¿½ï¿½Ê¼ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * @param
 	 * @throws SQLException
 	 */
 	public static ChannelManage getManage(SQLHelper dbHelper)throws SQLException {
@@ -67,14 +71,14 @@ public class ChannelManage {
 	}
 
 	/**
-	 * Çå³ıËùÓĞµÄÆµµÀ
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğµï¿½Æµï¿½ï¿½
 	 */
-	public void deleteAllChannel() {
+	public  void deleteAllChannel() {
 		channelDao.clearFeedTable();
 	}
 	/**
-	 * »ñÈ¡ÆäËûµÄÆµµÀ
-	 * @return Êı¾İ¿â´æÔÚÓÃ»§ÅäÖÃ ? Êı¾İ¿âÄÚµÄÓÃ»§Ñ¡ÔñÆµµÀ : Ä¬ÈÏÓÃ»§Ñ¡ÔñÆµµÀ ;
+	 * ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½
+	 * @return ï¿½ï¿½İ¿ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ ? ï¿½ï¿½İ¿ï¿½ï¿½Úµï¿½ï¿½Ã»ï¿½Ñ¡ï¿½ï¿½Æµï¿½ï¿½ : Ä¬ï¿½ï¿½ï¿½Ã»ï¿½Ñ¡ï¿½ï¿½Æµï¿½ï¿½ ;
 	 */
 	public List<ChannelItem> getUserChannel() {
 		Object cacheList = channelDao.listCache(SQLHelper.SELECTED + "= ?",new String[] { "1" });
@@ -98,8 +102,8 @@ public class ChannelManage {
 	}
 	
 	/**
-	 * »ñÈ¡ÆäËûµÄÆµµÀ
-	 * @return Êı¾İ¿â´æÔÚÓÃ»§ÅäÖÃ ? Êı¾İ¿âÄÚµÄÆäËüÆµµÀ : Ä¬ÈÏÆäËüÆµµÀ ;
+	 * ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½
+	 * @return ï¿½ï¿½İ¿ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ ? ï¿½ï¿½İ¿ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ : Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ ;
 	 */
 	public List<ChannelItem> getOtherChannel() {
 		Object cacheList = channelDao.listCache(SQLHelper.SELECTED + "= ?" ,new String[] { "0" });
@@ -125,7 +129,7 @@ public class ChannelManage {
 	}
 	
 	/**
-	 * ±£´æÓÃ»§ÆµµÀµ½Êı¾İ¿â
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ¿ï¿½
 	 * @param userList
 	 */
 	public void saveUserChannel(List<ChannelItem> userList) {
@@ -138,7 +142,7 @@ public class ChannelManage {
 	}
 	
 	/**
-	 * ±£´æÆäËûÆµµÀµ½Êı¾İ¿â
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ¿ï¿½
 	 * @param otherList
 	 */
 	public void saveOtherChannel(List<ChannelItem> otherList) {
@@ -151,7 +155,7 @@ public class ChannelManage {
 	}
 	
 	/**
-	 * ³õÊ¼»¯Êı¾İ¿âÄÚµÄÆµµÀÊı¾İ
+	 * ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½İ¿ï¿½ï¿½Úµï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	private void initDefaultChannel(){
 		Log.d("deleteAll", "deleteAll");

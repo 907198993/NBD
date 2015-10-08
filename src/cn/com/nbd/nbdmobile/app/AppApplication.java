@@ -3,6 +3,8 @@ package cn.com.nbd.nbdmobile.app;
 
 
 import android.app.Application;
+
+import cn.com.nbd.nbdmobile.bean.ChannelManage;
 import cn.com.nbd.nbdmobile.config.AppPresences;
 import cn.com.nbd.nbdmobile.db.SQLHelper;
 
@@ -15,6 +17,7 @@ public class AppApplication extends Application {
 		super.onCreate();
 		mAppApplication = this;
 		AppPresences.init(this);
+
 	}
 	
 	/** ��ȡApplication */
