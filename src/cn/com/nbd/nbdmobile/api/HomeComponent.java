@@ -3,6 +3,7 @@ package cn.com.nbd.nbdmobile.api;
 import java.util.Map;
 
 import org.hjh.async.framework.AppHandler;
+import org.hjh.async.framework.AsyncCacheWork;
 import org.hjh.async.framework.AsyncNetWorkTask;
 import org.hjh.async.framework.AsyncTaskExecutor;
 
@@ -100,19 +101,28 @@ public final class HomeComponent extends BaseComponent{
 	
 	//文章
 	public void queryArticle( final int page ,final int count,final AppHandler handler){
-		AsyncTaskExecutor.executeTask(new AsyncNetWorkTask(handler) {
-			
+		AsyncTaskExecutor.executeTask(new AsyncCacheWork(handler) {
+
 			@Override
-			public void dispose() {
-				ResultObject temp = result.clone();
-				System.err.println("query ----------------------------------------------------------------------");
-				ArticleDetail  list = (ArticleDetail) HomeApi.getInstance().queryArticle(page,count,temp,new  TypeToken<ArticleDetail>(){}.getType(),null);
-				if(null == list){
-					sendMessage(AppConstants.RESULT_QUERY_ARTICLE_FAILED,temp);
-				}else{
-					sendMessage(AppConstants.RESULT_QUERY_ARTICLE_SUCCESS,list);
-				}
+			public void onQueryCache() {
+
 			}
+
+			@Override
+			public void onQueryWebApi() {
+				{
+					ResultObject temp = result.clone();
+					System.err.println("query ----------------------------------------------------------------------");
+					ArticleDetail  list = (ArticleDetail) HomeApi.getInstance().queryArticle(page,count,temp,new  TypeToken<ArticleDetail>(){}.getType(),null);
+					if(null == list){
+						sendMessage(AppConstants.RESULT_QUERY_ARTICLE_FAILED,temp);
+					}else{
+						sendMessage(AppConstants.RESULT_QUERY_ARTICLE_SUCCESS,list);
+					}
+				}
+
+			}
+
 		});
 	}
 }

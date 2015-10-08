@@ -18,14 +18,14 @@ public class StockDetailForDetail  implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
+	public float getCurprice() {
+		return curprice;
+	}
 	public float getCurdot() {
 		return curdot;
 	}
 	public void setCurdot(float curdot) {
 		this.curdot = curdot;
-	}
-	public float getCurprice() {
-		return curprice;
 	}
 	public void setCurprice(float curprice) {
 		this.curprice = curprice;
