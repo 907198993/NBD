@@ -10,7 +10,6 @@ import org.hjh.inject.InjectView;
 import org.hjh.refresh.PullToRefreshBase;
 import org.hjh.refresh.PullToRefreshBase.OnRefreshListener;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Message;
@@ -25,8 +24,8 @@ import android.widget.ListView;
 import cn.com.nbd.nbdmobile.R;
 import cn.com.nbd.nbdmobile.api.AppConstants;
 import cn.com.nbd.nbdmobile.api.HomeComponent;
+import cn.com.nbd.nbdmobile.bean.Article;
 import cn.com.nbd.nbdmobile.bean.ArticleDetail;
-import cn.com.nbd.nbdmobile.bean.ArticleListDetail;
 import cn.com.nbd.nbdmobile.bean.ResultObject;
 import cn.com.nbd.nbdmobile.config.AppPresences;
 import cn.com.nbd.nbdmobile.holder.ArticleHolder;
@@ -35,7 +34,6 @@ import cn.com.nbd.nbdmobile.view.PullToRefreshListView;
 
 import com.dpt.base.AppPublicAdapter;
 import com.dpt.base.AppPublicAdapter.IFillValue;
-import com.dpt.config.BaseConfig;
 
 @InjectLayout(layout = R.layout.client_layout)
 public class ClientManageFragment extends BaseFragment implements IFillValue,
@@ -53,7 +51,7 @@ public class ClientManageFragment extends BaseFragment implements IFillValue,
 
 	private boolean loadMore = false;// 当前是否为加载更多
 
-	private List<ArticleListDetail> list = new ArrayList<ArticleListDetail>();
+	private List<ArticleDetail> list = new ArrayList<ArticleDetail>();
 	// 标志位，标志已经初始化完成。
 	private boolean isPrepared;
 	private boolean isRunning;
@@ -146,7 +144,7 @@ public class ClientManageFragment extends BaseFragment implements IFillValue,
 		listView.setOnItemClickListener(this);
 	}
 
-	private void loadArticle(List<ArticleListDetail> list1) {
+	private void loadArticle(List<ArticleDetail> list1) {
 		if (list1 == null || list1.isEmpty()) {
 			return;
 		}
@@ -181,7 +179,7 @@ public class ClientManageFragment extends BaseFragment implements IFillValue,
 					refreshView.onPullUpRefreshComplete();
 					refreshView.setHasMoreData(true);
 					setLastUpdateTime(refreshView);
-					ArticleDetail articleDetail = (ArticleDetail) msg.obj;
+					Article articleDetail = (Article) msg.obj;
 					loadArticle(articleDetail.getArticles());
 					break;
 				default:
@@ -195,7 +193,7 @@ public class ClientManageFragment extends BaseFragment implements IFillValue,
 	@Override
 	public void fillData(int position, Object object) {
 		ArticleHolder holder = (ArticleHolder) object;
-		ArticleListDetail articleListDetail = (ArticleListDetail) adapter
+		ArticleDetail articleListDetail = (ArticleDetail) adapter
 				.getList().get(position);
 		holder.description.setText(articleListDetail.getTitle());
 		holder.readnum.setText(articleListDetail.getMobile_click_count());

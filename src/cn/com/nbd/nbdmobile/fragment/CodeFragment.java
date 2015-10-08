@@ -1,7 +1,6 @@
 package cn.com.nbd.nbdmobile.fragment;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 import org.hjh.async.framework.AppHandler;
@@ -11,47 +10,36 @@ import org.hjh.inject.InjectView;
 import org.hjh.refresh.PullToRefreshBase;
 import org.hjh.refresh.PullToRefreshBase.OnRefreshListener;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Message;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ImageView;
-import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import cn.com.nbd.nbdmobile.R;
 import cn.com.nbd.nbdmobile.api.AppConstants;
 import cn.com.nbd.nbdmobile.api.HomeComponent;
+
+import cn.com.nbd.nbdmobile.bean.Article;
 import cn.com.nbd.nbdmobile.bean.ArticleDetail;
-import cn.com.nbd.nbdmobile.bean.ArticleListDetail;
 import cn.com.nbd.nbdmobile.bean.StockDetail;
 import cn.com.nbd.nbdmobile.config.AppPresences;
-import cn.com.nbd.nbdmobile.holder.AppItemHolder;
 import cn.com.nbd.nbdmobile.holder.ArticleHolder;
 import cn.com.nbd.nbdmobile.tool.BaseTools;
 import cn.com.nbd.nbdmobile.view.PullToRefreshListView;
-import cn.com.nbd.nbdmobile.widget.AutoScrollViewPager;
 
 import com.dpt.base.AppPublicAdapter;
+
 import com.dpt.base.AppPublicAdapter.IFillValue;
-import com.lidroid.xutils.BitmapUtils;
 
 @InjectLayout(layout = R.layout.tab_client_layout)
 public class CodeFragment extends BaseFragment implements IFillValue,
@@ -65,7 +53,7 @@ public class CodeFragment extends BaseFragment implements IFillValue,
 	private AppPublicAdapter adapter;
 	private StockDetail detail;
 
-	private List<ArticleListDetail> list = new ArrayList<ArticleListDetail>();
+	private List<ArticleDetail> list = new ArrayList<ArticleDetail>();
 	private View rootLayout;
 	private int currentPage = 1;
 	private int pageSize = 10;
@@ -211,7 +199,7 @@ public class CodeFragment extends BaseFragment implements IFillValue,
 		listView.setOnItemClickListener(this);
 	}
 
-	private void loadArticle(List<ArticleListDetail> list) {
+	private void loadArticle(List<ArticleDetail> list) {
 
 		adapter.getList().addAll(list);
 		adapter.notifyDataSetChanged();
@@ -237,8 +225,8 @@ public class CodeFragment extends BaseFragment implements IFillValue,
 					refreshView.onPullUpRefreshComplete();
 					refreshView.setHasMoreData(true);
 					setLastUpdateTime(refreshView);
-					ArticleDetail articleDetail = (ArticleDetail) msg.obj;
-					loadArticle(articleDetail.getArticles());
+					Article article = (Article) msg.obj;
+					loadArticle(article.getArticles());
 					break;
 				case AppConstants.RESULT_QUERY_STOCK_CONTENT_SUCCESS:
 					detail = (StockDetail) msg.obj;
@@ -255,7 +243,7 @@ public class CodeFragment extends BaseFragment implements IFillValue,
 	@Override
 	public void fillData(int position, Object object) {
 		ArticleHolder holder = (ArticleHolder) object;
-		ArticleListDetail articleListDetail = (ArticleListDetail) adapter
+		ArticleDetail articleListDetail = (ArticleDetail) adapter
 				.getList().get(position);
 		// holder.oneImageView.setImageDrawable(getResources().getDrawable(R.drawable.phone_icon));
 		holder.description.setText(articleListDetail.getTitle());
