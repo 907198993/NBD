@@ -10,7 +10,7 @@ public final class BaseConfig {
 		
 		public static final String PATH_AUDIO 	 	     = "audio/";
 		public static final String PATH_IMAGE 	 		 = "image/";
-		public static final String PATH_TEMP 	  		 = "temp/";
+		public static final String PATH_TEMP 	  		 = "nbd/";
 		public static final String PATH_ERROR 	 		 = "error/";
 		public static final String PATH_VERSION	     = "version/";
 		public static final String PATH_LOG			 	 = "cache/";

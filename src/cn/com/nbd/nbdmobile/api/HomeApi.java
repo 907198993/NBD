@@ -3,10 +3,9 @@ package cn.com.nbd.nbdmobile.api;
 import java.lang.reflect.Type;
 import java.util.Map;
 
-import cn.com.nbd.nbdmobile.bean.ResponseJson;
+import cn.com.nbd.nbdmobile.bean.Article;
 import cn.com.nbd.nbdmobile.bean.ResponseListJson;
 import cn.com.nbd.nbdmobile.bean.ResultObject;
-import cn.com.nbd.nbdmobile.bean.StockDetail;
 
 
 public final class HomeApi extends BaseApi {
@@ -33,7 +32,6 @@ public final class HomeApi extends BaseApi {
 	
 	/**
 	 * 获取数据对返回数据的解析，返回对象
-	 * @param array 是否为list
 	 * @param action
 	 * @param method
 	 * @param paramter
@@ -41,30 +39,30 @@ public final class HomeApi extends BaseApi {
 	 * @param result
 	 * @return
 	 */
-	public Object queryData(String action,String method,Map<String, Object> paramter,Class clazz,ResultObject result){
-		String url = buildTuanUrl(action,method);
-		boolean noerrer = httpExecutor.doPost(url, paramter, result);
-		if(noerrer){
-			try {
-				ResponseJson<Object> response = (ResponseJson<Object>) ResponseJson.fromJson(result.getContent(),clazz);
-				if(response.getStatus() != 1){
-					result.setError(response.getInfo());
-					result.setCode(BaseConstants.ERROR_INPUT_PARAMETER);//一般为参数错误
-					return null;
-				}else{
-					return response.getData();//code 为-1
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-				result.setCode(BaseConstants.ERROR_API_PARSER_JSON);//解析错误
-				return null;
-			}
-			
-		}else{
-			result.setCode(BaseConstants.ERROR_HTTP_EXECUTE);
-			return null;//连接超时
-		}
-	}
+//	public Object queryData(String action,String method,Map<String, Object> paramter,Class clazz,ResultObject result){
+//		String url = buildTuanUrl(action,method);
+//		boolean noerrer = httpExecutor.doPost(url, paramter, result);
+//		if(noerrer){
+//			try {
+//				ResponseJson<Object> response = (ResponseJson<Object>) ResponseJson.fromJson(result.getContent(),clazz);
+//				if(response.getStatus() != 1){
+//					result.setError(response.getInfo());
+//					result.setCode(BaseConstants.ERROR_INPUT_PARAMETER);//一般为参数错误
+//					return null;
+//				}else{
+//					return response.getData();//code 为-1
+//				}
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//				result.setCode(BaseConstants.ERROR_API_PARSER_JSON);//解析错误
+//				return null;
+//			}
+//
+//		}else{
+//			result.setCode(BaseConstants.ERROR_HTTP_EXECUTE);
+//			return null;//连接超时
+//		}
+//	}
 	
 	/**
 	 * 返回list
@@ -102,10 +100,6 @@ public final class HomeApi extends BaseApi {
 	
 	   /**
 	    *  滚动栏点击增加阅读数
-	    * @param type
-	    * @param currentPage
-	    * @param result
-	    * @return
 	    * http://api.nbd.com.cn/1/columns/mobile_click_count?ids=935908&app_key=f4af4864997a00ddff7e1765e643f9ec&client_key=iPhone
 	    */
 	public Object addReadNumber(long  ids ,ResultObject result){
@@ -119,11 +113,9 @@ public final class HomeApi extends BaseApi {
 	   
 	}
 	
-	public Object queryArticle(int page,int count ,ResultObject result,Type type,Class clazz){
+	public Article queryArticle(int page,int count ,ResultObject result,Type type,Class clazz){
 		String url = "http://api.nbd.com.cn/v1/columns/3/articles.json?client_type=1&app_key=f4af4864997a00ddff7e1765e643f9ec&page="+page+"&count="+count;
 		Map<String, Object> paramter = withEmptyParamterMap();
-//		paramter.put("&count", count);
-//		paramter.put("&page", page);
 		boolean noerrer = httpExecutor.doGet(url, result);
 		if(noerrer){
 			try {
@@ -137,6 +129,26 @@ public final class HomeApi extends BaseApi {
 			result.setCode(BaseConstants.ERROR_HTTP_EXECUTE);
 			return null;
 		}
+//		if(noerrer){
+//			try {
+//			ResponseJson<Article> response = ResponseJson.fromJson(result.getContent(), Article.class);
+//			if (response.getError()!= "") {
+//				result.setCode(BaseConstants.ERROR_INPUT_PARAMETER);
+//				result.setError(response.getError());
+//				return null;
+//			}
+//
+//			return response.getContent();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			result.setCode(BaseConstants.ERROR_API_PARSER_JSON);
+//			return null;
+//		}
+//
+//	}else{
+//		result.setCode(BaseConstants.ERROR_HTTP_EXECUTE);
+//		return null;
+//	}
 	   
 	}
 	

@@ -40,7 +40,7 @@ import cn.com.nbd.nbdmobile.tool.BaseTools;
 import cn.com.nbd.nbdmobile.view.ColumnHorizontalScrollView;
 
 /**
- * Ö÷½çÃæ
+ * ??????
  * 
  * @author Dell
  * 
@@ -54,33 +54,33 @@ public class MainActivity extends BaseActivity {
 	private ViewPager mViewPager;
 	private ImageView button_more_columns;
 	LinearLayout linear;
-	/** ÓÃ»§Ñ¡ÔñµÄÐÂÎÅ·ÖÀàÁÐ±í */
+	/** ???????????????Ð±? */
 	private ArrayList<ChannelItem> userChannelList = new ArrayList<ChannelItem>();
-	/** µ±Ç°Ñ¡ÖÐµÄÀ¸Ä¿ */
+	/** ?????Ðµ???? */
 	private int columnSelectIndex = 0;
-	/** ×óÒõÓ°²¿·Ö */
+	/** ????????? */
 	public ImageView shade_left;
-	/** ÓÒÒõÓ°²¿·Ö */
+	/** ????????? */
 	public ImageView shade_right;
-	/** ÆÁÄ»¿í¶È */
+	/** ?????? */
 	private int mScreenWidth = 0;
-	/** Item¿í¶È */
+	/** Item??? */
 	private int mItemWidth = 0;
 	private ArrayList<Fragment> fragments = new ArrayList<Fragment>();
 	private FragmentPagerAdapter adapter;
 	// protected SlidingMenu side_drawer;
 
-	/** head Í·²¿ µÄÖÐ¼äµÄloading */
+	/** head ??? ???Ð¼??loading */
 	private ProgressBar top_progress;
-	/** head Í·²¿ ÖÐ¼äµÄË¢ÐÂ°´Å¥ */
+	/** head ??? ?Ð¼????Â°?? */
 	private ImageView top_refresh;
-	/** head Í·²¿ µÄ×ó²à²Ëµ¥ °´Å¥ */
+	/** head ??? ??????? ??? */
 	private ImageView top_head;
-	/** head Í·²¿ µÄÓÒ²à²Ëµ¥ °´Å¥ */
+	/** head ??? ??????? ??? */
 	private ImageView top_more;
-	/** ÇëÇóCODE */
+	/** ????CODE */
 	public final static int CHANNELREQUEST = 1;
-	/** µ÷Õû·µ»ØµÄRESULTCODE */
+	/** ??????RESULTCODE */
 	public final static int CHANNELRESULT = 10;
 
 	@Override
@@ -88,12 +88,12 @@ public class MainActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 		mScreenWidth = BaseTools.getWindowsWidth(this);
-		mItemWidth = mScreenWidth / 6;// Ò»¸öItem¿í¶ÈÎªÆÁÄ»µÄ1/6
+		mItemWidth = mScreenWidth / 6;// ???Item?????????1/6
 		initView();
 
 	}
 
-	/** ³õÊ¼»¯layout¿Ø¼þ */
+	/** ?????layout??? */
 	private void initView() {
 		mColumnHorizontalScrollView = (ColumnHorizontalScrollView) findViewById(R.id.mColumnHorizontalScrollView);
 		mRadioGroup_content = (LinearLayout) findViewById(R.id.mRadioGroup_content);
@@ -158,7 +158,7 @@ public class MainActivity extends BaseActivity {
 	}
 
 	/**
-	 * µ±À¸Ä¿Ïî·¢Éú±ä»¯Ê±ºòµ÷ÓÃ
+	 * ?????????ä»¯??????
 	 * */
 	// private void setChangelView() {
 	// initColumnData();
@@ -173,7 +173,7 @@ public class MainActivity extends BaseActivity {
 	}
 
 	/**
-	 * ³õÊ¼»¯ColumnÀ¸Ä¿Ïî
+	 * ?????Column?????
 	 * */
 	private void initTabColumn() {
 		userChannelList = ((ArrayList<ChannelItem>) ChannelManage.getManage(
@@ -227,7 +227,7 @@ public class MainActivity extends BaseActivity {
 	}
 
 	/**
-	 * Ñ¡ÔñµÄColumnÀïÃæµÄTab
+	 * ????Column?????Tab
 	 * */
 	private void selectTab(int tab_postion) {
 		columnSelectIndex = tab_postion;
@@ -241,7 +241,7 @@ public class MainActivity extends BaseActivity {
 			// mColumnHorizontalScrollView.smoothScrollTo((position - 2) *
 			// mItemWidth , 0);
 		}
-		// ÅÐ¶ÏÊÇ·ñÑ¡ÖÐ
+		// ?Ð¶???????
 		for (int j = 0; j < mRadioGroup_content.getChildCount(); j++) {
 			View checkView = mRadioGroup_content.getChildAt(j);
 			boolean ischeck;
@@ -255,10 +255,10 @@ public class MainActivity extends BaseActivity {
 	}
 
 	/**
-	 * ³õÊ¼»¯Fragment
+	 * ?????Fragment
 	 * */
 	private void initFragment() {
-		fragments.clear();// Çå¿Õ
+		fragments.clear();// ???
 		int count = userChannelList.size();
 		for (int i = 0; i < count; i++) {
 			Bundle data = new Bundle();
@@ -280,7 +280,7 @@ public class MainActivity extends BaseActivity {
 	}
 
 	/**
-	 * ViewPagerÇÐ»»¼àÌý·½·¨
+	 * ViewPager?Ð»?????
 	 * */
 	public OnPageChangeListener pageListener = new OnPageChangeListener() {
 
@@ -313,7 +313,7 @@ public class MainActivity extends BaseActivity {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 
 			if ((System.currentTimeMillis() - mExitTime) > 2000) {
-				Toast.makeText(this, "ÔÚ°´Ò»´ÎÍË³ö", Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, "?????????", Toast.LENGTH_SHORT).show();
 				mExitTime = System.currentTimeMillis();
 			} else {
 				finish();
@@ -321,7 +321,7 @@ public class MainActivity extends BaseActivity {
 
 			return true;
 		}
-		// À¹½ØMENU°´Å¥µã»÷ÊÂ¼þ£¬ÈÃËûÎÞÈÎºÎ²Ù×÷
+		// ????MENU??????????????????ÎºÎ²???
 		if (keyCode == KeyEvent.KEYCODE_MENU) {
 			return true;
 		}

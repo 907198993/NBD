@@ -2,12 +2,12 @@ package cn.com.nbd.nbdmobile.bean;
 
 import com.google.gson.annotations.Expose;
 
-import org.hjh.annomation.PrimaryKeyType;
-import org.hjh.annomation.Table;
 import org.hjh.annomation.ColumnInt;
 import org.hjh.annomation.ColumnPrimaryKey;
 import org.hjh.annomation.ColumnString;
 import org.hjh.annomation.PrimaryKeyType;
+import org.hjh.annomation.Table;
+
 import java.io.Serializable;
 
 @Table(TableName = "ArticleDetail")
@@ -18,6 +18,10 @@ public final class ArticleDetail implements Serializable{
 
 	@ColumnPrimaryKey(TYPE= PrimaryKeyType.DEFINE)
 	@ColumnInt
+    private  int ids;
+
+    @ColumnString(length = 256)
+    @Expose
 	private  String id;
 
 	@ColumnInt
@@ -61,7 +65,16 @@ public final class ArticleDetail implements Serializable{
 	@ColumnString(length = 256)
 	@Expose
 	private String mobile_click_count;
-	public int getIs_rolling_news() {
+
+    public int getIds() {
+        return ids;
+    }
+
+    public void setIds(int ids) {
+        this.ids = ids;
+    }
+
+    public int getIs_rolling_news() {
 		return is_rolling_news;
 	}
 	public void setIs_rolling_news(int is_rolling_news) {

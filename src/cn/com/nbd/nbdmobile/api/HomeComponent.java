@@ -1,17 +1,18 @@
 package cn.com.nbd.nbdmobile.api;
 
-import java.util.Map;
+import com.google.gson.reflect.TypeToken;
 
 import org.hjh.async.framework.AppHandler;
 import org.hjh.async.framework.AsyncCacheWork;
 import org.hjh.async.framework.AsyncNetWorkTask;
 import org.hjh.async.framework.AsyncTaskExecutor;
 
-import cn.com.nbd.nbdmobile.bean.ArticleDetail;
+import java.util.Map;
+
+import cn.com.nbd.nbdmobile.bean.Article;
 import cn.com.nbd.nbdmobile.bean.ResultObject;
 import cn.com.nbd.nbdmobile.bean.StockDetail;
-
-import com.google.gson.reflect.TypeToken;
+import cn.com.nbd.nbdmobile.dao.ArticleDetailDao;
 
 
 
@@ -60,11 +61,7 @@ public final class HomeComponent extends BaseComponent{
 		});
 	}
 	
-	/**
-	 * 获取首页推荐
-	 * @param type
-	 * @param handler
-	 */
+
 	public void addReadNumber(final long ids,final AppHandler handler){
 		AsyncTaskExecutor.executeTask(new AsyncNetWorkTask(handler) {
 			
@@ -105,20 +102,39 @@ public final class HomeComponent extends BaseComponent{
 
 			@Override
 			public void onQueryCache() {
-
+				Article article = new Article();
+				try {
+					article.setArticles(ArticleDetailDao.getInstance(context, false).queryAllArticleDetails());
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				if(article.getArticles().size()<1){
+					sendMessage(AppConstants.RESULT_QUERY_ARTICLE_FAILED);
+				}else{
+					sendMessage(AppConstants.RESULT_QUERY_ARTICLE_SUCCESS, article);
+				}
 			}
 
 			@Override
 			public void onQueryWebApi() {
 				{
 					ResultObject temp = result.clone();
-					System.err.println("query ----------------------------------------------------------------------");
-					ArticleDetail  list = (ArticleDetail) HomeApi.getInstance().queryArticle(page,count,temp,new  TypeToken<ArticleDetail>(){}.getType(),null);
-					if(null == list){
-						sendMessage(AppConstants.RESULT_QUERY_ARTICLE_FAILED,temp);
+					Article	article = (Article)HomeApi.getInstance().queryArticle(page,count,temp,new  TypeToken<Article>(){}.getType(),null);
+
+					if(null == article){
+						onQueryCache();//获取失败则通过本地获取
 					}else{
-						sendMessage(AppConstants.RESULT_QUERY_ARTICLE_SUCCESS,list);
+						sendMessage(AppConstants.RESULT_QUERY_ARTICLE_SUCCESS, article);
+
+						/////数据库操
+						//ArticleDetailDao.getInstance(context, false).deleteAllArticleDetails();
+						ArticleDetailDao.getInstance(context, false).insertList(article.getArticles());
 					}
+//					if(null == list){
+//						sendMessage(AppConstants.RESULT_QUERY_ARTICLE_FAILED,temp);
+//					}else{
+//						sendMessage(AppConstants.RESULT_QUERY_ARTICLE_SUCCESS,list);
+//					}
 				}
 
 			}
