@@ -1,21 +1,65 @@
 package cn.com.nbd.nbdmobile.bean;
 
+import com.google.gson.annotations.Expose;
+
+import org.hjh.annomation.PrimaryKeyType;
+import org.hjh.annomation.Table;
+import org.hjh.annomation.ColumnInt;
+import org.hjh.annomation.ColumnPrimaryKey;
+import org.hjh.annomation.ColumnString;
+import org.hjh.annomation.PrimaryKeyType;
 import java.io.Serializable;
 
-public class ArticleDetail implements Serializable{
-	
+@Table(TableName = "ArticleDetail")
+public final class ArticleDetail implements Serializable{
+
 	private static final long serialVersionUID = -9151336857809479150L;
-	private int is_rolling_news;
-	private String pos;
-	private int special;
-	private String title;
-	private String digest;
-	private String url;
-	private String created_at;
-	private String columnist_id;
+
+
+	@ColumnPrimaryKey(TYPE= PrimaryKeyType.DEFINE)
+	@ColumnInt
 	private  String id;
+
+	@ColumnInt
+	private int is_rolling_news;
+
+	@ColumnString(length = 256)
+	@Expose
+	private String pos;
+
+	@ColumnInt
+	private int special;
+
+	@ColumnString(length = 256)
+	@Expose
+	private String title;
+
+	@ColumnString(length = 256)
+	@Expose
+	private String digest;
+
+	@ColumnString(length = 256)
+	@Expose
+	private String url;
+
+	@ColumnString(length = 256)
+	@Expose
+	private String created_at;
+
+	@ColumnString(length = 256)
+	@Expose
+	private String columnist_id;
+
+	@ColumnString(length = 256)
+	@Expose
 	private String content;
+
+	@ColumnString(length = 256)
+	@Expose
 	private String image;
+
+	@ColumnString(length = 256)
+	@Expose
 	private String mobile_click_count;
 	public int getIs_rolling_news() {
 		return is_rolling_news;
@@ -89,6 +133,6 @@ public class ArticleDetail implements Serializable{
 	public void setMobile_click_count(String mobile_click_count) {
 		this.mobile_click_count = mobile_click_count;
 	}
-   
-	
+
+
 }
