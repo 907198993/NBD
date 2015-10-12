@@ -13,6 +13,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.com.nbd.nbdmobile.api.BaseApi;
+import cn.com.nbd.nbdmobile.api.BaseComponent;
 import cn.com.nbd.nbdmobile.bean.ArticleDetail;
 import cn.com.nbd.nbdmobile.config.AppPresences;
 import cn.com.nbd.nbdmobile.config.BaseConfig;
@@ -30,6 +32,8 @@ public class AppApplication extends Application {
 		super.onCreate();
 		mAppApplication = this;
 		AppPresences.init(this);
+		BaseApi.init(this);
+		BaseComponent.init(this);
 		FileTools.init(BaseConfig.PATH_IMAGE, BaseConfig.PATH_TEMP);
 		publicList.add(ArticleDetail.class);
 		DataBaseHelper.addSystemTable(publicList);
@@ -60,18 +64,18 @@ public class AppApplication extends Application {
 	}
 
 	/** ��ȡ��ݿ�Helper */
-	public SQLHelper getSQLHelper() {
-		if (sqlHelper == null)
-			sqlHelper = new SQLHelper(mAppApplication);
-		return sqlHelper;
-	}
+//	public SQLHelper getSQLHelper() {
+//		if (sqlHelper == null)
+//			sqlHelper = new SQLHelper(mAppApplication);
+//		return sqlHelper;
+//	}
 
-	@Override
-	public void onTerminate() {
-		// TODO Auto-generated method stub
-		if (sqlHelper != null)
-			sqlHelper.close();
-		super.onTerminate();
-	}
+//	@Override
+//	public void onTerminate() {
+//		// TODO Auto-generated method stub
+//		if (sqlHelper != null)
+//			sqlHelper.close();
+//		super.onTerminate();
+//	}
 
 }

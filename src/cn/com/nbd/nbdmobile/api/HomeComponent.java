@@ -125,10 +125,11 @@ public final class HomeComponent extends BaseComponent{
 						onQueryCache();//获取失败则通过本地获取
 					}else{
 						sendMessage(AppConstants.RESULT_QUERY_ARTICLE_SUCCESS, article);
-
 						/////数据库操
 						//ArticleDetailDao.getInstance(context, false).deleteAllArticleDetails();
+
 						ArticleDetailDao.getInstance(context, false).insertList(article.getArticles());
+
 					}
 //					if(null == list){
 //						sendMessage(AppConstants.RESULT_QUERY_ARTICLE_FAILED,temp);

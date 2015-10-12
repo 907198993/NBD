@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\ASTEST\as\NBD\AndroidManifest.xml:2:1-46:12
+ADDED from D:\ASTEST\as\NBD\AndroidManifest.xml:2:1-49:12
 	xmlns:android
 		ADDED from D:\ASTEST\as\NBD\AndroidManifest.xml:2:11-69
 	package
@@ -81,3 +81,11 @@ uses-permission#android.permission.VIBRATE
 ADDED from D:\ASTEST\as\NBD\AndroidManifest.xml:43:5-66
 	android:name
 		ADDED from D:\ASTEST\as\NBD\AndroidManifest.xml:43:22-63
+uses-permission#android.permission.CHANGE_NETWORK_STATE
+ADDED from D:\ASTEST\as\NBD\AndroidManifest.xml:45:5-79
+	android:name
+		ADDED from D:\ASTEST\as\NBD\AndroidManifest.xml:45:22-76
+uses-permission#android.permission.CHANGE_WIFI_STATE
+ADDED from D:\ASTEST\as\NBD\AndroidManifest.xml:46:5-75
+	android:name
+		ADDED from D:\ASTEST\as\NBD\AndroidManifest.xml:46:22-73

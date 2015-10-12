@@ -1,15 +1,8 @@
 package cn.com.nbd.nbdmobile.activity;
 
-import java.util.ArrayList;
-
-import com.dpt.config.BaseConfig;
-
-import m.framework.ui.widget.slidingmenu.SlidingMenu;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -17,25 +10,23 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
-import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+
 import cn.com.nbd.nbdmobile.R;
 import cn.com.nbd.nbdmobile.adapter.NewsFragmentPagerAdapter;
-import cn.com.nbd.nbdmobile.app.AppApplication;
-import cn.com.nbd.nbdmobile.bean.ChannelItem;
-import cn.com.nbd.nbdmobile.bean.ChannelManage;
+import cn.com.nbd.nbdmobile.bean.TitleItem;
 import cn.com.nbd.nbdmobile.config.AppPresences;
 import cn.com.nbd.nbdmobile.fragment.ClientManageFragment;
 import cn.com.nbd.nbdmobile.fragment.CodeFragment;
-import cn.com.nbd.nbdmobile.fragment.SettingFragment;
 import cn.com.nbd.nbdmobile.tool.BaseTools;
 import cn.com.nbd.nbdmobile.view.ColumnHorizontalScrollView;
 
@@ -55,7 +46,7 @@ public class MainActivity extends BaseActivity {
 	private ImageView button_more_columns;
 	LinearLayout linear;
 	/** ???????????????б? */
-	private ArrayList<ChannelItem> userChannelList = new ArrayList<ChannelItem>();
+	private ArrayList<TitleItem> userChannelList = new ArrayList<TitleItem>();
 	/** ?????е???? */
 	private int columnSelectIndex = 0;
 	/** ????????? */
@@ -89,6 +80,10 @@ public class MainActivity extends BaseActivity {
 		setContentView(R.layout.main);
 		mScreenWidth = BaseTools.getWindowsWidth(this);
 		mItemWidth = mScreenWidth / 6;// ???Item?????????1/6
+		userChannelList.add(new TitleItem(1, "快讯", 1, 1));
+		userChannelList.add(new TitleItem(2, "资讯", 2, 1));
+		userChannelList.add(new TitleItem(3, "理财", 3, 1));
+		userChannelList.add(new TitleItem(4, "证券", 4, 1));
 		initView();
 
 	}
@@ -176,8 +171,8 @@ public class MainActivity extends BaseActivity {
 	 * ?????Column?????
 	 * */
 	private void initTabColumn() {
-		userChannelList = ((ArrayList<ChannelItem>) ChannelManage.getManage(
-				AppApplication.getApp().getSQLHelper()).getUserChannel());
+
+
 		mRadioGroup_content.removeAllViews();
 		int count = userChannelList.size();
 		mColumnHorizontalScrollView.setParam(this, mScreenWidth,
@@ -264,12 +259,14 @@ public class MainActivity extends BaseActivity {
 			Bundle data = new Bundle();
 			data.putString("text", userChannelList.get(i).getName());
 			data.putInt("id", userChannelList.get(i).getId());
-			CodeFragment newfragment = new CodeFragment();
+
 			ClientManageFragment clientManageFragment = new ClientManageFragment();
-			newfragment.setArguments(data);
-			fragments.add(newfragment);
+			CodeFragment newfragment = new CodeFragment();
+			clientManageFragment.setArguments(data);
+
 			// fragments.add(sfragment);
 			fragments.add(clientManageFragment);
+		//	fragments.add(newfragment);
 		}
 
 		NewsFragmentPagerAdapter mAdapetr = new NewsFragmentPagerAdapter(

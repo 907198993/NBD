@@ -8,29 +8,31 @@ import org.hjh.db.BaseDao;
 
 import java.util.List;
 
-import cn.com.nbd.nbdmobile.bean.ArticleDetail;
+import cn.com.nbd.nbdmobile.bean.TitleItem;
 
+/**
+ *  栏目
+ */
+public final class TitleItemDao extends BaseDao<TitleItem> {
 
-public final class ArticleDetailDao extends BaseDao<ArticleDetail> {
-
-	private static ArticleDetailDao 	instance;
+	private static TitleItemDao instance;
 	private static DBManager 	dbManager;
 	private static boolean 		isTrans;
-	
-	protected ArticleDetailDao(Context context) {
+
+	protected TitleItemDao(Context context) {
 		super(context, dbManager.openSystemDatabase(), isTrans);
 	}
 
 	private synchronized static void init(Context context,boolean isTransaction){
 		if(instance == null){
-			String databaseName = "system";
+			String databaseName = "TitleItem";
 			dbManager =	DBManager.getInstance(context, databaseName);
 			isTrans = isTransaction;
-			instance = new ArticleDetailDao(context);
+			instance = new TitleItemDao(context);
 		}
 	}
 	
-	public static ArticleDetailDao getInstance(Context context,boolean isTransaction){
+	public static TitleItemDao getInstance(Context context,boolean isTransaction){
 		if(instance == null){
 			init(context,isTransaction);
 		}
@@ -49,22 +51,22 @@ public final class ArticleDetailDao extends BaseDao<ArticleDetail> {
 	 * 插入数据
 	 * @param
 	 */
-	public void insert(ArticleDetail mallCore){
+	public void insert(TitleItem titleItem){
 		
-		if(mallCore == null){
+		if(titleItem == null){
 			return;
 		}
 		
 		openCurrentDataBase();
-		save(mallCore);
+		save(titleItem);
 	}
 	
-	public void insertList(List<ArticleDetail> list){
+	public void insertList(List<TitleItem> list){
 		if(list == null){
 			return;
 		}
 		
-		for(ArticleDetail item : list){
+		for(TitleItem item : list){
 			insert(item);
 		}
 	}
@@ -73,10 +75,10 @@ public final class ArticleDetailDao extends BaseDao<ArticleDetail> {
 	 * 查询信息
 	 * @return
 	 */
-	public List<ArticleDetail> queryAllArticleDetails(){
+	public List<TitleItem> queryAllTitleItem(){
 		
 		openCurrentDataBase();
-		List<ArticleDetail> list = queryPageData("select * from ArticleDetail", null);
+		List<TitleItem> list = queryPageData("select * from TitleItem", null);
 		
 		return list;
 	}
@@ -84,8 +86,8 @@ public final class ArticleDetailDao extends BaseDao<ArticleDetail> {
 	/**
 	 * 删除所有信息
 	 */
-	public void deleteAllArticleDetails(){
+	public void deleteAllTitleItem(){
 		openCurrentDataBase();
-		removeBySQL("delete from ArticleDetail");
+		removeBySQL("delete from TitleItem");
 	}
 }
