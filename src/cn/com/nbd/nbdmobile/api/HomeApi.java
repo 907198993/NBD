@@ -3,7 +3,6 @@ package cn.com.nbd.nbdmobile.api;
 import java.lang.reflect.Type;
 import java.util.Map;
 
-import cn.com.nbd.nbdmobile.bean.Article;
 import cn.com.nbd.nbdmobile.bean.ResponseListJson;
 import cn.com.nbd.nbdmobile.bean.ResultObject;
 
@@ -113,7 +112,7 @@ public final class HomeApi extends BaseApi {
 	   
 	}
 	
-	public Article queryArticle(int page,int count ,ResultObject result,Type type,Class clazz){
+	public Object queryArticle(int page,int count ,ResultObject result,Type type,Class clazz){
 		String url = "http://api.nbd.com.cn/v1/columns/3/articles.json?client_type=1&app_key=f4af4864997a00ddff7e1765e643f9ec&page="+page+"&count="+count;
 		Map<String, Object> paramter = withEmptyParamterMap();
 		boolean noerrer = httpExecutor.doGet(url, result);

@@ -1,15 +1,5 @@
 package cn.com.nbd.nbdmobile.fragment;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.hjh.async.framework.AppHandler;
-import org.hjh.inject.InjectCore;
-import org.hjh.inject.InjectLayout;
-import org.hjh.inject.InjectView;
-import org.hjh.refresh.PullToRefreshBase;
-import org.hjh.refresh.PullToRefreshBase.OnRefreshListener;
-
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -25,10 +15,20 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import org.hjh.async.framework.AppHandler;
+import org.hjh.inject.InjectCore;
+import org.hjh.inject.InjectLayout;
+import org.hjh.inject.InjectView;
+import org.hjh.refresh.PullToRefreshBase;
+import org.hjh.refresh.PullToRefreshBase.OnRefreshListener;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import cn.com.nbd.nbdmobile.R;
 import cn.com.nbd.nbdmobile.api.AppConstants;
 import cn.com.nbd.nbdmobile.api.HomeComponent;
-
+import cn.com.nbd.nbdmobile.base.AppPublicAdapter;
 import cn.com.nbd.nbdmobile.bean.Article;
 import cn.com.nbd.nbdmobile.bean.ArticleDetail;
 import cn.com.nbd.nbdmobile.bean.StockDetail;
@@ -37,12 +37,10 @@ import cn.com.nbd.nbdmobile.holder.ArticleHolder;
 import cn.com.nbd.nbdmobile.tool.BaseTools;
 import cn.com.nbd.nbdmobile.view.PullToRefreshListView;
 
-import com.dpt.base.AppPublicAdapter;
 
-import com.dpt.base.AppPublicAdapter.IFillValue;
 
 @InjectLayout(layout = R.layout.tab_client_layout)
-public class CodeFragment extends BaseFragment implements IFillValue,
+public class CodeFragment extends BaseFragment implements AppPublicAdapter.IFillValue,
         OnItemClickListener {
 
     @InjectView(id = R.id.pullview)

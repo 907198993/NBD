@@ -2,12 +2,11 @@ package cn.com.nbd.nbdmobile.dao;
 
 import android.content.Context;
 
-import com.dpt.base.DBManager;
-
 import org.hjh.db.BaseDao;
 
 import java.util.List;
 
+import cn.com.nbd.nbdmobile.base.DBManager;
 import cn.com.nbd.nbdmobile.bean.TitleItem;
 
 /**
@@ -16,7 +15,7 @@ import cn.com.nbd.nbdmobile.bean.TitleItem;
 public final class TitleItemDao extends BaseDao<TitleItem> {
 
 	private static TitleItemDao instance;
-	private static DBManager 	dbManager;
+	private static DBManager dbManager;
 	private static boolean 		isTrans;
 
 	protected TitleItemDao(Context context) {

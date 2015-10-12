@@ -13,44 +13,44 @@ import java.io.Serializable;
 @Table(TableName = "ArticleDetail")
 public final class ArticleDetail implements Serializable{
 
-	private static final long serialVersionUID = -9151336857809479150L;
+
 
 
 	@ColumnPrimaryKey(TYPE= PrimaryKeyType.DEFINE)
 	@ColumnInt
     private  int ids;
 
-    @ColumnString(length = 256)
+    @ColumnString(length = 64)
     @Expose
 	private  String id;
 
 	@ColumnInt
 	private int is_rolling_news;
 
-	@ColumnString(length = 256)
+	@ColumnString(length = 64)
 	@Expose
 	private String pos;
 
 	@ColumnInt
 	private int special;
 
-	@ColumnString(length = 256)
+	@ColumnString(length = 64)
 	@Expose
 	private String title;
 
-	@ColumnString(length = 256)
+	@ColumnString(length = 64)
 	@Expose
 	private String digest;
 
-	@ColumnString(length = 256)
+	@ColumnString(length = 64)
 	@Expose
 	private String url;
 
-	@ColumnString(length = 256)
+	@ColumnString(length = 64)
 	@Expose
 	private String created_at;
 
-	@ColumnString(length = 256)
+	@ColumnString(length = 64)
 	@Expose
 	private String columnist_id;
 
@@ -58,11 +58,11 @@ public final class ArticleDetail implements Serializable{
 	@Expose
 	private String content;
 
-	@ColumnString(length = 256)
+	@ColumnString(length = 64)
 	@Expose
 	private String image;
 
-	@ColumnString(length = 256)
+	@ColumnString(length = 64)
 	@Expose
 	private String mobile_click_count;
 

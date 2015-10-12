@@ -1,87 +1,87 @@
-package cn.com.nbd.nbdmobile.db;
-
-import android.content.ContentValues;
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-
-public class DBUtil {
-	private static DBUtil mInstance;
-	private Context mContext;
-	private SQLHelper mSQLHelp;
-	private SQLiteDatabase mSQLiteDatabase;
-
-	private DBUtil(Context context) {
-		mContext = context;
-		mSQLHelp = new SQLHelper(context);
-		mSQLiteDatabase = mSQLHelp.getWritableDatabase();
-	}
-	/**
-	 * ³õÊ¼»¯Êý¾Ý¿â²Ù×÷DBUtilÀà
-	 */
-	public static DBUtil getInstance(Context context) {
-		if (mInstance == null) {
-			mInstance = new DBUtil(context);
-		}
-		return mInstance;
-	}
-	/**
-	 * ¹Ø±ÕÊý¾Ý¿â
-	 */
-	public void close() {
-		mSQLHelp.close();
-		mSQLHelp = null;
-		mSQLiteDatabase.close();
-		mSQLiteDatabase = null;
-		mInstance = null;
-	}
-
-	/**
-	 * Ìí¼ÓÊý¾Ý
-	 */
-	public void insertData(ContentValues values) {
-		mSQLiteDatabase.insert(SQLHelper.TABLE_CHANNEL, null, values);
-	}
-
-	/**
-	 * ¸üÐÂÊý¾Ý
-	 * 
-	 * @param values
-	 * @param whereClause
-	 * @param whereArgs
-	 */
-	public void updateData(ContentValues values, String whereClause,
-			String[] whereArgs) {
-		mSQLiteDatabase.update(SQLHelper.TABLE_CHANNEL, values, whereClause,
-				whereArgs);
-	}
-
-	/**
-	 * É¾³ýÊý¾Ý
-	 * 
-	 * @param whereClause
-	 * @param whereArgs
-	 */
-	public void deleteData(String whereClause, String[] whereArgs) {
-		mSQLiteDatabase
-				.delete(SQLHelper.TABLE_CHANNEL, whereClause, whereArgs);
-	}
-
-	/**
-	 * ²éÑ¯Êý¾Ý
-	 * 
-	 * @param columns
-	 * @param selection
-	 * @param selectionArgs
-	 * @param groupBy
-	 * @param having
-	 * @param orderBy
-	 * @return
-	 */
-	public Cursor selectData(String[] columns, String selection,
-			String[] selectionArgs, String groupBy, String having,
-			String orderBy) {
-		Cursor cursor = mSQLiteDatabase.query(SQLHelper.TABLE_CHANNEL,columns, selection, selectionArgs, groupBy, having, orderBy);
-		return cursor;
-	}
-}
+//package cn.com.nbd.nbdmobile.db;
+//
+//import android.content.ContentValues;
+//import android.content.Context;
+//import android.database.Cursor;
+//import android.database.sqlite.SQLiteDatabase;
+//
+//public class DBUtil {
+//	private static DBUtil mInstance;
+//	private Context mContext;
+//	private SQLHelper mSQLHelp;
+//	private SQLiteDatabase mSQLiteDatabase;
+//
+//	private DBUtil(Context context) {
+//		mContext = context;
+//		mSQLHelp = new SQLHelper(context);
+//		mSQLiteDatabase = mSQLHelp.getWritableDatabase();
+//	}
+//	/**
+//	 * ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½DBUtilï¿½ï¿½
+//	 */
+//	public static DBUtil getInstance(Context context) {
+//		if (mInstance == null) {
+//			mInstance = new DBUtil(context);
+//		}
+//		return mInstance;
+//	}
+//	/**
+//	 * ï¿½Ø±ï¿½ï¿½ï¿½Ý¿ï¿½
+//	 */
+//	public void close() {
+//		mSQLHelp.close();
+//		mSQLHelp = null;
+//		mSQLiteDatabase.close();
+//		mSQLiteDatabase = null;
+//		mInstance = null;
+//	}
+//
+//	/**
+//	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//	 */
+//	public void insertData(ContentValues values) {
+//		mSQLiteDatabase.insert(SQLHelper.TABLE_CHANNEL, null, values);
+//	}
+//
+//	/**
+//	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//	 *
+//	 * @param values
+//	 * @param whereClause
+//	 * @param whereArgs
+//	 */
+//	public void updateData(ContentValues values, String whereClause,
+//			String[] whereArgs) {
+//		mSQLiteDatabase.update(SQLHelper.TABLE_CHANNEL, values, whereClause,
+//				whereArgs);
+//	}
+//
+//	/**
+//	 * É¾ï¿½ï¿½ï¿½ï¿½ï¿½
+//	 *
+//	 * @param whereClause
+//	 * @param whereArgs
+//	 */
+//	public void deleteData(String whereClause, String[] whereArgs) {
+//		mSQLiteDatabase
+//				.delete(SQLHelper.TABLE_CHANNEL, whereClause, whereArgs);
+//	}
+//
+//	/**
+//	 * ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½
+//	 *
+//	 * @param columns
+//	 * @param selection
+//	 * @param selectionArgs
+//	 * @param groupBy
+//	 * @param having
+//	 * @param orderBy
+//	 * @return
+//	 */
+//	public Cursor selectData(String[] columns, String selection,
+//			String[] selectionArgs, String groupBy, String having,
+//			String orderBy) {
+//		Cursor cursor = mSQLiteDatabase.query(SQLHelper.TABLE_CHANNEL,columns, selection, selectionArgs, groupBy, having, orderBy);
+//		return cursor;
+//	}
+//}

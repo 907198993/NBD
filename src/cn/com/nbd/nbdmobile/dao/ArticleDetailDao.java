@@ -2,19 +2,18 @@ package cn.com.nbd.nbdmobile.dao;
 
 import android.content.Context;
 
-import com.dpt.base.DBManager;
-
 import org.hjh.db.BaseDao;
 
 import java.util.List;
 
+import cn.com.nbd.nbdmobile.base.DBManager;
 import cn.com.nbd.nbdmobile.bean.ArticleDetail;
 
 
 public final class ArticleDetailDao extends BaseDao<ArticleDetail> {
 
 	private static ArticleDetailDao 	instance;
-	private static DBManager 	dbManager;
+	private static DBManager dbManager;
 	private static boolean 		isTrans;
 	
 	protected ArticleDetailDao(Context context) {

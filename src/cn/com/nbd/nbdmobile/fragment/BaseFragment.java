@@ -1,14 +1,5 @@
 package cn.com.nbd.nbdmobile.fragment;
 
-import java.lang.reflect.Field;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import org.hjh.async.framework.AppHandler;
-import org.hjh.async.framework.LoadingDialog;
-import org.hjh.image.display.SyncImageLoader;
-import org.hjh.image.display.SyncImageLoader.OnImageLoadListener;
-
 import android.app.Activity;
 import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
@@ -19,13 +10,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
-import cn.com.nbd.nbdmobile.activity.HomeActivity;
-import cn.com.nbd.nbdmobile.bean.ResultObject;
-import cn.com.nbd.nbdmobile.view.PullToRefreshListView;
 
-import com.dpt.config.BaseConfig;
-import com.dpt.config.BaseConstants;
 import com.google.gson.Gson;
+
+import org.hjh.async.framework.AppHandler;
+import org.hjh.async.framework.LoadingDialog;
+import org.hjh.image.display.SyncImageLoader;
+import org.hjh.image.display.SyncImageLoader.OnImageLoadListener;
+
+import java.lang.reflect.Field;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import cn.com.nbd.nbdmobile.api.BaseConstants;
+import cn.com.nbd.nbdmobile.bean.ResultObject;
+import cn.com.nbd.nbdmobile.config.BaseConfig;
+import cn.com.nbd.nbdmobile.view.PullToRefreshListView;
 
 public abstract class BaseFragment extends Fragment implements
 		View.OnClickListener {
@@ -195,16 +195,16 @@ public abstract class BaseFragment extends Fragment implements
 
 	protected boolean isConnectTimeOut(ResultObject result, String text) {
 		if (result.getCode() == BaseConstants.ERROR_HTTP_EXECUTE) {
-			showToast(text + " :Á¬½Ó³¬Ê±");
+			showToast(text + " :ï¿½ï¿½ï¿½Ó³ï¿½Ê±");
 			return true;
 		} else if (result.getCode() == BaseConstants.ERROR_API_PARSER_JSON) {
-			showToast(text + " :json ½âÎö´íÎó");
+			showToast(text + " :json ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 			return true;
 		} else if (result.getCode() == BaseConstants.ERROR_INPUT_PARAMETER) {
 			showToast(text + " :" + result.getError());
 			return true;
 		} else if (result.getCode() == -1) {
-			showToast(text + " :ÔÝÎÞ¸ü¶àÊý¾Ý");
+			showToast(text + " :ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½");
 			return true;
 		}
 

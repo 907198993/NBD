@@ -1,5 +1,6 @@
 package cn.com.nbd.nbdmobile.fragment;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Message;
@@ -11,9 +12,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.ListView;
-
-import com.dpt.base.AppPublicAdapter;
-import com.dpt.base.AppPublicAdapter.IFillValue;
 
 import org.hjh.async.framework.AppHandler;
 import org.hjh.inject.InjectCore;
@@ -28,6 +26,7 @@ import java.util.List;
 import cn.com.nbd.nbdmobile.R;
 import cn.com.nbd.nbdmobile.api.AppConstants;
 import cn.com.nbd.nbdmobile.api.HomeComponent;
+import cn.com.nbd.nbdmobile.base.AppPublicAdapter;
 import cn.com.nbd.nbdmobile.bean.Article;
 import cn.com.nbd.nbdmobile.bean.ArticleDetail;
 import cn.com.nbd.nbdmobile.bean.ResultObject;
@@ -37,7 +36,7 @@ import cn.com.nbd.nbdmobile.tool.BaseTools;
 import cn.com.nbd.nbdmobile.view.PullToRefreshListView;
 
 @InjectLayout(layout = R.layout.client_layout)
-public class ClientManageFragment extends BaseFragment implements IFillValue,
+public class ClientManageFragment extends BaseFragment implements AppPublicAdapter.IFillValue,
 		OnItemClickListener {
 
 	@InjectView(id = R.id.pullview)
@@ -49,7 +48,7 @@ public class ClientManageFragment extends BaseFragment implements IFillValue,
 	private View rootLayout;
 	private int currentPage = 1;
 	private int pageSize = 10;
-
+	Context Context;
 	private boolean loadMore = false;// 当前是否为加载更多
 
 	private List<ArticleDetail> list = new ArrayList<ArticleDetail>();
@@ -81,6 +80,7 @@ public class ClientManageFragment extends BaseFragment implements IFillValue,
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
+
 		initPullView();
 	}
 

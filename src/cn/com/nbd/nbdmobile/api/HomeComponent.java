@@ -15,7 +15,6 @@ import cn.com.nbd.nbdmobile.bean.StockDetail;
 import cn.com.nbd.nbdmobile.dao.ArticleDetailDao;
 
 
-
 public final class HomeComponent extends BaseComponent{
 
 	private static HomeComponent instance;
@@ -120,14 +119,16 @@ public final class HomeComponent extends BaseComponent{
 				{
 					ResultObject temp = result.clone();
 					Article	article = (Article)HomeApi.getInstance().queryArticle(page,count,temp,new  TypeToken<Article>(){}.getType(),null);
-
+				//	List<ArticleDetailForQuick> ArticleDetailForQuick  = (List<ArticleDetailForQuick>) HomeApi.getInstance().queryArticle(page,count,temp,new  TypeToken<Article>(){}.getType(),null);
 					if(null == article){
 						onQueryCache();//获取失败则通过本地获取
 					}else{
 						sendMessage(AppConstants.RESULT_QUERY_ARTICLE_SUCCESS, article);
 						/////数据库操
-						//ArticleDetailDao.getInstance(context, false).deleteAllArticleDetails();
+					//	ArticleDetailDao.getInstance(context, false).deleteAllArticleDetails();
 
+
+					//	ArticleDetailForQuickDao.getInstance(context, false).insertList(ArticleDetailForQuick);
 						ArticleDetailDao.getInstance(context, false).insertList(article.getArticles());
 
 					}

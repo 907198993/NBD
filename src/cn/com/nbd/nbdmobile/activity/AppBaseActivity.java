@@ -1,10 +1,5 @@
 package cn.com.nbd.nbdmobile.activity;
 
-import org.hjh.async.framework.AppHandler;
-import org.hjh.async.framework.LoadingDialog;
-import org.hjh.image.display.SyncImageLoader;
-import org.hjh.image.display.SyncImageLoader.OnImageLoadListener;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
@@ -21,13 +16,20 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import cn.com.nbd.nbdmobile.R;
-import cn.com.nbd.nbdmobile.config.AppPresences;
 
-import com.dpt.base.AppActivityManager;
-import com.dpt.bean.ResultObject;
-import com.dpt.config.BaseConfig;
-import com.dpt.config.BaseConstants;
+import org.hjh.async.framework.AppHandler;
+import org.hjh.async.framework.LoadingDialog;
+import org.hjh.image.display.SyncImageLoader;
+import org.hjh.image.display.SyncImageLoader.OnImageLoadListener;
+
+import cn.com.nbd.nbdmobile.R;
+import cn.com.nbd.nbdmobile.api.BaseConstants;
+import cn.com.nbd.nbdmobile.base.AppActivityManager;
+import cn.com.nbd.nbdmobile.bean.ResultObject;
+import cn.com.nbd.nbdmobile.config.AppPresences;
+import cn.com.nbd.nbdmobile.config.BaseConfig;
+
+
 /**
  *  activity基类 
  * @author Dell
@@ -92,7 +94,7 @@ public abstract class AppBaseActivity extends FragmentActivity implements View.O
 		mActivity = this;
 		getScreenSize();
 		if(mImageLoader == null){
-			mImageLoader = SyncImageLoader.getInstance(this,BaseConfig.PATH_IMAGE);
+			mImageLoader = SyncImageLoader.getInstance(this, BaseConfig.PATH_IMAGE);
 			mImageLoader.setDefaultWidth(BaseConfig.SCREEN_WIDTH);
 			mImageLoader.setDefaultHeight(BaseConfig.SCREEN_HEIGHT);
 		}
@@ -368,7 +370,7 @@ public abstract class AppBaseActivity extends FragmentActivity implements View.O
 	
 	/**
 	 * 是否连接超时
-	 * @param msg
+	 * @param
 	 * @param text 当前连接块
 	 * @return
 	 */

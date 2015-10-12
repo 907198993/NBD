@@ -1,14 +1,5 @@
 package cn.com.nbd.nbdmobile.activity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.hjh.inject.InjectCore;
-import org.hjh.inject.InjectLayout;
-import org.hjh.inject.InjectView;
-import org.hjh.refresh.PullToRefreshBase;
-import org.hjh.refresh.PullToRefreshBase.OnRefreshListener;
-
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
@@ -24,17 +15,27 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.ListView;
 import android.widget.MediaController;
 import android.widget.VideoView;
+
+import org.hjh.inject.InjectCore;
+import org.hjh.inject.InjectLayout;
+import org.hjh.inject.InjectView;
+import org.hjh.refresh.PullToRefreshBase;
+import org.hjh.refresh.PullToRefreshBase.OnRefreshListener;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import cn.com.nbd.nbdmobile.R;
+import cn.com.nbd.nbdmobile.base.AppPublicAdapter;
 import cn.com.nbd.nbdmobile.holder.VideoHolder;
 import cn.com.nbd.nbdmobile.tool.BaseTools;
 import cn.com.nbd.nbdmobile.view.PullToRefreshListView;
 
-import com.dpt.base.AppPublicAdapter;
-import com.dpt.base.AppPublicAdapter.IFillValue;
+
 
 @InjectLayout(layout = R.layout.tab_client_layout)
 public class VideoListActivity extends BaseActivity implements
-		OnItemClickListener, IFillValue {
+		OnItemClickListener, AppPublicAdapter.IFillValue {
 
 	@InjectView(id = R.id.pullview)
 	private PullToRefreshListView refreshView;

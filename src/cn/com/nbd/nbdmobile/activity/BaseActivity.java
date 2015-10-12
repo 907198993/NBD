@@ -1,14 +1,5 @@
 package cn.com.nbd.nbdmobile.activity;
 
-import java.lang.reflect.Field;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
-
-import org.hjh.image.display.ImageLoader;
-import org.hjh.image.display.SyncImageLoader.OnImageLoadListener;
-import org.hjh.tools.MemoryTools;
-
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -17,13 +8,23 @@ import android.util.SparseArray;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.gson.Gson;
+
+import org.hjh.image.display.ImageLoader;
+import org.hjh.image.display.SyncImageLoader.OnImageLoadListener;
+import org.hjh.tools.MemoryTools;
+
+import java.lang.reflect.Field;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+
 import cn.com.nbd.nbdmobile.api.HomeComponent;
+import cn.com.nbd.nbdmobile.config.BaseConfig;
 import cn.com.nbd.nbdmobile.listener.ITitleClickListener;
 import cn.com.nbd.nbdmobile.util.AppTools;
 import cn.com.nbd.nbdmobile.view.PullToRefreshListView;
-
-import com.dpt.config.BaseConfig;
-import com.google.gson.Gson;
 /**
  * 
  * @author Dell
