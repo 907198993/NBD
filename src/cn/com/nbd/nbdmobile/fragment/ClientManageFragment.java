@@ -2,6 +2,7 @@ package cn.com.nbd.nbdmobile.fragment;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Message;
 import android.view.LayoutInflater;
@@ -116,8 +117,10 @@ public class ClientManageFragment extends BaseFragment implements AppPublicAdapt
 		adapter = new AppPublicAdapter(mActivity, list, ArticleHolder.class,
 				this);
 		listView.setAdapter(adapter);
-
+		listView.setDivider(new ColorDrawable(Color.GRAY));
+		listView.setDividerHeight(1);
 		listView.setCacheColorHint(Color.TRANSPARENT);
+
 
 		refreshView.setOnRefreshListener(new OnRefreshListener<ListView>() {
 
