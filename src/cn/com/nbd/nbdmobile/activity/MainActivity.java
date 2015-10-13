@@ -32,9 +32,8 @@ import cn.com.nbd.nbdmobile.view.ColumnHorizontalScrollView;
 
 /**
  * ??????
- * 
+ *
  * @author Dell
- * 
  */
 
 public class MainActivity extends BaseActivity {
@@ -45,33 +44,57 @@ public class MainActivity extends BaseActivity {
 	private ViewPager mViewPager;
 	private ImageView button_more_columns;
 	LinearLayout linear;
-	/** ???????????????б? */
+	/**
+	 * ???????????????б?
+	 */
 	private ArrayList<TitleItem> userChannelList = new ArrayList<TitleItem>();
-	/** ?????е???? */
+	/**
+	 * ?????е????
+	 */
 	private int columnSelectIndex = 0;
-	/** ????????? */
+	/**
+	 * ?????????
+	 */
 	public ImageView shade_left;
-	/** ????????? */
+	/**
+	 * ?????????
+	 */
 	public ImageView shade_right;
-	/** ?????? */
+	/**
+	 * ??????
+	 */
 	private int mScreenWidth = 0;
-	/** Item??? */
+	/**
+	 * Item???
+	 */
 	private int mItemWidth = 0;
 	private ArrayList<Fragment> fragments = new ArrayList<Fragment>();
 	private FragmentPagerAdapter adapter;
 	// protected SlidingMenu side_drawer;
 
-	/** head ??? ???м??loading */
+	/**
+	 * head ??? ???м??loading
+	 */
 	private ProgressBar top_progress;
-	/** head ??? ?м????°?? */
+	/**
+	 * head ??? ?м????°??
+	 */
 	private ImageView top_refresh;
-	/** head ??? ??????? ??? */
+	/**
+	 * head ??? ??????? ???
+	 */
 	private ImageView top_head;
-	/** head ??? ??????? ??? */
+	/**
+	 * head ??? ??????? ???
+	 */
 	private ImageView top_more;
-	/** ????CODE */
+	/**
+	 * ????CODE
+	 */
 	public final static int CHANNELREQUEST = 1;
-	/** ??????RESULTCODE */
+	/**
+	 * ??????RESULTCODE
+	 */
 	public final static int CHANNELRESULT = 10;
 
 	@Override
@@ -88,7 +111,9 @@ public class MainActivity extends BaseActivity {
 
 	}
 
-	/** ?????layout??? */
+	/**
+	 * ?????layout???
+	 */
 	private void initView() {
 		mColumnHorizontalScrollView = (ColumnHorizontalScrollView) findViewById(R.id.mColumnHorizontalScrollView);
 		mRadioGroup_content = (LinearLayout) findViewById(R.id.mRadioGroup_content);
@@ -154,7 +179,7 @@ public class MainActivity extends BaseActivity {
 
 	/**
 	 * ?????????仯??????
-	 * */
+	 */
 	// private void setChangelView() {
 	// initColumnData();
 	// initTabColumn();
@@ -169,7 +194,7 @@ public class MainActivity extends BaseActivity {
 
 	/**
 	 * ?????Column?????
-	 * */
+	 */
 	private void initTabColumn() {
 
 
@@ -223,7 +248,7 @@ public class MainActivity extends BaseActivity {
 
 	/**
 	 * ????Column?????Tab
-	 * */
+	 */
 	private void selectTab(int tab_postion) {
 		columnSelectIndex = tab_postion;
 		for (int i = 0; i < mRadioGroup_content.getChildCount(); i++) {
@@ -251,7 +276,7 @@ public class MainActivity extends BaseActivity {
 
 	/**
 	 * ?????Fragment
-	 * */
+	 */
 	private void initFragment() {
 		fragments.clear();// ???
 		int count = userChannelList.size();
@@ -266,19 +291,21 @@ public class MainActivity extends BaseActivity {
 
 			// fragments.add(sfragment);
 			fragments.add(clientManageFragment);
-		//	fragments.add(newfragment);
+			//	fragments.add(newfragment);
 		}
 
 		NewsFragmentPagerAdapter mAdapetr = new NewsFragmentPagerAdapter(
 				getSupportFragmentManager(), fragments);
+
 		mViewPager.setOffscreenPageLimit(0);
 		mViewPager.setAdapter(mAdapetr);
 		mViewPager.setOnPageChangeListener(pageListener);
 	}
 
+
 	/**
 	 * ViewPager?л?????
-	 * */
+	 */
 	public OnPageChangeListener pageListener = new OnPageChangeListener() {
 
 		@Override
@@ -329,14 +356,14 @@ public class MainActivity extends BaseActivity {
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// TODO Auto-generated method stub
 		switch (requestCode) {
-		case CHANNELREQUEST:
-			if (resultCode == CHANNELRESULT) {
-				// setChangelView();
-			}
-			break;
+			case CHANNELREQUEST:
+				if (resultCode == CHANNELRESULT) {
+					// setChangelView();
+				}
+				break;
 
-		default:
-			break;
+			default:
+				break;
 		}
 		super.onActivityResult(requestCode, resultCode, data);
 	}
