@@ -30,12 +30,15 @@ import cn.com.nbd.nbdmobile.base.AppPublicAdapter;
 import cn.com.nbd.nbdmobile.holder.VideoHolder;
 import cn.com.nbd.nbdmobile.tool.BaseTools;
 import cn.com.nbd.nbdmobile.view.PullToRefreshListView;
-
+import cn.com.nbd.nbdmobile.view.TitleLayout;
 
 
 @InjectLayout(layout = R.layout.tab_client_layout)
 public class VideoListActivity extends BaseActivity implements
 		OnItemClickListener, AppPublicAdapter.IFillValue {
+
+	@InjectView(id = R.id.title_bar)
+	private TitleLayout titleLayout;
 
 	@InjectView(id = R.id.pullview)
 	private PullToRefreshListView refreshView;
@@ -65,6 +68,11 @@ public class VideoListActivity extends BaseActivity implements
 	private boolean loadMore = false;// 当前是否为加载更多
 
 	@Override
+	public void onClickRightView() {
+		super.onClickRightView();
+	}
+
+	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		InjectCore.injectUI(this);
@@ -79,7 +87,7 @@ public class VideoListActivity extends BaseActivity implements
 
 			@Override
 			public void onScroll(AbsListView view, int firstVisibleItem,
-					int visibleItemCount, int totalItemCount) {
+								 int visibleItemCount, int totalItemCount) {
 				if ((currentIndex < firstVisibleItem || currentIndex > mListView
 						.getLastVisiblePosition()) && isPlaying) {
 					System.out.println("滑动的：" + mVideoView.toString());
@@ -102,6 +110,11 @@ public class VideoListActivity extends BaseActivity implements
 	}
 
 	private void init() {
+
+		titleLayout.enableLeftButtonImage(R.drawable.channel_glide_day_bg);
+		titleLayout.setTitleText("财经视频");
+		titleLayout.enableRightButtonText("xx");
+		titleLayout.setTitleClickListener(this);
 		// 构造视频数据
 		for (int i = 0; i < 10; i++) {
 			if (i % 2 == 0) {
@@ -269,4 +282,10 @@ public class VideoListActivity extends BaseActivity implements
 		// TODO Auto-generated method stub
 
 	}
+
+	@Override
+	public void onClickLeftView() {
+		super.onClickLeftView();
+	}
+
 }
