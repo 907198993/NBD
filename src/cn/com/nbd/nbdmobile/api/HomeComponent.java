@@ -23,18 +23,12 @@ public final class HomeComponent extends BaseComponent {
 
 	}
 
-//	private static synchronized void init(){
-//		if(instance == null){
-//			instance = new HomeComponent();
-//		}
-//	}
-
 	public static HomeComponent getInstance() {
 		if (instance == null) {
 			//init();
 			synchronized (HomeComponent.class) {//Double-Check Locking
 				if (instance == null) {
-					instance= new HomeComponent();
+					instance = new HomeComponent();
 				}
 			}
 		}

@@ -19,17 +19,16 @@ public final class AppActivityManager {
 	
 	public static AppActivityManager getInstance(){
 		if(instance == null){
-			init();
+			synchronized (AppActivityManager.class) {//Double-Check Locking
+				if (instance == null) {
+					instance = new AppActivityManager();
+				}
+			}
 		}
 		return instance;
 	}
 	
-	private static synchronized void init(){
-		if(instance == null){
-			instance = new AppActivityManager();
-		}
-	}
-	
+
 	public  Stack<Activity> getActivityStack() {
 		return activityStack;
 	}

@@ -15,15 +15,14 @@ public final class HomeApi extends BaseApi {
 		super();
 	}
 	
-	private static synchronized void init(){
-		if(instance == null){
-			instance = new HomeApi();
-		}
-	}
-	
+
 	public static HomeApi getInstance(){
 		if(instance == null){
-			init();
+			synchronized (HomeComponent.class) {//Double-Check Locking
+				if (instance == null) {
+					instance= new HomeApi();
+				}
+			}
 		}
 		
 		return instance;

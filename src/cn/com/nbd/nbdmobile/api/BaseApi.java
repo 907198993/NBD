@@ -51,14 +51,7 @@ public abstract class BaseApi {
 		return builder.toString();
 	}
 
-	/**
-	 * 
-	 * @param action
-	 * @param apiInterface
-	 * @param userKey 
-	 * @param config 
-	 * @return
-	 */
+
 	protected  String buildPostUrl(String action,String apiInterface){
 		StringBuilder builder = new StringBuilder();
 		builder.append("http://").append(BaseConfig.MALL_WEB_HOST).append(BaseConfig.MALL_WEB_BISUNESS);

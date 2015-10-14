@@ -202,7 +202,7 @@ public class ClientManageFragment extends BaseFragment implements AppPublicAdapt
 		holder.description.setText(articleListDetail.getTitle());
 		holder.readnum.setText(articleListDetail.getMobile_click_count());
 		mImageLoader.loadImage(0, articleListDetail.getImage(), listener,
-				holder.image, R.drawable.all_circle, 300, 300);
+				holder.image, R.drawable.nbd_logo, 300, 300);
 
 	}
 
@@ -218,6 +218,7 @@ public class ClientManageFragment extends BaseFragment implements AppPublicAdapt
 		}
 		//在运行的话则不再重新加载
 		if (!isRunning) {
+
 			HomeComponent.getInstance().queryArticle(currentPage, pageSize,
 					mHandler);
 			System.out

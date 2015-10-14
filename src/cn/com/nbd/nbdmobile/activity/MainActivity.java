@@ -31,7 +31,7 @@ import cn.com.nbd.nbdmobile.tool.BaseTools;
 import cn.com.nbd.nbdmobile.view.ColumnHorizontalScrollView;
 
 /**
- * ??????
+ * 新闻页 包含4个栏目
  *
  * @author Dell
  */
@@ -45,7 +45,7 @@ public class MainActivity extends BaseActivity {
 	private ImageView button_more_columns;
 	LinearLayout linear;
 	/**
-	 * ???????????????б?
+	 * 栏目
 	 */
 	private ArrayList<TitleItem> userChannelList = new ArrayList<TitleItem>();
 	/**
@@ -102,7 +102,7 @@ public class MainActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 		mScreenWidth = BaseTools.getWindowsWidth(this);
-		mItemWidth = mScreenWidth / 6;// ???Item?????????1/6
+		mItemWidth = mScreenWidth / 6;//     1/6
 		userChannelList.add(new TitleItem(1, "快讯", 1, 1));
 		userChannelList.add(new TitleItem(2, "资讯", 2, 1));
 		userChannelList.add(new TitleItem(3, "理财", 3, 1));
@@ -136,6 +136,7 @@ public class MainActivity extends BaseActivity {
 				View.MeasureSpec.UNSPECIFIED);
 		linear.measure(w, h);
 		int height = linear.getMeasuredHeight();
+		//存储title的个高度值
 		AppPresences.getInstance().putInt("titlehight", height);
 		initTabColumn();
 		initFragment();

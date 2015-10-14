@@ -145,6 +145,7 @@ public class AppStartActivity extends Activity implements OnClickListener {
 						Intent intent = new Intent(AppStartActivity.this,
 								HomeActivity.class);
 						startActivity(intent);
+						finish();
 						stopTimer();
 					}
 				}
