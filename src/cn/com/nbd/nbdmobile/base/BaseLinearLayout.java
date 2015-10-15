@@ -107,7 +107,13 @@ public abstract class BaseLinearLayout extends LinearLayout implements View.OnCl
 		mContext = context;
 		inflater = LayoutInflater.from(mContext);
 		if(imageLoader == null){
-			imageLoader = SyncImageLoader.getInstance(mContext, BaseConfig.PATH_IMAGE);
+			if(!isInEditMode()){
+
+				//do something
+				//造成 error code
+				imageLoader = SyncImageLoader.getInstance(mContext, BaseConfig.PATH_IMAGE);
+			}
+
 		}
 		
 		mHandler = getAppHandler();
@@ -126,7 +132,7 @@ public abstract class BaseLinearLayout extends LinearLayout implements View.OnCl
 	}
 	
 	/**设置连接提示
-	 * @param text
+	 *
 	 */
 	protected void setConnetHint(String text){
 		try {
@@ -166,11 +172,6 @@ public abstract class BaseLinearLayout extends LinearLayout implements View.OnCl
 		
 		toast.show();
 	}
-	
-	/**
-	 * 是否是pad
-	 * @return
-	 */
 	protected boolean isPad(){
 		 return (getResources().getConfiguration().screenLayout
 	                & Configuration.SCREENLAYOUT_SIZE_MASK)
@@ -201,13 +202,7 @@ public abstract class BaseLinearLayout extends LinearLayout implements View.OnCl
 	public void onDestory(){
 		
 	}
-	
-	/**
-	 * 是否连接超时
-	 * @param msg
-	 * @param text 当前连接块
-	 * @return
-	 */
+
 	protected boolean isConnectTimeOut(Message msg,String text){
 		ResultObject result = (ResultObject) msg.obj;
 		if(result.getCode() == BaseConstants.ERROR_HTTP_EXECUTE){

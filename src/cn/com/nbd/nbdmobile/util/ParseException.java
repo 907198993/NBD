@@ -1,10 +1,6 @@
 package cn.com.nbd.nbdmobile.util;
 
-/**
- * 解析文档异常类
- * @author Vic su
- * @data 2011-10-24
- */
+
 public class ParseException extends Exception {
     private static final long serialVersionUID = -3824561947913147233L;
     private String mesg;

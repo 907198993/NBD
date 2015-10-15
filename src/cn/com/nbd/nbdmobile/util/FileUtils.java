@@ -13,18 +13,13 @@ import android.os.StatFs;
 import android.util.Log;
 
 /** 
- * 文件操作工具�??
+ * 文件操作工具�??
  * @author liux (http://my.oschina.net/liux)
  * @version 1.0
  * @created 2012-3-21
  */
 public class FileUtils {
-    /**
-     * 写文本文
-     * 在Android系统中，文件保存�????/data/data/PACKAGE_NAME/files 目录�????
-     * @param context
-     * @param msg
-     */
+
     public static void write(Context context, String fileName, String content) {
         if (content == null)
             content = "";
@@ -127,7 +122,7 @@ public class FileUtils {
     }
 
     /**
-     * 根据文件绝对路径获取文件�????
+     * 根据文件绝对路径获取文件�????
      * @param filePath
      * @return
      */
@@ -138,7 +133,7 @@ public class FileUtils {
     }
 
     /**
-     * 根据文件的绝对路径获取文件名但不包含扩展�????
+     * 根据文件的绝对路径获取文件名但不包含扩展�????
      * @param filePath
      * @return
      */
@@ -151,7 +146,7 @@ public class FileUtils {
     }
 
     /**
-     * 获取文件扩展�????
+     * 获取文件扩展�????
      * @param fileName
      * @return
      */
@@ -270,7 +265,7 @@ public class FileUtils {
     }
 
     /**
-     * �????�文件是否存�????
+     * �????�文件是否存�????
      * @param name
      * @return
      */
@@ -289,7 +284,7 @@ public class FileUtils {
 
     /**
      * 计算SD卡的剩余空间
-     * @return 返回-1，说明没有安装sd�????
+     * @return 返回-1，说明没有安装sd�????
      */
     public static long getFreeDiskSpace() {
         String status = Environment.getExternalStorageState();
@@ -328,7 +323,7 @@ public class FileUtils {
     }
 
     /**
-     * �????�是否安装SD�????
+     * �????�是否安装SD�????
      * @return
      */
     public static boolean checkSaveLocationExists() {
@@ -342,7 +337,7 @@ public class FileUtils {
     }
 
     /**
-     * 删除目录(包括：目录里的所有文�????
+     * 删除目录(包括：目录里的所有文�????
      * @param fileName
      * @return
      */

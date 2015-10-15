@@ -48,7 +48,7 @@ public class HomeActivity extends TabActivity {
 		tabHost.addTab(tabHost.newTabSpec("video").setIndicator("video")
 				.setContent(new Intent(this, VideoListActivity.class)));
 		tabHost.addTab(tabHost.newTabSpec("newsPaper").setIndicator("newsPaper")
-				.setContent(new Intent(this, VideoListActivity.class)));
+				.setContent(new Intent(this, NewsPaperActivity.class)));
 		radioGroup = (RadioGroup) findViewById(R.id.radiogroup);
 		radioGroup.setOnCheckedChangeListener(checkedChangeListener);
 
@@ -65,8 +65,8 @@ public class HomeActivity extends TabActivity {
 			case R.id.radio_video:
 				tabHost.setCurrentTabByTag("video");
 				break;
-			case R.id.radio_user:
-				tabHost.setCurrentTabByTag("user");
+			case R.id.radio_newspaper:
+				tabHost.setCurrentTabByTag("newsPaper");
 				break;
 			case R.id.radio_setting:
 				tabHost.setCurrentTabByTag("setting");

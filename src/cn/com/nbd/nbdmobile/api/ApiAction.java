@@ -6,7 +6,12 @@ public enum  ApiAction{
 	/**
 	 *  增加阅读数
 	 */
-	ADD_READ_NUM("/1");
+	ADD_READ_NUM("1"),
+
+	/**
+	 *
+	 */
+	NEWS_PAPER("1/newspapers");
 	
 	
 	

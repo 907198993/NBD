@@ -5,6 +5,7 @@ import java.util.Map;
 
 import cn.com.nbd.nbdmobile.bean.ResponseListJson;
 import cn.com.nbd.nbdmobile.bean.ResultObject;
+import cn.com.nbd.nbdmobile.tool.BaseTools;
 
 
 public final class HomeApi extends BaseApi {
@@ -109,6 +110,37 @@ public final class HomeApi extends BaseApi {
 		boolean noerrer = httpExecutor.doPost(url, paramter, result);
 		return noerrer;
 	   
+	}
+
+	/**
+	 *   查询报纸
+	 * @param result
+	 * @return
+	 */
+	public Object queryNewsPaperList(ResultObject result,Type type,Class clazz){
+		String url = buildTuanUrl(ApiAction.NEWS_PAPER.getValue(), ApiInterface.ARTICLE_JSON.getValue());
+		Map<String, Object> paramter = withEmptyParamterMap();
+		paramter.put("app_key", "f4af4864997a00ddff7e1765e643f9ec");
+		paramter.put("client_key", "android");
+		String urls = buildPublicUrl(url,paramter);
+//		boolean noerrer = httpExecutor.doGet(urls, result);
+//		try {
+//			String content=new String(BaseTools.decompress(result.getContent()),"UTF-8");
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+
+		try {
+			byte[] data = BaseTools.loadOriginalDataFromURL(urls);
+			String content=new String( BaseTools.decompress(data),"UTF-8");
+
+			return  gson.fromJson(content,clazz == null ? type : clazz);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return   null;
+
 	}
 	
 	public Object queryArticle(int page,int count ,ResultObject result,Type type,Class clazz){

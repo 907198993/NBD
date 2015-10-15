@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:background="#ffffff"
+              android:orientation="vertical">
+
+
+    <cn.com.nbd.nbdmobile.view.TitleLayout
+        android:id="@+id/title_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/title_bar_height"/>
+
+    <ExpandableListView
+        android:id="@+id/expandable_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:cacheColorHint="#00000000"
+        android:fastScrollEnabled="true"
+        >
+    </ExpandableListView>
+
+
+</LinearLayout>

@@ -58,7 +58,7 @@
 	                        android:button="@null" />
 	
 	                    <RadioButton
-	                        android:id="@+id/radio_user"
+	                        android:id="@+id/radio_newspaper"
 	                        android:layout_width="wrap_content"
 	                        android:layout_height="wrap_content"
 	                        android:background="@drawable/tab_selector_user"

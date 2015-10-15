@@ -42,6 +42,8 @@
         </activity>
         <activity android:name="cn.com.nbd.nbdmobile.activity.VideoListActivity" >
         </activity>
+        <activity android:name="cn.com.nbd.nbdmobile.activity.NewsPaperActivity" >
+        </activity>
     </application>
 
 </manifest>

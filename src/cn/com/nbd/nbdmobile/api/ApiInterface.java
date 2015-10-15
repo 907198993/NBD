@@ -8,7 +8,12 @@ public enum ApiInterface {
 	COLUMNS_MOBILE_CILCK("columns/mobile_click_count?"),
 	
 	ARTICLE("articles"),
-	
+
+	/**
+	 *
+	 */
+	ARTICLE_JSON("articles.json?"),
+
 	last("");
 	
 	private String value;

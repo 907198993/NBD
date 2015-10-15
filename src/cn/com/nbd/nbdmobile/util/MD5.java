@@ -1,29 +1,6 @@
 package cn.com.nbd.nbdmobile.util;
 
-/**
- * <p>
- * FileName: MD5.java
- * </p>
- * <p>
- * Description:	MD5¼ÓÃÜ¹¤¾ßÀà
- * <p>
- * Copyright: IdeaCode(c) 2012
- * </p>
- * <p>
- * @author Vic Su
- * </p>
- * <p>
- * @content andyliu900@gmail.com
- * </p>
- * <p>
- * @version 1.0
- * </p>
- * <p>
- * CreatDate: 2012-11-16 ÉÏÎç12:02:19
- * </p>
- * <p>
- * Modification History
- */
+
 import java.security.MessageDigest;
 
 public class MD5 {
@@ -31,11 +8,11 @@ public class MD5 {
 			"6", "7", "8", "9", "a", "b", "c", "d", "e", "f" };
 
 	/**
-	 * ×ª»»×Ö½ÚÊý×éÎª16½øÖÆ×Ö´®
+	 * ×ªï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½ï¿½ï¿½Îª16ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½
 	 * 
 	 * @param b
-	 *            ×Ö½ÚÊý×é
-	 * @return 16½øÖÆ×Ö´®
+	 *            ï¿½Ö½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * @return 16ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½
 	 */
 
 	public static String byteArrayToHexString(byte[] b) {

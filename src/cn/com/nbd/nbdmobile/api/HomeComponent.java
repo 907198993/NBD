@@ -10,6 +10,7 @@ import org.hjh.async.framework.AsyncTaskExecutor;
 import java.util.Map;
 
 import cn.com.nbd.nbdmobile.bean.Article;
+import cn.com.nbd.nbdmobile.bean.NewsPaper;
 import cn.com.nbd.nbdmobile.bean.ResultObject;
 import cn.com.nbd.nbdmobile.bean.StockDetail;
 import cn.com.nbd.nbdmobile.dao.ArticleDetailDao;
@@ -73,6 +74,24 @@ public final class HomeComponent extends BaseComponent {
 //				}else{
 //					sendMessage(AppConstants.RESULT_QUERY_HOME_RECOMMEND_SUCCESS,list);
 //				}
+			}
+		});
+	}
+
+	public void queryNewsPaperList(final AppHandler handler) {
+		AsyncTaskExecutor.executeTask(new AsyncNetWorkTask(handler) {
+
+			@Override
+			public void dispose() {
+				ResultObject temp = result.clone();
+
+				NewsPaper list = (NewsPaper) HomeApi.getInstance().queryNewsPaperList(temp, new TypeToken<NewsPaper>() {
+				}.getType(), null);
+				if (null == list) {
+					sendMessage(AppConstants.RESULT_QUERY_NEWSPAPER_FAILED, temp);
+				} else {
+					sendMessage(AppConstants.RESULT_QUERY_NEWSPAPER_SUCCESS, list);
+				}
 			}
 		});
 	}

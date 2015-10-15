@@ -1,10 +1,8 @@
 package cn.com.nbd.nbdmobile.api;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import android.content.Context;
+
+import com.google.gson.Gson;
 
 import org.hjh.tools.DateTools;
 import org.hjh.tools.NumberTools;
@@ -13,11 +11,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.content.Context;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import cn.com.nbd.nbdmobile.config.BaseConfig;
-
-import com.google.gson.Gson;
 
 
 public abstract class BaseApi {
@@ -41,11 +41,11 @@ public abstract class BaseApi {
 	 * 团购url
 	 * @param action
 	 * @param apiInterface
-	 * @param userKey
+	 * @param
 	 * @return
 	 */
 	protected String buildTuanUrl(String action,String apiInterface){
-		StringBuilder builder = new StringBuilder("http://api.nbd.com.cn");
+		StringBuilder builder = new StringBuilder("http://api.nbd.com.cn/");
 	//	builder.append(urlConfig.getHost()).append(urlConfig.getBusiness());
 		builder.append(action).append("/").append(apiInterface);
 		return builder.toString();
