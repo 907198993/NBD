@@ -246,8 +246,9 @@ public class CodeFragment extends BaseFragment implements AppPublicAdapter.IFill
         // holder.oneImageView.setImageDrawable(getResources().getDrawable(R.drawable.phone_icon));
         holder.description.setText(articleListDetail.getTitle());
         holder.readnum.setText(articleListDetail.getMobile_click_count());
-        mImageLoader.loadImage(0, articleListDetail.getImage(), listener,
-                holder.image, R.drawable.all_circle, 300, 300);
+//        mImageLoader.loadImage(0, articleListDetail.getImage(), listener,
+//                holder.image, R.drawable.all_circle, 300, 300);
+        mImageLoader.loadImage(position,articleListDetail.getImage(),holder.image);
         // holder.threeView.setText(customer.getDescription());
         // holder.fourImageView.setImageDrawable(getResources().getDrawable(R.drawable.client_phone));
 

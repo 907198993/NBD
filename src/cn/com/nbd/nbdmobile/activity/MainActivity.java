@@ -23,6 +23,7 @@ import java.util.ArrayList;
 
 import cn.com.nbd.nbdmobile.R;
 import cn.com.nbd.nbdmobile.adapter.NewsFragmentPagerAdapter;
+import cn.com.nbd.nbdmobile.base.AppActivityManager;
 import cn.com.nbd.nbdmobile.bean.TitleItem;
 import cn.com.nbd.nbdmobile.config.AppPresences;
 import cn.com.nbd.nbdmobile.fragment.ClientManageFragment;
@@ -209,6 +210,9 @@ public class MainActivity extends BaseActivity {
 					mItemWidth, LayoutParams.WRAP_CONTENT);
 			params.leftMargin = 5;
 			params.rightMargin = 5;
+
+
+
 			// TextView localTextView = (TextView)
 			// mInflater.inflate(R.layout.column_radio_item, null);
 			TextView columnTextView = new TextView(this);
@@ -338,15 +342,15 @@ public class MainActivity extends BaseActivity {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 
 			if ((System.currentTimeMillis() - mExitTime) > 2000) {
-				Toast.makeText(this, "?????????", Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
 				mExitTime = System.currentTimeMillis();
 			} else {
-				finish();
+				AppActivityManager.getInstance().AppExit();
 			}
 
 			return true;
 		}
-		// ????MENU??????????????????κβ???
+
 		if (keyCode == KeyEvent.KEYCODE_MENU) {
 			return true;
 		}

@@ -32,6 +32,7 @@ public class AppApplication extends Application {
 		super.onCreate();
 		mAppApplication = this;
 		AppPresences.init(this);
+
 		BaseApi.init(this);
 		BaseComponent.init(this);
 		FileTools.init(BaseConfig.PATH_IMAGE, BaseConfig.PATH_TEMP);

@@ -53,6 +53,8 @@ public class ClientManageFragment extends BaseFragment implements AppPublicAdapt
 	private boolean loadMore = false;// 当前是否为加载更多
 
 	private List<ArticleDetail> list = new ArrayList<ArticleDetail>();
+
+
 	// 标志位，标志已经初始化完成。
 	private boolean isPrepared;
 	private boolean isRunning;
@@ -201,8 +203,12 @@ public class ClientManageFragment extends BaseFragment implements AppPublicAdapt
 				.getList().get(position);
 		holder.description.setText(articleListDetail.getTitle());
 		holder.readnum.setText(articleListDetail.getMobile_click_count());
-		mImageLoader.loadImage(0, articleListDetail.getImage(), listener,
-				holder.image, R.drawable.nbd_logo, 300, 300);
+//		mImageLoader.loadImage(0, articleListDetail.getImage(), listener,
+//				holder.image, R.drawable.nbd_logo, 300, 300);
+		mImageLoader.loadImage(position,articleListDetail.getImage(),holder.image);
+//mImageLoader.loadImage(position,articleListDetail.getImage(),holder.image,new LoadImageOptions().setWidth(300).setHeight(300).setDefaultConfig(R.drawable.nbd_logo));
+		//mImageLoader.loadImageFromPath(articleListDetail.getImage(),holder.image,new LoadImageOptions().setWidth(300).setHeight(300).setDefaultConfig(Bitmap.Config.RGB_565),position);
+
 
 	}
 
@@ -221,6 +227,8 @@ public class ClientManageFragment extends BaseFragment implements AppPublicAdapt
 
 			HomeComponent.getInstance().queryArticle(currentPage, pageSize,
 					mHandler);
+
+
 			System.out
 			.println("client  queryArticle------------------------------------------------------------------------------------------------------");
 		}

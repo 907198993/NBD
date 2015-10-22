@@ -66,6 +66,11 @@ public abstract class AppBaseActivity extends FragmentActivity implements View.O
 		public void callBackSize(int width, int height, View arg2) {
 
 		}
+
+		@Override
+		public void onProgress(long l, long l1, View view) {
+
+		}
 	};
 	protected OnImageLoadListener mCallBack = new OnImageLoadListener() {
 
@@ -81,6 +86,11 @@ public abstract class AppBaseActivity extends FragmentActivity implements View.O
 
 		public void callBackSize(int width, int height, View view) {
 			int size = width + height;
+
+		}
+
+		@Override
+		public void onProgress(long l, long l1, View view) {
 
 		}
 	};

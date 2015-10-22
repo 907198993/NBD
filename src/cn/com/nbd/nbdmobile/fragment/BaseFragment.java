@@ -15,6 +15,7 @@ import com.google.gson.Gson;
 
 import org.hjh.async.framework.AppHandler;
 import org.hjh.async.framework.LoadingDialog;
+import org.hjh.image.display.LoadImageOptions;
 import org.hjh.image.display.SyncImageLoader;
 import org.hjh.image.display.SyncImageLoader.OnImageLoadListener;
 
@@ -22,6 +23,7 @@ import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import cn.com.nbd.nbdmobile.R;
 import cn.com.nbd.nbdmobile.api.BaseConstants;
 import cn.com.nbd.nbdmobile.bean.ResultObject;
 import cn.com.nbd.nbdmobile.config.BaseConfig;
@@ -31,6 +33,7 @@ public abstract class BaseFragment extends Fragment implements
 		View.OnClickListener {
 	protected boolean isVisible;
 	protected Activity mActivity;
+
 	protected AppHandler mHandler;
 	protected SyncImageLoader mImageLoader;
 	protected Gson gson = new Gson();
@@ -51,8 +54,13 @@ public abstract class BaseFragment extends Fragment implements
 		public void callBackSize(int width, int height, View arg2) {
 
 		}
+
+		@Override
+		public void onProgress(long l, long l1, View view) {
+
+		}
 	};
-	protected OnImageLoadListener mCallBack = new OnImageLoadListener() {
+	   protected OnImageLoadListener mCallBack = new OnImageLoadListener() {
 
 		@Override
 		public void onImageLoad(Drawable drawable, ImageView view) {
@@ -68,7 +76,12 @@ public abstract class BaseFragment extends Fragment implements
 			int size = width + height;
 
 		}
-	};
+
+		   @Override
+		   public void onProgress(long l, long l1, View view) {
+
+		   }
+	   };
 
 	@Override
 	public void onAttach(Activity activity) {
@@ -82,6 +95,7 @@ public abstract class BaseFragment extends Fragment implements
 		if (mImageLoader == null) {
 			mImageLoader = SyncImageLoader.getInstance(mActivity,
 					BaseConfig.PATH_IMAGE);
+			mImageLoader.setDefaultImageOptions(new LoadImageOptions().setListener(mCallBack).setResId(R.drawable.nbd_logo));
 		}
 
 		mHandler = getAppHandler();

@@ -60,6 +60,11 @@ public abstract class BaseActivity extends AppBaseActivity implements ITitleClic
 			
 			
 		}
+
+		@Override
+		public void onProgress(long l, long l1, View view) {
+
+		}
 	};
 	
 	private boolean noOperate = true;

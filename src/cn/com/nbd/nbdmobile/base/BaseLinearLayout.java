@@ -52,6 +52,11 @@ public abstract class BaseLinearLayout extends LinearLayout implements View.OnCl
 			
 			
 		}
+
+		@Override
+		public void onProgress(long l, long l1, View view) {
+
+		}
 	};
 
 	protected OnImageLoadListener bgListener = new OnImageLoadListener() {
@@ -69,6 +74,11 @@ public abstract class BaseLinearLayout extends LinearLayout implements View.OnCl
 		public void callBackSize(int width, int height,View view) {
 			
 			
+		}
+
+		@Override
+		public void onProgress(long l, long l1, View view) {
+
 		}
 	};
 	
@@ -95,6 +105,11 @@ public abstract class BaseLinearLayout extends LinearLayout implements View.OnCl
 		public void callBackSize(int width, int height,View view) {
 			
 			
+		}
+
+		@Override
+		public void onProgress(long l, long l1, View view) {
+
 		}
 	};
 	
