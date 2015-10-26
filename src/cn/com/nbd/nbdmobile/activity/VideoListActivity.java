@@ -109,6 +109,7 @@ public class VideoListActivity extends BaseActivity implements
 		 */
 	}
 
+
 	private void init() {
 
 		titleLayout.enableLeftButtonImage(R.drawable.channel_glide_day_bg);

@@ -4,9 +4,12 @@ package cn.com.nbd.nbdmobile.activity;
  * Created by Dell on 2015/10/15.
  */
 
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Message;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ExpandableListView;
 import android.widget.SimpleExpandableListAdapter;
 
@@ -24,6 +27,7 @@ import cn.com.nbd.nbdmobile.api.AppConstants;
 import cn.com.nbd.nbdmobile.api.HomeComponent;
 import cn.com.nbd.nbdmobile.bean.NewsPaper;
 import cn.com.nbd.nbdmobile.bean.NewsPaperArticle;
+import cn.com.nbd.nbdmobile.tool.SystemBarTintManager;
 import cn.com.nbd.nbdmobile.view.TitleLayout;
 
 
@@ -46,12 +50,41 @@ public class NewsPaperActivity extends BaseActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
 		InjectCore.injectUI(this);
+		//setTranslucentStatus();
 		init();
+//     // 创建状态栏的管理实例
+//		SystemBarTintManager tintManager = new SystemBarTintManager(this);
+//		// 激活状态栏设置
+//		tintManager.setStatusBarTintEnabled(true);
+//		// 激活导航栏设置
+//		tintManager.setNavigationBarTintEnabled(true);
+//		// 设置一个样式背景给导航栏
+//		tintManager.setNavigationBarTintResource(R.drawable.center_top);
 
 
 
+	}
 
+
+	/**
+	 * 设置状态栏背景状态
+	 */
+	private void setTranslucentStatus()
+	{
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
+		{
+			Window win = getWindow();
+			WindowManager.LayoutParams winParams = win.getAttributes();
+			final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+			winParams.flags |= bits;
+			win.setAttributes(winParams);
+
+		}
+		SystemBarTintManager tintManager = new SystemBarTintManager(this);
+		tintManager.setStatusBarTintEnabled(true);
+		tintManager.setStatusBarTintResource(0);//状态栏无背景
 	}
 
 	private void init() {

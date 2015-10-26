@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/D:/ASTEST/as/NBD/res/values-v11/styles.xml -->
-    <eat-comment/>
-    <style name="AppBaseTheme" parent="android:Theme.Holo.Light">
-        <!-- API 11 theme customizations can go here. -->
-    </style>
+
+
     <style name="Theme.Timetodo" parent="@android:style/Theme.Holo.Light">
         <!-- translucent system bars -->
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
     </style>
+
+    <style name="TransparentTheme"></style>
 </resources>

@@ -26,15 +26,15 @@ ADDED from D:\ASTEST\as\NBD\AndroidManifest.xml:11:5-35:19
 	android:icon
 		ADDED from D:\ASTEST\as\NBD\AndroidManifest.xml:14:9-45
 	android:theme
-		ADDED from D:\ASTEST\as\NBD\AndroidManifest.xml:16:9-56
+		ADDED from D:\ASTEST\as\NBD\AndroidManifest.xml:16:9-68
 	android:name
 		ADDED from D:\ASTEST\as\NBD\AndroidManifest.xml:12:9-43
-activity#cn.com.nbd.nbdmobile.activity.AppStartActivity
+activity#cn.com.nbd.nbdmobile.activity.HomeActivity
 ADDED from D:\ASTEST\as\NBD\AndroidManifest.xml:17:9-25:20
 	android:label
 		ADDED from D:\ASTEST\as\NBD\AndroidManifest.xml:19:13-45
 	android:name
-		ADDED from D:\ASTEST\as\NBD\AndroidManifest.xml:18:13-74
+		ADDED from D:\ASTEST\as\NBD\AndroidManifest.xml:18:13-70
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
 ADDED from D:\ASTEST\as\NBD\AndroidManifest.xml:20:13-24:29
 action#android.intent.action.MAIN
@@ -49,14 +49,14 @@ activity#cn.com.nbd.nbdmobile.activity.MainActivity
 ADDED from D:\ASTEST\as\NBD\AndroidManifest.xml:26:9-27:20
 	android:name
 		ADDED from D:\ASTEST\as\NBD\AndroidManifest.xml:26:19-76
-activity#cn.com.nbd.nbdmobile.activity.HomeActivity
-ADDED from D:\ASTEST\as\NBD\AndroidManifest.xml:28:9-29:20
-	android:name
-		ADDED from D:\ASTEST\as\NBD\AndroidManifest.xml:28:19-76
 activity#cn.com.nbd.nbdmobile.activity.VideoListActivity
-ADDED from D:\ASTEST\as\NBD\AndroidManifest.xml:30:9-31:20
+ADDED from D:\ASTEST\as\NBD\AndroidManifest.xml:29:9-30:20
 	android:name
-		ADDED from D:\ASTEST\as\NBD\AndroidManifest.xml:30:19-81
+		ADDED from D:\ASTEST\as\NBD\AndroidManifest.xml:29:19-81
+activity#cn.com.nbd.nbdmobile.activity.CenterActivity
+ADDED from D:\ASTEST\as\NBD\AndroidManifest.xml:31:9-32:20
+	android:name
+		ADDED from D:\ASTEST\as\NBD\AndroidManifest.xml:31:19-78
 activity#cn.com.nbd.nbdmobile.activity.NewsPaperActivity
 ADDED from D:\ASTEST\as\NBD\AndroidManifest.xml:33:9-34:20
 	android:name

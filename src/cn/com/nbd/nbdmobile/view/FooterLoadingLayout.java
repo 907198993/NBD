@@ -1,21 +1,24 @@
 package cn.com.nbd.nbdmobile.view;
 
-import org.hjh.refresh.LoadingLayout;
-
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import org.hjh.refresh.LoadingLayout;
+
 import cn.com.nbd.nbdmobile.R;
 
 
 public class FooterLoadingLayout extends LoadingLayout {
 
-	/**½ø¶ÈÌõ*/
+
+
+    /**ï¿½ï¿½ï¿½ï¿½ï¿½*/
     private ProgressBar mProgressBar;
-    /** ÏÔÊ¾µÄÎÄ±¾ */
+    /** ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½Ä±ï¿½ */
     private TextView mHintView;
     
     public FooterLoadingLayout(Context context) {
@@ -29,7 +32,7 @@ public class FooterLoadingLayout extends LoadingLayout {
     }
 
     /**
-     * ³õÊ¼»¯
+     * ï¿½ï¿½Ê¼ï¿½ï¿½
      * @param context context
      */
     private void init(Context context) {

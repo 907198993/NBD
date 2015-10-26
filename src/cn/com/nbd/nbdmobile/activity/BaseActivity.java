@@ -105,10 +105,10 @@ public abstract class BaseActivity extends AppBaseActivity implements ITitleClic
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
 		getStatusBarHeight();
 	}
-	
+
 	
 	/**
 	 * @return

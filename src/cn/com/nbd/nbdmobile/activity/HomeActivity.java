@@ -2,8 +2,11 @@ package cn.com.nbd.nbdmobile.activity;
 
 import android.app.TabActivity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.RelativeLayout;
@@ -11,6 +14,7 @@ import android.widget.TabHost;
 
 import cn.com.nbd.nbdmobile.R;
 import cn.com.nbd.nbdmobile.config.AppPresences;
+import cn.com.nbd.nbdmobile.tool.SystemBarTintManager;
 
 @SuppressWarnings("deprecation")
 public class HomeActivity extends TabActivity {
@@ -24,10 +28,32 @@ public class HomeActivity extends TabActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		setTranslucentStatus();
 		setContentView(R.layout.activity_main);
 		initViews();
+
 	}
 
+
+	/**
+	 * 设置状态栏背景状态
+	 */
+	private void setTranslucentStatus()
+	{
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
+		{
+			Window win = getWindow();
+			WindowManager.LayoutParams winParams = win.getAttributes();
+			final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+			winParams.flags |= bits;
+			win.setAttributes(winParams);
+
+		}
+		SystemBarTintManager tintManager = new SystemBarTintManager(this);
+		tintManager.setStatusBarTintEnabled(true);
+		tintManager.setStatusBarTintResource(0);//状态栏无背景
+	}
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();

@@ -18,7 +18,7 @@ public class StringUtils {
 	private static Matcher m = null;
 
 	/**
-	 * ½«×Ö·û´®×ªÎ»ÈÕÆÚÀàÐÍ
+	 * ï¿½ï¿½ï¿½Ö·ï¿½×ªÎ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param sdate
 	 * @return
@@ -32,7 +32,7 @@ public class StringUtils {
 	}
 
 	/**
-	 * ½«×Ö·û´®×ªÎ»ÈÕÆÚÀàÐÍ
+	 * ï¿½ï¿½ï¿½Ö·ï¿½×ªÎ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param sdate
 	 * @return
@@ -46,18 +46,19 @@ public class StringUtils {
 	}
 
 	/**
-	 * ½«ÈÕÆÚ×ª»»Îª×Ö·û´®
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½Îªï¿½Ö·ï¿½
 	 * 
 	 * @param date
 	 * @return
 	 */
+
 	public static String date2Time(Date date) {
 		String time = sqlDateFormat.format(date);
 		return time;
 	}
 
 	/**
-	 * ½«ÈÕÆÚ×ª»»Îª ÄêÔÂÈÕ ¸ñÊ½×Ö·û´®
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½Îª ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ê½ï¿½Ö·ï¿½
 	 * 
 	 * @param date
 	 * @return
@@ -73,7 +74,7 @@ public class StringUtils {
 	}
 
 	/**
-	 * ÒÔÓÑºÃµÄ·½Ê½ÏÔÊ¾Ê±¼ä
+	 * ï¿½ï¿½ï¿½ÑºÃµÄ·ï¿½Ê½ï¿½ï¿½Ê¾Ê±ï¿½ï¿½
 	 * 
 	 * @param sdate
 	 * @return
@@ -86,13 +87,13 @@ public class StringUtils {
 		String ftime = "";
 		Calendar cal = Calendar.getInstance();
 
-		// ÅÐ¶ÏÊÇ·ñÊÇÍ¬Ò»Ìì
+		// ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Í¬Ò»ï¿½ï¿½
 		String curDate = dateFormater2.format(cal.getTime());
 		String paramDate = dateFormater2.format(time);
 		if (curDate.equals(paramDate)) {
 			int hour = (int) ((cal.getTimeInMillis() - time.getTime()) / 3600000);
 			if (hour == 0)
-				ftime = Math.max((cal.getTimeInMillis() - time.getTime()) / 60000, 1) + "·ÖÖÓÇ°";
+				ftime = Math.max((cal.getTimeInMillis() - time.getTime()) / 60000, 1) + "ï¿½ï¿½ï¿½ï¿½Ç°";
 			else
 				ftime = hour + "Ð¡Ê±Ç°";
 			return ftime;
@@ -104,15 +105,15 @@ public class StringUtils {
 		if (days == 0) {
 			int hour = (int) ((cal.getTimeInMillis() - time.getTime()) / 3600000);
 			if (hour == 0)
-				ftime = Math.max((cal.getTimeInMillis() - time.getTime()) / 60000, 1) + "·ÖÖÓÇ°";
+				ftime = Math.max((cal.getTimeInMillis() - time.getTime()) / 60000, 1) + "ï¿½ï¿½ï¿½ï¿½Ç°";
 			else
 				ftime = hour + "Ð¡Ê±Ç°";
 		} else if (days == 1) {
-			ftime = "×òÌì";
+			ftime = "ï¿½ï¿½ï¿½ï¿½";
 		} else if (days == 2) {
-			ftime = "Ç°Ìì";
+			ftime = "Ç°ï¿½ï¿½";
 		} else if (days > 2 && days <= 10) {
-			ftime = days + "ÌìÇ°";
+			ftime = days + "ï¿½ï¿½Ç°";
 		} else if (days > 10) {
 			ftime = dateFormater2.format(time);
 		}
@@ -120,7 +121,7 @@ public class StringUtils {
 	}
 
 	/**
-	 * ÅÐ¶Ï¸ø¶¨×Ö·û´®Ê±¼äÊÇ·ñÎª½ñÈÕ
+	 * ï¿½Ð¶Ï¸ï¿½ï¿½Ö·ï¿½Ê±ï¿½ï¿½ï¿½Ç·ï¿½Îªï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param sdate
 	 * @return boolean
@@ -140,7 +141,7 @@ public class StringUtils {
 	}
 
 	/**
-	 * ÅÐ¶Ï¸ø¶¨×Ö·û´®ÊÇ·ñ¿Õ°×´®¡£ ¿Õ°×´®ÊÇÖ¸ÓÉ¿Õ¸ñ¡¢ÖÆ±í·û¡¢»Ø³µ·û¡¢»»ÐÐ·û×é³ÉµÄ×Ö·û´® ÈôÊäÈë×Ö·û´®Îªnull»ò¿Õ×Ö·û´®£¬·µ»Øtrue
+	 * ï¿½Ð¶Ï¸ï¿½ï¿½Ö·ï¿½ï¿½Ç·ï¿½Õ°×´ï¿½ï¿½ï¿½ ï¿½Õ°×´ï¿½ï¿½ï¿½Ö¸ï¿½É¿Õ¸ï¿½ï¿½Æ±ï¿½ï¿½Ø³ï¿½ï¿½ï¿½ï¿½Ð·ï¿½ï¿½ï¿½Éµï¿½ï¿½Ö·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½Îªnullï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½true
 	 * 
 	 * @param input
 	 * @return boolean
@@ -159,7 +160,7 @@ public class StringUtils {
 	}
 
 	/**
-	 * ÅÐ¶ÏÊÇ²»ÊÇÒ»¸öºÏ·¨µÄµç×ÓÓÊ¼þµØÖ·
+	 * ï¿½Ð¶ï¿½ï¿½Ç²ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ï·ï¿½ï¿½Äµï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½Ö·
 	 * 
 	 * @param email
 	 * @return
@@ -171,7 +172,7 @@ public class StringUtils {
 	}
 
 	/**
-	 * ×Ö·û´®×ªÕûÊý
+	 * ï¿½Ö·ï¿½×ªï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param str
 	 * @param defValue
@@ -186,10 +187,10 @@ public class StringUtils {
 	}
 
 	/**
-	 * ¶ÔÏó×ªÕûÊý
+	 * ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param obj
-	 * @return ×ª»»Òì³£·µ»Ø 0
+	 * @return ×ªï¿½ï¿½ï¿½ì³£ï¿½ï¿½ï¿½ï¿½ 0
 	 */
 	public static int toInt(Object obj) {
 		if (obj == null)
@@ -198,10 +199,10 @@ public class StringUtils {
 	}
 
 	/**
-	 * ¶ÔÏó×ªÕûÊý
+	 * ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param obj
-	 * @return ×ª»»Òì³£·µ»Ø 0
+	 * @return ×ªï¿½ï¿½ï¿½ì³£ï¿½ï¿½ï¿½ï¿½ 0
 	 */
 	public static long toLong(String obj) {
 		try {
@@ -212,10 +213,10 @@ public class StringUtils {
 	}
 
 	/**
-	 * ×Ö·û´®×ª²¼¶ûÖµ
+	 * ï¿½Ö·ï¿½×ªï¿½ï¿½ï¿½ï¿½Öµ
 	 * 
 	 * @param b
-	 * @return ×ª»»Òì³£·µ»Ø false
+	 * @return ×ªï¿½ï¿½ï¿½ì³£ï¿½ï¿½ï¿½ï¿½ false
 	 */
 	public static boolean toBool(String b) {
 		try {
@@ -226,7 +227,7 @@ public class StringUtils {
 	}
 
 	/**
-	 * ¸ñÊ½»¯soap´«¹ýÀ´µÄdate+timeÊý¾Ý
+	 * ï¿½ï¿½Ê½ï¿½ï¿½soapï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½date+timeï¿½ï¿½ï¿½
 	 * 
 	 * @param soapDateTime
 	 * @return
@@ -247,7 +248,7 @@ public class StringUtils {
 	}
 
 	/**
-	 * ¼ì²éÓÊÏäÊäÈë¸ñÊ½ÊÇ·ñÕýÈ·
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½Ç·ï¿½ï¿½ï¿½È·
 	 * 
 	 * @param email
 	 * @return
@@ -259,7 +260,7 @@ public class StringUtils {
 	}
 
 	/**
-	 * ###¼ì²éÕËºÅÊÇ·ñÓÉ Êý×Ö¡¢×ÖÄ¸¡¢ÏÂ»®Ïß ×éºÏ¶ø³É ÊÇÔò·µ»Øtrue£¬·ñÔò·µ»Øfalse## ÕËºÅ¿ÉÎªÈÎÒâ×Ö·û£¬°üÀ¨ÖÐÎÄ
+	 * ###ï¿½ï¿½ï¿½ï¿½Ëºï¿½ï¿½Ç·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ö¡ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½Â»ï¿½ï¿½ï¿½ ï¿½ï¿½Ï¶ï¿½ï¿½ ï¿½ï¿½ï¿½ò·µ»ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false## ï¿½ËºÅ¿ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param username
 	 * @return
@@ -271,7 +272,7 @@ public class StringUtils {
 	}
 
 	/**
-	 * ¼ì²éÁ½´ÎÊäÈëµÄÃÜÂëÊÇ·ñÒ»ÖÂ
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Ò»ï¿½ï¿½
 	 * 
 	 * @param password
 	 * @param password2
@@ -282,7 +283,7 @@ public class StringUtils {
 	}
 
 	/**
-	 * Éú³ÉÓÃ»§id£¬ÓÃÊ±¼äÉú³É
+	 * ï¿½ï¿½ï¿½ï¿½Ã»ï¿½idï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @return
 	 */
@@ -292,7 +293,7 @@ public class StringUtils {
 	}
 
 	/**
-	 * ¸ñÊ½»¯Éú³Éµ±Ç°Ê±¼ä
+	 * ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½Éµï¿½Ç°Ê±ï¿½ï¿½
 	 * 
 	 * @return
 	 */
@@ -310,7 +311,7 @@ public class StringUtils {
 	}
 
     /**
-     * ¸ñÊ½»¯boolean×Ö·û´®
+     * ï¿½ï¿½Ê½ï¿½ï¿½booleanï¿½Ö·ï¿½
      * 
      * @param booleanStr
      * @return
