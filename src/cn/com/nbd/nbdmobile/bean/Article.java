@@ -10,12 +10,13 @@ import java.util.List;
 public class Article  implements Serializable{
 
 
-
 //	@Expose
 //	private String msg;
 
 	@Expose
     private List<ArticleDetail>  articles;
+	private List<ActivityArticle>  ActivityArticle;
+
 
 //	public String getMsg() {
 //		return msg;
@@ -25,6 +26,8 @@ public class Article  implements Serializable{
 //		this.msg = msg;
 //	}
 
+
+
 	public List<ArticleDetail> getArticles() {
 		return articles;
 	}
@@ -32,5 +35,11 @@ public class Article  implements Serializable{
 		this.articles = articles;
 	}
 
+	public List<ActivityArticle> getActivityArticle() {
+		return ActivityArticle;
+	}
 
+	public void setActivityArticle(List<ActivityArticle> activityArticle) {
+		ActivityArticle = activityArticle;
+	}
 }

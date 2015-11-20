@@ -137,7 +137,13 @@ public abstract class BaseActivity extends AppBaseActivity implements ITitleClic
 		MemoryTools.reset();
 		super.onDestroy();
 	}
-	
+
+	protected void endPull(PullToRefreshListView refreshListView,boolean hasMore){
+		refreshListView.onPullDownRefreshComplete();
+		refreshListView.onPullUpRefreshComplete();
+		refreshListView.setHasMoreData(hasMore);
+		setLastUpdateTime(refreshListView);
+	}
 	protected void resetView(int position){
 //		for(int index = 0;index < array.size();index ++){
 //			if(index == position){

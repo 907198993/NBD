@@ -1,7 +1,5 @@
 package cn.com.nbd.nbdmobile.view;
 
-import org.hjh.refresh.LoadingLayout;
-
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -13,27 +11,21 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import org.hjh.refresh.LoadingLayout;
+
 import cn.com.nbd.nbdmobile.R;
 
 public class HeaderLoadingLayout extends LoadingLayout {
 
-	/** 旋转动画时间 */
     private static final int ROTATE_ANIM_DURATION = 150;
-    /**Header的容器*/
     private RelativeLayout mHeaderContainer;
-    /**箭头图片*/
     private ImageView mArrowImageView;
-    /**进度条*/
     private ProgressBar mProgressBar;
-    /**状态提示TextView*/
     private TextView mHintTextView;
-    /**最后更新时间的TextView*/
     private TextView mHeaderTimeView;
-    /**最后更新时间的标题*/
     private TextView mHeaderTimeViewTitle;
-    /**向上的动画*/
     private Animation mRotateUpAnim;
-    /**向下的动画*/
     private Animation mRotateDownAnim;
     
     public HeaderLoadingLayout(Context context) {
@@ -56,7 +48,6 @@ public class HeaderLoadingLayout extends LoadingLayout {
         
         float pivotValue = 0.5f;    // SUPPRESS CHECKSTYLE
         float toDegree = -180f;     // SUPPRESS CHECKSTYLE
-        // 初始化旋转动画
         mRotateUpAnim = new RotateAnimation(0.0f, toDegree, Animation.RELATIVE_TO_SELF, pivotValue,
                 Animation.RELATIVE_TO_SELF, pivotValue);
         mRotateUpAnim.setDuration(ROTATE_ANIM_DURATION);
@@ -69,7 +60,6 @@ public class HeaderLoadingLayout extends LoadingLayout {
 
     @Override
     public void setLastUpdatedLabel(CharSequence label) {
-        // 如果最后更新的时间的文本是空的话，隐藏前面的标题
         mHeaderTimeViewTitle.setVisibility(TextUtils.isEmpty(label) ? View.INVISIBLE : View.VISIBLE);
         mHeaderTimeView.setText(label);
     }

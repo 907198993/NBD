@@ -142,9 +142,10 @@ public final class HomeApi extends BaseApi {
 		return   null;
 
 	}
-	
+
 	public Object queryArticle(int page,int count ,ResultObject result,Type type,Class clazz){
-		String url = "http://api.nbd.com.cn/v1/columns/3/articles.json?client_type=1&app_key=f4af4864997a00ddff7e1765e643f9ec&page="+page+"&count="+count;
+		//String url = "http://api.nbd.com.cn/v1/columns/3/articles.json?client_type=1&app_key=f4af4864997a00ddff7e1765e643f9ec&page="+page+"&count="+count;
+		String url="http://api.nbd.com.cn/2/columns/3/articles.json?client_type=1&app_key=f4af4864997a00ddff7e1765e643f9ec&count=10&page=0";
 		Map<String, Object> paramter = withEmptyParamterMap();
 		boolean noerrer = httpExecutor.doGet(url, result);
 		if(noerrer){
@@ -159,33 +160,33 @@ public final class HomeApi extends BaseApi {
 			result.setCode(BaseConstants.ERROR_HTTP_EXECUTE);
 			return null;
 		}
-//		if(noerrer){
-//			try {
-//			ResponseJson<Article> response = ResponseJson.fromJson(result.getContent(), Article.class);
-//			if (response.getError()!= "") {
-//				result.setCode(BaseConstants.ERROR_INPUT_PARAMETER);
-//				result.setError(response.getError());
-//				return null;
-//			}
-//
-//			return response.getContent();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			result.setCode(BaseConstants.ERROR_API_PARSER_JSON);
-//			return null;
-//		}
-//
-//	}else{
-//		result.setCode(BaseConstants.ERROR_HTTP_EXECUTE);
-//		return null;
-//	}
-	   
+
 	}
-	
-	//行情数据
-	public Object queryStockInfo(ResultObject result,Type type,Class clazz){
-		String url = "http://apis.baidu.com/apistore/stockservice/hkstock?stockid=00168&list=1";
-		boolean noerrer =httpExecutor.doGet(url, "f4af4864997a00ddff7e1765e643f9ec", result);
+	public Object queryNewsActivityList(int page,int count ,ResultObject result,Type type,Class clazz){
+		//String url=  BA "http://api.nbd.com.cn/2/columns/3/articles.json?client_type=1&app_key=f4af4864997a00ddff7e1765e643f9ec&count=10&page=0";
+		String url= "http://api.nbd.com.cn/3/columns/183/articles";
+		Map<String, Object> paramter = withEmptyParamterMap();
+		boolean noerrer = httpExecutor.doGet(url, result);
+		if(noerrer){
+			try {
+				return gson.fromJson(result.getContent(),clazz == null ? type : clazz);
+			} catch (Exception e) {
+				e.printStackTrace();
+				result.setCode(BaseConstants.ERROR_API_PARSER_JSON);//解析错误
+				return null;
+			}
+		}else{
+			result.setCode(BaseConstants.ERROR_HTTP_EXECUTE);
+			return null;
+		}
+
+	}
+	//资讯头图轮播广告数据
+	public Object queryAdInfo(ResultObject result,Type type,Class clazz){
+		//String url = "http://apis.baidu.com/apistore/stockservice/hkstock?stockid=00168&list=1";
+		String url="http://api.nbd.com.cn/2/columns/3/articles.json?client_type=1&app_key=f4af4864997a00ddff7e1765e643f9ec&count=10&page=0";
+	//	String url = "http://api.nbd.com.cn/v1/columns/2/articles.json?client_type=1&app_key=f4af4864997a00ddff7e1765e643f9ec&page=1&count=3";
+		boolean noerrer =httpExecutor.doGet(url, result);
 		if(noerrer){
 			try {
 				return gson.fromJson(result.getContent(),clazz == null ? type : clazz);

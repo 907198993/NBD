@@ -29,7 +29,7 @@ public class HomeActivity extends TabActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setTranslucentStatus();
+	//	setTranslucentStatus();
 		setContentView(R.layout.activity_main);
 		initViews();
 
@@ -75,6 +75,8 @@ public class HomeActivity extends TabActivity {
 				.setContent(new Intent(this, VideoListActivity.class)));
 		tabHost.addTab(tabHost.newTabSpec("newsPaper").setIndicator("newsPaper")
 				.setContent(new Intent(this, NewsPaperActivity.class)));
+		tabHost.addTab(tabHost.newTabSpec("activity").setIndicator("activity")
+				.setContent(new Intent(this, NewsActivityActivity.class)));
 		radioGroup = (RadioGroup) findViewById(R.id.radiogroup);
 		radioGroup.setOnCheckedChangeListener(checkedChangeListener);
 
@@ -95,7 +97,7 @@ public class HomeActivity extends TabActivity {
 				tabHost.setCurrentTabByTag("newsPaper");
 				break;
 			case R.id.radio_setting:
-				tabHost.setCurrentTabByTag("setting");
+				tabHost.setCurrentTabByTag("activity");
 				break;
 			default:
 				break;

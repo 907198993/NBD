@@ -18,8 +18,8 @@ public final class BaseConfig {
 		public static String PUBLIC_WEB_HOST					= "www.zhsq360.com";//www.315xfzsc.net//192.168.254.37
 		public static String PUBLIC_WEB_BISUNESS				= "/index.php/Webserver/";// /index.php/Webserver/,/mall/Webserver/index.php
 		
-		public static String MALL_WEB_HOST			 			 = "www.zhsq360.com";//192.168.254.37//www.zhsq360.com
-		public static String MALL_WEB_BISUNESS     			 = "/mall/Webserver/index.php?";
+		public static String NEWS_ACTIVITY_HOST			 			 = "api.nbd.com.cn/3/columns/183/articles";
+		public static String NEWS_ACTIVITY_WEB_BISUNESS     			 = "/mall/Webserver/index.php?";
 		
 		public static String TUAN_WEB_HOST   					 = "192.168.254.37";//"192.168.9.149";
 		public static int WEB_PORT	              		     			 = 9997;

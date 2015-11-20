@@ -41,7 +41,6 @@ public class NewsPaperActivity extends BaseActivity {
 	@InjectView(id = R.id.expandable_list)
 	private ExpandableListView expandableList;
 
-
 	private SimpleExpandableListAdapter mSimpleExpandableListAdapter=null;
 	private ArrayList<HashMap<String, String>> groupData = new ArrayList<HashMap<String, String>>();
 	private ArrayList<ArrayList<HashMap<String, String>>> childData = new ArrayList<ArrayList<HashMap<String, String>>>();
@@ -89,7 +88,10 @@ public class NewsPaperActivity extends BaseActivity {
 
 	private void init() {
 
-
+		titleLayout.setTitleText("今日报纸");
+		titleLayout.enableLeftButtonImage(R.drawable.category);
+		titleLayout.enableRightButtonImage(R.drawable.user);
+		titleLayout.setTitleClickListener(this);
 		HomeComponent.getInstance().queryNewsPaperList(mHandler);
 
 

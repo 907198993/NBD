@@ -2,9 +2,7 @@ package cn.com.nbd.nbdmobile.base;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
@@ -113,10 +111,6 @@ public abstract class AppBaseAdapter<T> extends BaseAdapter {
 	protected void showHint(String text){
 		try {
 			Toast toast = Toast.makeText(mContext, text,Toast.LENGTH_SHORT);
-			if(isPad()){
-				toast.setGravity(Gravity.CENTER, 0, 0);
-			}
-			
 			toast.show();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -132,13 +126,4 @@ public abstract class AppBaseAdapter<T> extends BaseAdapter {
 		return mContext.getResources().getColor(id);
 	}
 	
-	/**
-	 * 判断是否为pad
-	 * @return
-	 */
-	protected boolean isPad(){
-		 return (mContext.getResources().getConfiguration().screenLayout
-	                & Configuration.SCREENLAYOUT_SIZE_MASK)
-	                >= Configuration.SCREENLAYOUT_SIZE_LARGE;
-	}
 }

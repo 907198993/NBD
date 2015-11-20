@@ -13,10 +13,12 @@ import java.util.List;
 import cn.com.nbd.nbdmobile.api.BaseApi;
 import cn.com.nbd.nbdmobile.api.BaseComponent;
 import cn.com.nbd.nbdmobile.base.DataBaseHelper;
+import cn.com.nbd.nbdmobile.bean.ActivityArticle;
 import cn.com.nbd.nbdmobile.bean.ArticleDetail;
 import cn.com.nbd.nbdmobile.bean.ArticleDetailForQuick;
 import cn.com.nbd.nbdmobile.config.AppPresences;
 import cn.com.nbd.nbdmobile.config.BaseConfig;
+import cn.com.nbd.nbdmobile.dao.ADArticleDao;
 import cn.com.nbd.nbdmobile.db.SQLHelper;
 import cn.com.nbd.nbdmobile.exception.ExceptionHandler;
 
@@ -32,12 +34,13 @@ public class AppApplication extends Application {
 		super.onCreate();
 		mAppApplication = this;
 		AppPresences.init(this);
-
 		BaseApi.init(this);
 		BaseComponent.init(this);
 		FileTools.init(BaseConfig.PATH_IMAGE, BaseConfig.PATH_TEMP);
+		publicList.add(ADArticleDao.class);
 		publicList.add(ArticleDetail.class);
 		publicList.add(ArticleDetailForQuick.class);
+		publicList.add(ActivityArticle.class);//活动
 		DataBaseHelper.addSystemTable(publicList);
 		DataBaseHelper.addPrivateTable(privateList);
 		initCacheDirPath();

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="#888888"
+    >
+
+    <TextView
+        android:id="@+id/groupLabel"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="10dip"
+        android:textColor="@android:color/white"
+        android:textSize="20dip"
+        />
+
+
+</RelativeLayout><!-- From: file:/D:/ASTEST/as/NBD/res/layout/group.xml -->

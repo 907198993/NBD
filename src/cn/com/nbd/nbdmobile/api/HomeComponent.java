@@ -7,12 +7,16 @@ import org.hjh.async.framework.AsyncCacheWork;
 import org.hjh.async.framework.AsyncNetWorkTask;
 import org.hjh.async.framework.AsyncTaskExecutor;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
+import cn.com.nbd.nbdmobile.bean.ActivityArticle;
+import cn.com.nbd.nbdmobile.bean.ActivityArticleList;
 import cn.com.nbd.nbdmobile.bean.Article;
+import cn.com.nbd.nbdmobile.bean.ArticleForAd;
 import cn.com.nbd.nbdmobile.bean.NewsPaper;
 import cn.com.nbd.nbdmobile.bean.ResultObject;
-import cn.com.nbd.nbdmobile.bean.StockDetail;
 import cn.com.nbd.nbdmobile.dao.ArticleDetailDao;
 
 
@@ -96,19 +100,20 @@ public final class HomeComponent extends BaseComponent {
 		});
 	}
 
-	public void queryStockInfo(final AppHandler handler) {
+
+	public void queryAdInfo(final AppHandler handler) {
 		AsyncTaskExecutor.executeTask(new AsyncNetWorkTask(handler) {
 
 			@Override
 			public void dispose() {
 				ResultObject temp = result.clone();
 
-				StockDetail list = (StockDetail) HomeApi.getInstance().queryStockInfo(temp, new TypeToken<StockDetail>() {
+				ArticleForAd list = (ArticleForAd) HomeApi.getInstance().queryAdInfo(temp, new TypeToken<ArticleForAd>() {
 				}.getType(), null);
 				if (null == list) {
-					sendMessage(AppConstants.RESULT_QUERY_STOCK_CONTENT_FAILED, temp);
+					sendMessage(AppConstants.RESULT_QUERY_AD_ARTICLE_FAILED, temp);
 				} else {
-					sendMessage(AppConstants.RESULT_QUERY_STOCK_CONTENT_SUCCESS, list);
+					sendMessage(AppConstants.RESULT_QUERY_AD_ARTICLE_SUCCESS, list.getArticles());
 				}
 			}
 		});
@@ -148,6 +153,56 @@ public final class HomeComponent extends BaseComponent {
 						ArticleDetailDao.getInstance(context, false).deleteAllArticleDetails();
 						//	ArticleDetailForQuickDao.getInstance(context, false).insertList(ArticleDetailForQuick);
 						ArticleDetailDao.getInstance(context, false).insertList(article.getArticles());
+
+					}
+//					if(null == list){
+//						sendMessage(AppConstants.RESULT_QUERY_ARTICLE_FAILED,temp);
+//					}else{
+//						sendMessage(AppConstants.RESULT_QUERY_ARTICLE_SUCCESS,list);
+//					}
+				}
+
+			}
+
+		});
+	}
+
+	//活动栏目
+	public void queryNewsActivityList(final int page, final int count, final AppHandler handler) {
+		AsyncTaskExecutor.executeTask(new AsyncCacheWork(handler) {
+
+			@Override
+			public void onQueryCache() {
+				List<ActivityArticle> ActivityArticle = new ArrayList<ActivityArticle>();
+			//	ActivityArticle article = new ActivityArticle();
+//				try {
+//					ActivityArticleDao.getInstance(context, false).queryAllActivityArticle();
+//					ActivityArticle.add();
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//				if (article.getArticles().size() < 1) {
+//					sendMessage(AppConstants.RESULT_QUERY_ARTICLE_FAILED);
+//				} else {
+//					sendMessage(AppConstants.RESULT_QUERY_ARTICLE_SUCCESS, article);
+//				}
+			}
+
+			@Override
+			public void onQueryWebApi() {
+				{
+					ResultObject temp = result.clone();
+					ActivityArticleList article = (ActivityArticleList) HomeApi.getInstance().queryNewsActivityList(page, count, temp, new TypeToken<ActivityArticleList>() {
+					}.getType(), null);
+					//	List<ArticleDetailForQuick> ArticleDetailForQuick  = (List<ArticleDetailForQuick>) HomeApi.getInstance().queryArticle(page,count,temp,new  TypeToken<Article>(){}.getType(),null);
+					if (null == article) {
+						onQueryCache();//获取失败则通过本地获取
+					} else {
+						sendMessage(AppConstants.RESULT_QUERY_ACTIVITY_ARTICLE_SUCCESS, article.getArticles());
+						/////数据库操
+//						ActivityArticleDao.getInstance(context, false).deleteAllActivityArticle();
+//						//	ArticleDetailForQuickDao.getInstance(context, false).insertList(ArticleDetailForQuick);
+//						ActivityArticleDao.getInstance(context, false).insertList(article.getArticles());
 
 					}
 //					if(null == list){

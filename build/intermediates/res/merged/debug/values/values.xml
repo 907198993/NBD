@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- From: file:/D:/ASTEST/as/NBD/res/values/attrs.xml -->
+    <eat-comment/>
+    <attr name="discrollve_translation">
+        <flag name="fromTop" value="0x01"/>
+        <flag name="fromBottom" value="0x02"/>
+        <flag name="fromLeft" value="0x04"/>
+        <flag name="fromRight" value="0x08"/>
+    </attr>
+    <attr format="reference" name="progressButtonStyle"/>
     <!-- From: file:/D:/ASTEST/as/NBD/res/values/colors.xml -->
     <eat-comment/>
     <color name="abc_search_url_text_normal">#ff7fa87f</color>
@@ -27,37 +36,31 @@
     <item name="action_comment_text_night" type="color">@color/title_text_color_night</item>
     <color name="activity_bg_color">#fff5f5f5</color>
     <color name="activity_bg_color_night">#ff1a1a1a</color>
-    <color name="add_color">#e3e3e3</color>
     <color name="alert_image_dlg_btn_normal">#ffffffff</color>
     <color name="alert_image_dlg_btn_pressed">#ffffe0bf</color>
     <color name="alert_notify_dialog_btn_bg_normal">#00000000</color>
     <color name="alert_notify_dialog_btn_bg_pressed">#ffe0e0e0</color>
-    <color name="aliceblue">#f0f8ff</color>
     <item name="anim_increase_text" type="color">@color/ss_comment_digg_text_highlight</item>
     <item name="anim_increase_text_night" type="color">@color/ss_comment_digg_text_highlight_night</item>
-    <color name="antiquewhite">#faebd7</color>
-    <color name="aqua">#00ffff</color>
-    <color name="aquamarine">#7fffd4</color>
     <color name="arc_progress_background">#ffffffff</color>
     <color name="arc_progress_sweeping_color">#ffcccccc</color>
     <color name="avatar_stroke">#ffffffff</color>
     <color name="avatar_stroke_night">#ffb1b1b1</color>
-    <color name="azure">#f0ffff</color>
-    <color name="beige">#f5f5dc</color>
-    <color name="bg_Gray">#CCCCCC</color>
-    <color name="bg_Gray_light">#EEEEEE</color>
+    <color name="background">#FF000000</color>
     <color name="bg_full_image">#ff000000</color>
-    <color name="bg_gray">#878787</color>
     <color name="bg_login_page">#fff9f9f9</color>
     <color name="bg_row_border">#ffcacaca</color>
     <color name="bg_row_border_night">#ff444444</color>
     <color name="bg_row_normal">#ffffffff</color>
     <item name="bg_row_normal_center" type="color">@color/bg_row_normal</item>
+    <item name="bg_row_normal_center1" type="color">@color/bg_row_normal</item>
     <item name="bg_row_normal_center_night" type="color">@color/bg_row_normal_night</item>
     <item name="bg_row_normal_end" type="color">@color/bg_row_normal</item>
+    <item name="bg_row_normal_end1" type="color">@color/bg_row_normal</item>
     <item name="bg_row_normal_end_night" type="color">@color/bg_row_normal_night</item>
     <color name="bg_row_normal_night">#ff1f2023</color>
     <item name="bg_row_normal_start" type="color">@color/bg_row_normal</item>
+    <item name="bg_row_normal_start1" type="color">@color/menu_item_text_normal</item>
     <item name="bg_row_normal_start_night" type="color">@color/bg_row_normal_night</item>
     <color name="bg_row_pressed_center">#ffcccccc</color>
     <color name="bg_row_pressed_center_night">#ff1a1b1d</color>
@@ -65,20 +68,13 @@
     <color name="bg_row_pressed_end_night">#ff1a1b1d</color>
     <color name="bg_row_pressed_start">#ffcccccc</color>
     <color name="bg_row_pressed_start_night">#ff1a1b1d</color>
-    <color name="bisque">#ffe4c4</color>
     <color name="black">#ff000000</color>
-    <color name="blanchedalmond">#ffebcd</color>
     <color name="blue">#ff0000ff</color>
-    <color name="blues">#26addf</color>
-    <color name="blueviolet">#8a2be2</color>
     <item name="browser_fragment_bg" type="color">@color/default_window_bg</item>
     <item name="browser_fragment_bg_night" type="color">@color/default_window_bg_night</item>
     <color name="browser_fragment_tool_bar_bg">#ffffffff</color>
     <color name="browser_fragment_tool_bar_border">#ffaaaaaa</color>
-    <color name="burlywood">#deb887</color>
-    <color name="cadetblue">#5f9ea0</color>
-    <color name="cancel_status_color">#D9434E</color>
-    <color name="canceled_status_color">#6d6d6d</color>
+    <color name="bulegray">#f0f0f0</color>
     <color name="category_background">#fffafafa</color>
     <item name="category_item_other" type="color">@color/default_text</item>
     <item name="category_item_other_night" type="color">@color/default_text_night</item>
@@ -86,8 +82,6 @@
     <color name="category_list_header_night">#ff252525</color>
     <color name="category_subscribe_text">#ffffffff</color>
     <item name="category_subscribe_text_night" type="color">@color/default_text_night</item>
-    <color name="chartreuse">#7fff00</color>
-    <color name="chocolate">#d2691e</color>
     <color name="comment_diggup_anim">#ffcc3131</color>
     <item name="comment_dlg_bg" type="color">@color/default_window_bg</item>
     <item name="comment_dlg_bg_night" type="color">@color/default_window_bg_night</item>
@@ -101,36 +95,14 @@
     <item name="comment_dlg_text_night" type="color">@color/default_text_night</item>
     <color name="comment_line">#ffe7e7e7</color>
     <color name="comment_line_night">#ff303030</color>
-    <color name="coral">#ff7f50</color>
-    <color name="cornflowerblue">#6495ed</color>
-    <color name="cornk">#fff8dc</color>
-    <color name="crimson">#dc143c</color>
-    <color name="cyan">#00ffff</color>
-    <color name="darkblue">#00008b</color>
-    <color name="darkcyan">#008b8b</color>
-    <color name="darkgoldenrod">#b8860b</color>
-    <color name="darkgray">#ff808080</color>
-    <color name="darkgreen">#006400</color>
-    <color name="darkgrey">#a9a9a9</color>
-    <color name="darkkhaki">#bdb76b</color>
-    <color name="darkmagenta">#8b008b</color>
-    <color name="darkolivegreen">#556b2f</color>
-    <color name="darkorange">#ff8c00</color>
-    <color name="darkorchid">#9932cc</color>
-    <color name="darkred">#8b0000</color>
-    <color name="darksalmon">#e9967a</color>
-    <color name="darkseagreen">#8fbc8f</color>
-    <color name="darkslateblue">#483d8b</color>
-    <color name="darkslategray">#2f4f4f</color>
-    <color name="darkslategrey">#2f4f4f</color>
-    <color name="darkturquoise">#00ced1</color>
-    <color name="darkviolet">#9400d3</color>
-    <color name="deeppink">#ff1493</color>
-    <color name="deepred">#ff1414</color>
-    <color name="deepskyblue">#00bfff</color>
+    <color name="darkgray">#ffa9a9a9</color>
+    <color name="default_background_color">@android:color/transparent</color>
     <color name="default_desc">#ff747474</color>
     <color name="default_desc_night">#ff505050</color>
+    <color name="default_progress_color">#33b5e5</color>
+    <color name="default_stroke_color">#33b5e5</color>
     <color name="default_text">#ff454545</color>
+    <color name="default_text_color">#333333</color>
     <color name="default_text_night">#ff747474</color>
     <color name="default_window_bg">#ffffffff</color>
     <color name="default_window_bg_night">#ff1a1b1d</color>
@@ -178,8 +150,7 @@
     <item name="detail_title_bar_url_night" type="color">@color/default_text_night</item>
     <color name="detail_title_text_color">#ff999999</color>
     <item name="detail_title_text_color_night" type="color">@color/default_text_night</item>
-    <color name="dimgray">#696969</color>
-    <color name="dimgrey">#696969</color>
+    <color name="dimgray">#ff696969</color>
     <color name="dislike_bg_normal">#ff3e3e3e</color>
     <color name="dislike_bg_normal_night">#ff666666</color>
     <color name="dislike_bg_pressed">#ff2b2b2b</color>
@@ -189,10 +160,10 @@
     <color name="divider_day">#ffdddddd</color>
     <color name="divider_left_bg">#ffacacac</color>
     <color name="divider_left_bg_night">#ff000000</color>
+    <color name="divider_line">#FF575757</color>
     <color name="divider_night">#ff303030</color>
     <color name="divider_right_bg">#ffffffff</color>
     <color name="divider_right_bg_night">#ff505050</color>
-    <color name="dodgerblue">#1e90ff</color>
     <color name="dot_bg">#00ff0000</color>
     <color name="dot_select_color">#ffffffff</color>
     <color name="dot_unselect_color">#50ffffff</color>
@@ -219,6 +190,9 @@
     <color name="drawer_text">#ffc3c3c3</color>
     <color name="drawer_text_little">#ff727272</color>
     <color name="drawer_title_bg_night">#ff1f2023</color>
+    <color name="drop_down_list_footer_font_color">#A2A3A2</color>
+    <color name="drop_down_list_header_font_color">#000000</color>
+    <color name="drop_down_list_header_second_font_color">#000000</color>
     <color name="empty_comment_hint">#ffe4e4e4</color>
     <color name="empty_comment_hint_night">#ff303030</color>
     <item name="error_tip_btn_night" type="color">@color/default_text_night</item>
@@ -233,9 +207,6 @@
     <item name="favor_user_name_night" type="color">@color/default_text_night</item>
     <color name="favorite_gallery_des_text">#ff444444</color>
     <item name="favorite_gallery_des_text_night" type="color">@color/default_text_night</item>
-    <color name="fc_back">#7f7e7e</color>
-    <color name="fc_green">#19cfd1</color>
-    <color name="fc_green1">#51cbb9</color>
     <color name="feed_hint_normal">#fff0f0f0</color>
     <color name="feed_hint_normal_night">#ff252525</color>
     <color name="feed_hint_pressed">#ffeaeaea</color>
@@ -266,48 +237,35 @@
     <item name="feedback_tab_title_normal_night" type="color">@color/default_text_night</item>
     <color name="feedback_tab_title_selected">#ffa40000</color>
     <color name="feedback_tab_title_selected_night">#ffa40000</color>
-    <color name="firebrick">#b22222</color>
-    <color name="floralwhite">#fffaf0</color>
-    <color name="fontblack">#ff4b4b4b</color>
-    <color name="forestgreen">#228b22</color>
-    <color name="fuchsia">#ff00ff</color>
-    <color name="gainsboro">#dcdcdc</color>
+    <color name="font_focus">#D7F679</color>
     <color name="gallery_alpha">#b0000000</color>
     <color name="gallery_background">#ff111111</color>
-    <color name="ghostwhite">#f8f8ff</color>
     <color name="gold">#ffd700</color>
-    <color name="goldenrod">#daa520</color>
-    <color name="goldyellow">#ff9428</color>
-    <color name="gray">#ff7d7d7d</color>
-    <color name="gray_">#d6d6d6</color>
+    <color name="gold_player">#F7F466</color>
+    <color name="gray">#ff808080</color>
+    <color name="graylight">#cccccc</color>
     <color name="green">#ff00ff00</color>
-    <color name="greenyellow">#adff2f</color>
-    <color name="grey">#808080</color>
-    <color name="grey_me">#d5dad7</color>
     <color name="guide_download_btn_text">#ffb4b4b4</color>
     <color name="guide_start_btn_text">#ffffffff</color>
     <color name="guide_view_bg">#ff999999</color>
-    <color name="helper_blue">#17b3ec</color>
-    <color name="home_hot_article_color">#F75320</color>
-    <color name="home_item">#ffd90000</color>
-    <color name="home_item_normal">#fff2f2f2</color>
-    <color name="home_item_selector">#ffc9c9c9</color>
-    <color name="home_pager_normal_color">#7c7b7b</color>
-    <color name="home_pager_select_color">#F98064</color>
-    <color name="home_text_color_two">#9f9e9e</color>
-    <color name="home_text_main_color">#232323</color>
-    <color name="home_title_color">#D9434E</color>
+    <color name="holo_blue_bright">#ff00ddff</color>
+    <color name="holo_blue_dark">#ff0099cc</color>
+    <color name="holo_blue_light">#ff33b5e5</color>
+    <color name="holo_gray_bright">#33CCCCCC</color>
+    <color name="holo_gray_light">#33999999</color>
+    <color name="holo_green_dark">#ff669900</color>
+    <color name="holo_green_light">#ff99cc00</color>
+    <color name="holo_orange_dark">#ffff8800</color>
+    <color name="holo_orange_light">#ffffbb33</color>
+    <color name="holo_purple">#ffaa66cc</color>
+    <color name="holo_red_dark">#ffcc0000</color>
+    <color name="holo_red_light">#ffff4444</color>
     <color name="homepage_name_text">#ff252525</color>
     <color name="homepage_signature_text">#ff303030</color>
-    <color name="honeydew">#f0fff0</color>
-    <color name="hospital_Gray_light">#D1D1D1</color>
-    <color name="hotpink">#ff69b4</color>
     <color name="hotword_text">#ff666666</color>
     <color name="hotword_text_night">#ffcccccc</color>
     <color name="image_loading_bg">#ffefefef</color>
     <color name="image_loading_bg_night">#ff2b2b2b</color>
-    <color name="indianred">#cd5c5c</color>
-    <color name="indigo">#4b0082</color>
     <color name="integration_content_color">#ff444444</color>
     <color name="integration_title_color">#ffffffff</color>
     <color name="item_abstract_disabled">#ff929292</color>
@@ -329,11 +287,6 @@
     <color name="item_title_disabled_night">#ff505050</color>
     <color name="item_title_normal">#ff444444</color>
     <item name="item_title_normal_night" type="color">@color/default_text_night</item>
-    <color name="ivory">#fffff0</color>
-    <color name="khaki">#f0e68c</color>
-    <color name="lavender">#e6e6fa</color>
-    <color name="lavenderblush">#fff0f5</color>
-    <color name="lawngreen">#7cfc00</color>
     <color name="left_drawer_item_bg_normal">#ff393939</color>
     <color name="left_drawer_item_bg_pressed">#ff292929</color>
     <color name="left_drawer_item_line">#ff272727</color>
@@ -345,28 +298,8 @@
     <color name="left_drawer_offline_hint">#ff6699cc</color>
     <color name="left_drawer_offline_line">#ff4bbff6</color>
     <color name="left_drawer_user_name">#ffd4d4d4</color>
-    <color name="lemonchiffon">#fffacd</color>
-    <color name="light_blue">#ff99cc</color>
-    <color name="lightblue">#add8e6</color>
-    <color name="lightcoral">#f08080</color>
-    <color name="lightcyan">#e0ffff</color>
     <color name="lighter_gray">#ffd3d3d3</color>
-    <color name="lightgoldenrodyellow">#fafad2</color>
-    <color name="lightgray">#d3d3d3</color>
-    <color name="lightgreen">#90ee90</color>
-    <color name="lightgrey">#d3d3d3</color>
-    <color name="lightpink">#ffb6c1</color>
-    <color name="lightsalmon">#ffa07a</color>
-    <color name="lightseagreen">#20b2aa</color>
-    <color name="lightskyblue">#87cefa</color>
-    <color name="lightslategray">#778899</color>
-    <color name="lightslategrey">#778899</color>
-    <color name="lightsteelblue">#b0c4de</color>
-    <color name="lightyellow">#ffffe0</color>
-    <color name="lime">#00ff00</color>
-    <color name="limegreen">#32cd32</color>
-    <color name="limit_buy_border_bg">#ffd4bc77</color>
-    <color name="linen">#faf0e6</color>
+    <color name="lightgray">#ffd3d3d3</color>
     <color name="list_city_category_hint_text">#ff999999</color>
     <color name="list_city_category_hint_text_night">#ff505050</color>
     <color name="list_city_category_tip_bg">#ffffffff</color>
@@ -381,6 +314,7 @@
     <color name="list_city_item_divider_up_night">#ff000000</color>
     <color name="list_city_item_text">#ff444444</color>
     <item name="list_city_item_text_night" type="color">@color/default_text_night</item>
+    <color name="list_divider">#f1f1e8</color>
     <color name="list_foot_loading">#ff333333</color>
     <item name="list_foot_loading_night" type="color">@color/default_text_night</item>
     <color name="list_footer_btn">#ff444444</color>
@@ -395,36 +329,23 @@
     <color name="list_notify_text_night">#ffb1b1b1</color>
     <color name="list_section_text_color">#ff989898</color>
     <color name="list_section_text_color_night">#ff505050</color>
-    <color name="login_button">#ff775025</color>
+    <color name="listview_item_normal">#eef0ed</color>
+    <color name="listview_item_pressed">#d4d4d4</color>
     <color name="login_tip_bg">#f22b2d32</color>
     <color name="login_tip_bg_night">#f2000000</color>
     <color name="login_tip_btn_color">#ffffffff</color>
     <color name="login_tip_btn_color_night">#ffd7d7d7</color>
     <color name="login_tip_text_color">#ffc5c5c5</color>
     <item name="login_tip_text_color_night" type="color">@color/default_text_night</item>
-    <color name="magenta">#ff00ff</color>
-    <color name="marketgray">#909090</color>
-    <color name="maroon">#800000</color>
+    <color name="main_red">#ffcc3131</color>
     <color name="media_btn_finish_normal">#ffffffff</color>
     <color name="media_btn_finish_pressed">#ff6e6e6e</color>
-    <color name="mediumaquamarine">#66cdaa</color>
-    <color name="mediumblue">#0000cd</color>
-    <color name="mediumorchid">#ba55d3</color>
-    <color name="mediumpurple">#9370db</color>
-    <color name="mediumseagreen">#3cb371</color>
-    <color name="mediumslateblue">#7b68ee</color>
-    <color name="mediumspringgreen">#00fa9a</color>
-    <color name="mediumturquoise">#48d1cc</color>
-    <color name="mediumvioletred">#c71585</color>
     <item name="menu_item_highlight" type="color">@color/menu_item_text_normal</item>
     <color name="menu_item_text_highlight">#ffffffff</color>
     <color name="menu_item_text_normal">#ff535c74</color>
-    <color name="midnightblue">#191970</color>
-    <color name="mintcream">#f5fffa</color>
-    <color name="mistyrose">#ffe4e1</color>
-    <color name="moccasin">#ffe4b5</color>
-    <color name="navajowhite">#ffdead</color>
-    <color name="navy">#000080</color>
+    <color name="message_checked">#90918f</color>
+    <color name="message_no_check">#323232</color>
+    <color name="nearly_hard">#97000000</color>
     <color name="night_mode_icon">#ff747474</color>
     <color name="night_mode_icon_dark">#ff545454</color>
     <color name="night_mode_overlay">#80000000</color>
@@ -433,21 +354,8 @@
     <color name="notify_view_divider">#66ffffff</color>
     <color name="notify_view_divider_night">#99b1b1b1</color>
     <color name="offline_text">#ff4bbff6</color>
-    <color name="olive">#808000</color>
-    <color name="olivedrab">#6b8e23</color>
-    <color name="orange">#ffa500</color>
-    <color name="orange_">#ff7800</color>
-    <color name="orange_1">#f75320</color>
-    <color name="orangered">#ff4500</color>
-    <color name="orchid">#da70d6</color>
-    <color name="order_total_price_color">#C07A07</color>
-    <color name="palegoldenrod">#eee8aa</color>
-    <color name="palegreen">#98fb98</color>
-    <color name="paleturquoise">#afeeee</color>
-    <color name="palevioletred">#db7093</color>
-    <color name="papayawhip">#ffefd5</color>
-    <color name="peachpuff">#ffdab9</color>
-    <color name="peru">#cd853f</color>
+    <color name="orange">#FF6600</color>
+    <color name="orange_light">#fdaa0b</color>
     <color name="pgc_empty_text">#ffd4d4d4</color>
     <color name="pgc_empty_text_night">#ff404040</color>
     <color name="pgc_text_name">#ffd6d6d6</color>
@@ -456,16 +364,14 @@
     <color name="pgc_text_normal_night">#ff999999</color>
     <color name="pgc_text_verified">#ff42a4ff</color>
     <color name="pgc_text_verified_night">#ff42a4ff</color>
-    <color name="pink">#ffc0cb</color>
+    <color name="pink_red">#F63E2A</color>
     <color name="pinyin_bg">#ffffffff</color>
     <color name="pinyin_bg_night">#ff2b2b2b</color>
     <color name="player_controller_bg">#ffffffff</color>
     <color name="player_controller_bg_night">#ff161616</color>
     <color name="player_controller_text">#ff6e6e6e</color>
     <color name="player_controller_text_night">#ff798ca3</color>
-    <color name="plum">#dda0dd</color>
     <color name="popup_window_pressed_bg">#ff999999</color>
-    <color name="powderblue">#b0e0e6</color>
     <color name="profile_drawer_btn_friend_normal">#ff919695</color>
     <color name="profile_drawer_btn_friend_pressed">#ff6d706f</color>
     <color name="profile_drawer_btn_friend_selected">#ffa40000</color>
@@ -501,11 +407,13 @@
     <color name="profile_message_new_text_night">#ffcbcbcb</color>
     <color name="profile_titlebar_text">#ff000000</color>
     <item name="profile_titlebar_text_night" type="color">@color/default_text_night</item>
+    <color name="progress_default_circle_color">#80ffffff</color>
+    <color name="progress_default_progress_color">#33b5e5</color>
     <color name="progressbar_app">#ff666666</color>
     <color name="pull_list_head_text">#ff444444</color>
     <item name="pull_list_head_text_night" type="color">@color/default_text_night</item>
     <color name="pull_to_refresh_label_color">#ff737373</color>
-    <color name="purple">#800080</color>
+    <color name="quickaction_text_color">#333</color>
     <color name="red">#ffff0000</color>
     <color name="related_news_title_disabled">#ff999999</color>
     <color name="related_news_title_disabled_night">#ff505050</color>
@@ -525,36 +433,24 @@
     <color name="report_edit_text_color_night">#ff6b6b6b</color>
     <color name="report_item_text_color">#ff6b6b6b</color>
     <color name="report_item_text_color_night">#ff6b6b6b</color>
-    <color name="rosybrown">#bc8f8f</color>
-    <color name="royalblue">#4169e1</color>
-    <color name="saddlebrown">#8b4513</color>
-    <color name="salmon">#fa8072</color>
-    <color name="sandybrown">#f4a460</color>
-    <color name="seaShell">#fff5ee</color>
-    <color name="seagreen">#2e8b57</color>
+    <color name="sandybrown">#fff4a460</color>
     <color name="search_keyword_highlight">#ffc80000</color>
     <color name="search_keyword_highlight_night">#ffa33836</color>
     <color name="search_text">#ff666666</color>
     <color name="search_text_hint">#ff999999</color>
     <color name="search_text_hint_night">#ff999999</color>
     <color name="search_text_night">#ffcccccc</color>
-    <color name="search_toolbar_bg">#ff484B50</color>
+    <color name="semitransparent">#90000000</color>
     <color name="setting_alt_text_normal">#ff666666</color>
     <color name="setting_alt_text_selected">#ffff0000</color>
     <color name="setting_copyright">#ff999999</color>
     <item name="setting_copyright_night" type="color">@color/default_text_night</item>
     <color name="setting_item_text">#ff333333</color>
     <item name="setting_item_text_night" type="color">@color/default_text_night</item>
-    <color name="sienna">#a0522d</color>
-    <color name="silver">#c0c0c0</color>
+    <color name="silver">#ffc0c0c0</color>
     <color name="simple_333333">#ff333333</color>
     <color name="simple_cccccc">#ffcccccc</color>
     <color name="simple_eeeeee">#ffeeeeee</color>
-    <color name="skyblue">#87ceeb</color>
-    <color name="slateblue">#6a5acd</color>
-    <color name="slategray">#708090</color>
-    <color name="slategrey">#708090</color>
-    <color name="snow">#fffafa</color>
     <item name="social_action_more_text" type="color">@color/default_text_night</item>
     <item name="social_action_more_text_night" type="color">@color/default_text_night</item>
     <color name="social_adapter_name">#ff000000</color>
@@ -578,7 +474,6 @@
     <color name="sofa_view_hint">#ff999999</color>
     <item name="sofa_view_hint_night" type="color">@color/default_text_night</item>
     <color name="splash_info_text">#ff656565</color>
-    <color name="springgreen">#00ff7f</color>
     <color name="ss_action_bg">#fff8f8f8</color>
     <color name="ss_action_text_highlight">#ffa42020</color>
     <item name="ss_action_text_highlight_night" type="color">@color/ss_action_text_highlight</item>
@@ -636,7 +531,7 @@
     <color name="ss_spipe_view_bg">#ffffffff</color>
     <color name="ss_top_progressbar_end">#ffffffff</color>
     <color name="ss_top_progressbar_start">#10ffffff</color>
-    <color name="steelblue">#4682b4</color>
+    <color name="stick_color_bg">#e2e2e2</color>
     <item name="submit_feedback_fragment_bg" type="color">@color/default_window_bg</item>
     <color name="subscribe_activity_bg">#ffefefef</color>
     <color name="subscribe_activity_bg_night">#ff252525</color>
@@ -676,11 +571,6 @@
     <color name="subscribe_seperate_line_night">#ff464646</color>
     <color name="subscribe_tip_text">#ff2e2e2e</color>
     <item name="subscribe_tip_text_night" type="color">@color/default_text_night</item>
-    <!-- From: file:/D:/ASTEST/as/NBD/res/values/style_switch.xml -->
-    <eat-comment/>
-    <color name="switchtextcolor">#FFFFFF</color>
-    <!-- From: file:/D:/ASTEST/as/NBD/res/values/colors.xml -->
-    <eat-comment/>
     <color name="system_message_name">#fffe3232</color>
     <color name="system_message_name_night">#ffbc494d</color>
     <color name="tabDark">#ff000000</color>
@@ -688,14 +578,8 @@
     <color name="tabTransparent">#10ffffff</color>
     <color name="tab_text_highlight">#ffd6d2cf</color>
     <color name="tab_text_normal">#ffd9d2cc</color>
-    <color name="tan">#d2b48c</color>
-    <color name="teal">#008080</color>
-    <color name="thistle">#d8bfd8</color>
-    <color name="title_black">#363636</color>
     <color name="title_text_color">#ffffffff</color>
     <color name="title_text_color_night">#ffb1b1b1</color>
-    <color name="toast_color">#ff2E76B9</color>
-    <color name="tomato">#ff6347</color>
     <item name="toolbar_bg" type="color">@color/activity_bg_color</item>
     <item name="toolbar_bg_night" type="color">@color/activity_bg_color_night</item>
     <color name="top_category_bar_background_day">#fff3f3f3</color>
@@ -709,8 +593,6 @@
     <color name="top_category_scroll_view_text_selected_day">#ffffffff</color>
     <color name="top_category_scroll_view_text_selected_night">#ff2b2b2b</color>
     <color name="transparent">#00000000</color>
-    <color name="turquoise">#40e0d0</color>
-    <color name="tv_Black">#000000</color>
     <color name="update_action_btn_text">#ff3366cc</color>
     <color name="update_action_btn_text_night">#ff346795</color>
     <color name="update_article_layout_bg_normal_night">#ff2b2b2b</color>
@@ -726,23 +608,23 @@
     <color name="update_description">#ff999999</color>
     <color name="update_description_night">#ff505050</color>
     <color name="update_item_layout_bg_night">#ff303030</color>
-    <color name="violet">#ee82ee</color>
-    <color name="wait_pay_status_color">#6cb248</color>
-    <color name="wheat">#f5deb3</color>
     <color name="white">#ffffffff</color>
-    <color name="whites">#ffffff</color>
-    <color name="whitesmoke">#f5f5f5</color>
+    <color name="whitetran">#87FFFFFF</color>
     <color name="why_indicator_selected">#ff7d7d7d</color>
     <color name="why_indicator_unselected">#ffcecece</color>
     <color name="write_comment_hint_text">#ff999999</color>
     <item name="write_comment_hint_text_night" type="color">@color/default_text_night</item>
-    <color name="yellow">#ffff00</color>
-    <color name="yellow1">#FDB338</color>
-    <declare-styleable name="CircleFlowIndicator"><attr format="color" name="activeColor"/><attr format="color" name="inactiveColor"/><attr format="dimension" name="radius"/><attr format="boolean" name="centered"/><attr format="integer" name="fadeOut"/><attr name="inactiveType"><flag name="stroke" value="0"/><flag name="fill" value="1"/></attr><attr name="activeType"><flag name="stroke" value="0"/><flag name="fill" value="1"/></attr><attr format="dimension" name="circleSeparation"/><attr format="dimension" name="activeRadius"/></declare-styleable>
-    <declare-styleable name="SwitchButton"><attr format="reference" name="thumb"/><attr format="reference" name="track"/><attr format="string" name="textOn"/><attr format="string" name="textOff"/><attr format="dimension" name="thumbTextPadding"/><attr format="reference" name="switchTextAppearance"/><attr format="dimension" name="switchMinWidth"/><attr format="dimension" name="switchPadding"/></declare-styleable>
-    <declare-styleable name="Switch_Style"><attr format="reference" name="switchStyle"/></declare-styleable>
-    <declare-styleable name="TextAppearance"><attr format="reference|color" name="textColor"/><attr format="dimension" name="textSize"/><attr name="textStyle"><flag name="normal" value="0"/><flag name="bold" value="1"/><flag name="italic" value="2"/></attr><attr name="typeface"><enum name="normal" value="0"/><enum name="sans" value="1"/><enum name="serif" value="2"/><enum name="monospace" value="3"/></attr><attr format="reference|color" name="textColorHighlight"/><attr format="reference|color" name="textColorHint"/><attr format="reference|color" name="textColorLink"/><attr format="boolean" name="textAllCaps"/></declare-styleable>
-    <declare-styleable name="ViewFlow"><attr format="integer" name="sidebuffer"/></declare-styleable>
+    <color name="yellow">#FFFFE400</color>
+    <declare-styleable name="DiscrollView_LayoutParams"><attr format="boolean" name="discrollve_alpha"/><attr format="boolean" name="discrollve_scaleX"/><attr format="boolean" name="discrollve_scaleY"/><attr format="float" name="discrollve_threshold"/><attr format="color" name="discrollve_fromBgColor"/><attr format="color" name="discrollve_toBgColor"/><attr name="discrollve_translation"/></declare-styleable>
+    <declare-styleable name="FlipView"><attr format="enum" name="orientation"><enum name="vertical" value="0"/><enum name="horizontal" value="1"/></attr><attr format="enum" name="overFlipMode"><enum name="glow" value="0"/><enum name="rubber_band" value="1"/></attr></declare-styleable>
+    <declare-styleable name="PagerIndicator"><attr format="enum" name="visibility"><enum name="visible" value="0"/><enum name="invisible" value="1"/></attr><attr format="enum" name="shape"><enum name="oval" value="0"/><enum name="rect" value="1"/></attr><attr format="color" name="selected_color"/><attr format="color" name="unselected_color"/><attr format="reference" name="selected_drawable"/><attr format="reference" name="unselected_drawable"/><attr format="dimension" name="selected_width"/><attr format="dimension" name="selected_height"/><attr format="dimension" name="unselected_width"/><attr format="dimension" name="unselected_height"/><attr format="dimension" name="padding_left"/><attr format="dimension" name="padding_right"/><attr format="dimension" name="padding_top"/><attr format="dimension" name="padding_bottom"/><attr format="dimension" name="selected_padding_left"/><attr format="dimension" name="selected_padding_right"/><attr format="dimension" name="selected_padding_top"/><attr format="dimension" name="selected_padding_bottom"/><attr format="dimension" name="unselected_padding_left"/><attr format="dimension" name="unselected_padding_right"/><attr format="dimension" name="unselected_padding_top"/><attr format="dimension" name="unselected_padding_bottom"/></declare-styleable>
+    <declare-styleable name="ProgressButton"><attr format="integer" name="progress"/><attr format="integer" name="max"/><attr format="color" name="circleColor"/><attr format="color" name="progressColor"/><attr format="reference" name="shadowDrawable1"/><attr format="reference" name="pinnedDrawable"/><attr format="reference" name="unpinnedDrawable"/><attr format="dimension" name="innerSize"/><attr format="boolean" name="pinned"/><attr format="boolean" name="animating"/><attr format="integer" name="animationSpeed"/><attr format="integer" name="animationDelay"/><attr format="integer" name="animationStripWidth"/><attr name="android:background"/><attr name="android:clickable"/><attr name="android:focusable"/></declare-styleable>
+    <declare-styleable name="ProgressPieView"><attr format="integer" name="progress1"/><attr format="integer" name="max1"/><attr format="integer" name="startAngle"/><attr format="dimension" name="strokeWidth"/><attr format="reference|color" name="backgroundColor"/><attr format="reference|color" name="progressColor1"/><attr format="reference|color" name="strokeColor"/><attr format="boolean" name="showStroke"/><attr format="boolean" name="showText"/><attr format="string" name="typeface"/><attr format="reference" name="image"/><attr name="android:text"/><attr name="android:textSize"/><attr name="android:textColor"/><attr format="enum" name="progressFillType"><enum name="radial" value="0"/><enum name="center" value="1"/></attr></declare-styleable>
+    <declare-styleable name="SliderLayout"><attr format="enum" name="indicator_visibility"><enum name="visible" value="0"/><enum name="invisible" value="1"/></attr><attr format="boolean" name="auto_cycle"/><attr format="enum" name="pager_animation"><enum name="Default" value="0"/><enum name="Accordion" value="1"/><enum name="Background2Foreground" value="2"/><enum name="CubeIn" value="3"/><enum name="DepthPage" value="4"/><enum name="Fade" value="5"/><enum name="FlipHorizontal" value="6"/><enum name="FlipPage" value="7"/><enum name="Foreground2Background" value="8"/><enum name="RotateDown" value="9"/><enum name="RotateUp" value="10"/><enum name="Stack" value="11"/><enum name="Tablet" value="12"/><enum name="ZoomIn" value="13"/><enum name="ZoomOutSlide" value="14"/><enum name="ZoomOut" value="15"/></attr><attr format="integer" name="pager_animation_span"/></declare-styleable>
+    <declare-styleable name="SlidingMenu"><attr name="mode"><enum name="left" value="0"/><enum name="right" value="1"/></attr><attr format="reference" name="viewAbove"/><attr format="reference" name="viewBehind"/><attr format="dimension" name="behindOffset"/><attr format="dimension" name="behindWidth"/><attr format="float" name="behindScrollScale"/><attr name="touchModeAbove"><enum name="margin" value="0"/><enum name="fullscreen" value="1"/></attr><attr name="touchModeBehind"><enum name="margin" value="0"/><enum name="fullscreen" value="1"/></attr><attr format="reference" name="shadowDrawable"/><attr format="dimension" name="shadowWidth"/><attr format="boolean" name="fadeEnabled"/><attr format="float" name="fadeDegree"/><attr format="boolean" name="selectorEnabled"/><attr format="reference" name="selectorDrawable"/></declare-styleable>
+    <declare-styleable name="SwipeListView"><attr format="boolean" name="swipeOpenOnLongPress"/><attr format="integer" name="swipeAnimationTime"/><attr format="dimension" name="swipeOffsetLeft"/><attr format="dimension" name="swipeOffsetRight"/><attr format="boolean" name="swipeCloseAllItemsWhenMoveList"/><attr format="reference" name="swipeFrontView"/><attr format="reference" name="swipeBackView"/><attr format="enum" name="swipeMode"><enum name="none" value="0"/><enum name="both" value="1"/><enum name="right" value="2"/><enum name="left" value="3"/></attr><attr format="enum" name="swipeActionLeft"><enum name="reveal" value="0"/><enum name="dismiss" value="1"/><enum name="choice" value="2"/></attr><attr format="enum" name="swipeActionRight"><enum name="reveal" value="0"/><enum name="dismiss" value="1"/><enum name="choice" value="2"/></attr><attr format="reference" name="swipeDrawableChecked"/><attr format="reference" name="swipeDrawableUnchecked"/><attr format="boolean" name="swipeIsDropDownStyle"/><attr format="boolean" name="swipeIsOnBottomStyle"/><attr format="boolean" name="swipeIsAutoLoadOnBottom"/></declare-styleable>
+    <declare-styleable name="Themes"><attr format="reference" name="SliderStyle"/><attr format="reference" name="PagerIndicatorStyle"/></declare-styleable>
+    <declare-styleable name="drop_down_list_attr"><attr format="boolean" name="isDropDownStyle"/><attr format="boolean" name="isOnBottomStyle"/><attr format="boolean" name="isAutoLoadOnBottom"/></declare-styleable>
     <!-- From: file:/D:/ASTEST/as/NBD/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="abc_action_bar_default_height">48.0dip</dimen>
@@ -790,6 +672,9 @@
     <dimen name="detail_more_page_position_interval">6.0dip</dimen>
     <dimen name="detail_more_page_position_width">24.0dip</dimen>
     <dimen name="detail_title_bar_edit_corner">4.0dip</dimen>
+    <dimen name="drop_down_list_footer_font_size">14sp</dimen>
+    <dimen name="drop_down_list_footer_progress_bar_height">36dp</dimen>
+    <dimen name="drop_down_list_header_progress_bar_height">36dp</dimen>
     <dimen name="essay_image_item_total_padding">32.0dip</dimen>
     <dimen name="favor_user_avatar_radius">15.0dip</dimen>
     <dimen name="favor_user_avatar_size">30.0dip</dimen>
@@ -849,6 +734,7 @@
     <dimen name="popover_drawable_padding">6.0dip</dimen>
     <dimen name="popover_item_width">85.0dip</dimen>
     <dimen name="popover_row_margin_top">28.0dip</dimen>
+    <dimen name="progress_inner_size">28dp</dimen>
     <dimen name="register_item_code_layout_height">40dp</dimen>
     <dimen name="register_item_code_layout_width">100dp</dimen>
     <dimen name="register_item_layout_height">44dp</dimen>
@@ -898,17 +784,53 @@
     <dimen name="text_size18">18sp</dimen>
     <dimen name="text_size20">20sp</dimen>
     <dimen name="text_size26">26sp</dimen>
-    <dimen name="title_bar_height">44.0dip</dimen>
+    <dimen name="title_bar_height">45.0dip</dimen>
     <dimen name="top_category_height">40.0dip</dimen>
     <dimen name="top_category_scroll_item_margin">8.0dip</dimen>
     <dimen name="top_category_scroll_text_padding">5.0dip</dimen>
     <dimen name="widget_margin">8.0dip</dimen>
+    <!-- From: file:/D:/ASTEST/as/NBD/res/values/colors.xml -->
+    <eat-comment/>
+    <drawable name="window_background">#ffffff</drawable>
     <!-- From: file:/D:/ASTEST/as/NBD/res/values/strings.xml -->
     <eat-comment/>
     <string name="action_settings">Settings</string>
-    <string name="app_name">NBD</string>
+    <string name="app_name">每日经济新闻</string>
+    <string name="bottom1">新闻</string>
+    <string name="bottom2">视频</string>
+    <string name="bottom3">原创</string>
+    <string name="bottom4">活动</string>
+    <string name="content_desc_pinned_downloaded">Pinned to device and downloaded</string>
+    <string name="content_desc_pinned_downloading">Pinned to device and downloading</string>
+    <string name="content_desc_pinned_not_downloaded">Pinned to device and waiting to download
+  </string>
+    <string name="content_desc_unpinned_downloaded">Temporarily downloaded</string>
+    <string name="content_desc_unpinned_downloading">Temporarily downloading</string>
+    <string name="content_desc_unpinned_not_downloaded">Not downloaded</string>
+    <string name="drawer_btn_rss">频道管理</string>
+    <string name="drop_down_list_footer_default_text"/>
+    <string name="drop_down_list_footer_loading_text">加载中…</string>
+    <string name="drop_down_list_footer_no_more_text">无更多信息</string>
+    <string name="drop_down_list_header_default_text">Click to refresh…</string>
+    <string name="drop_down_list_header_loading_text">加载中…</string>
+    <string name="drop_down_list_header_pull_text">Drop Down to refresh…</string>
+    <string name="drop_down_list_header_release_text">Release to refresh…</string>
+    <string name="dujia">趣图</string>
     <string name="hello_world">Hello world!</string>
+    <string name="httpError">连接失败,请稍候再试</string>
+    <string name="image_content">Image</string>
+    <string name="isnewest">(当前为最新版本)</string>
+    <string name="left_check_update">检查更新</string>
+    <string name="left_feedback">用户反馈</string>
+    <string name="left_restart">重复播放</string>
+    <string name="left_search">数据查询</string>
+    <string name="left_setting">系统设置</string>
     <string name="login_">登录</string>
+    <string name="meitu">美图</string>
+    <string name="mingxing">美图</string>
+    <string name="more">更多</string>
+    <string name="not_network">暂无网络</string>
+    <string name="pics">图片</string>
     <!-- From: file:/D:/ASTEST/as/NBD/res/values/pull_refresh_strings.xml -->
     <eat-comment/>
     <string name="picture_image_loading">正在加载…</string>
@@ -917,6 +839,11 @@
     <string name="picture_previous_album">上一组：</string>
     <string name="picture_save_fail">保存图片失败</string>
     <string name="picture_save_succeed">图片已保存到相册</string>
+    <!-- From: file:/D:/ASTEST/as/NBD/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="press_again_exit">再次点击，退出新闻快讯</string>
+    <!-- From: file:/D:/ASTEST/as/NBD/res/values/pull_refresh_strings.xml -->
+    <eat-comment/>
     <string name="pull_to_refresh_footer_hint_ready">松开载入更多</string>
     <string name="pull_to_refresh_header_hint_loading">@string/pushmsg_center_load_more_ongoing_text</string>
     <string name="pull_to_refresh_header_hint_normal">@string/pushmsg_center_pull_down_text</string>
@@ -934,11 +861,24 @@
     <string name="pushmsg_center_pull_up_text">松开加载更多</string>
     <!-- From: file:/D:/ASTEST/as/NBD/res/values/strings.xml -->
     <eat-comment/>
+    <string name="redian">精选</string>
     <string name="register_">注册</string>
-    <!-- From: file:/D:/ASTEST/as/NBD/res/values/style_switch.xml -->
-    <eat-comment/>
-    <string name="switch_off"/>
-    <string name="switch_on"/>
+    <string name="start_animating">Start Animating</string>
+    <string name="stop_animating">Stop Animating</string>
+    <string name="subscribe_manager_category_info">单击增删频道</string>
+    <string name="subscribe_manager_category_info_2">单击增删频道，长按拖拽排序</string>
+    <string name="subscribe_more_category">更多频道</string>
+    <string name="subscribe_my_category">我的频道</string>
+    <string name="tianqi">天气</string>
+    <string name="ties">消息</string>
+    <string name="titan">故事</string>
+    <string name="via_code">Via Code:</string>
+    <string name="via_xml">Via XML:</string>
+    <string name="video">视频</string>
+    <string name="video_gaoxiao">搞笑</string>
+    <string name="video_jingpin">精品</string>
+    <string name="video_redian">热点</string>
+    <string name="video_yule">娱乐</string>
     <!-- From: file:/D:/ASTEST/as/NBD/res/values/pull_refresh_strings.xml -->
     <eat-comment/>
     <string name="xsearch_loading">正在加载中…</string>
@@ -962,23 +902,70 @@
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowIsTranslucent">false</item><!--半透明-->  
      </style>
-    <!-- From: file:/D:/ASTEST/as/NBD/res/values/style_switch.xml -->
-    <eat-comment/>
-    <style name="Switch">
-        <item name="track">@drawable/switch_btn</item>
-        <item name="thumb">@drawable/switch_btn_slipper</item>
-        <item name="switchTextAppearance">@android:style/TextAppearance.Small</item>
-        <item name="textOn">@string/switch_on</item>
-        <item name="textOff">@string/switch_off</item>
-        <item name="thumbTextPadding">16dip</item>
-        <item name="switchMinWidth">60dip</item>
-        <item name="switchPadding">10dip</item>
-        <item name="android:textColor">#FFFFFF</item>
-        <item name="android:background">#00FFFFFF</item>
+    <style name="MMTabButton">
+        <item name="android:textSize">12.0dip</item>
+        <item name="android:gravity">center_horizontal</item>
+        <!--<item name="android:background">@drawable/bg_checkbox_menus</item>-->
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:button">@null</item>
+        <item name="android:textColor">@color/color_radiobutton</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:paddingBottom">2.0dip</item>
+        <item name="android:paddingTop">2.0dip</item>
     </style>
-    <!-- From: file:/D:/ASTEST/as/NBD/res/values/styles.xml -->
-    <eat-comment/>
+    <style name="ProgressButton"/>
+    <style name="ProgressButton.1">
+        <!-- Default ! -->
+    </style>
+    <style name="ProgressButton.2">
+
+        <!-- Starts pinned and is NOT clickable ! -->
+        <item name="pinned">true</item>
+    </style>
+    <style name="ProgressButton.Clickable">
+
+        <!-- Attributes required to make a progress button clickable ! -->
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+    <style name="ProgressButton.Clickable.3">
+
+        <!-- Starts pinned, and IS clickable ! -->
+        <item name="pinned">true</item>
+    </style>
+    <style name="ProgressButton.Clickable.4">
+
+        <!-- A styled progress button ! -->
+        <!-- You can also change the drawables (pinned, unpinned and/or shadow) ! -->
+        <!-- <item name="pinnedDrawable">@drawable/pinned_custom</item> ! -->
+        <item name="circleColor">@color/holo_green_dark</item>
+        <item name="progressColor">@color/holo_green_light</item>
+    </style>
+    <style name="ProgressButton.Pin">
+        <item name="progress">0</item>
+        <item name="max">100</item>
+        <item name="circleColor">@color/progress_default_circle_color</item>
+        <item name="progressColor">@color/progress_default_progress_color</item>
+        <item name="pinnedDrawable">@drawable/pin_progress_pinned</item>
+        <item name="unpinnedDrawable">@drawable/pin_progress_unpinned</item>
+        <item name="shadowDrawable1">@drawable/pin_progress_shadow</item>
+        <item name="innerSize">@dimen/progress_inner_size</item>
+        <item name="pinned">false</item>
+        <item name="animating">false</item>
+        <item name="animationSpeed">1</item>
+        <item name="animationDelay">50</item>
+        <item name="animationStripWidth">6</item>
+        <item name="android:clickable">false</item>
+        <item name="android:focusable">false</item>
+    </style>
+    <style name="ProgressButton.Pin.Compat">
+        <item name="android:background">@android:drawable/list_selector_background</item>
+    </style>
     <style name="TransparentTheme"/>
+    <style name="back_view" parent="@style/title_view">
+        <item name="android:drawableLeft">@drawable/btn_back</item>
+    </style>
     <style name="common_button" parent="@style/text_on_button">
         <item name="android:background">@drawable/btn_common</item>
         <item name="android:paddingLeft">6.0dip</item>
@@ -988,15 +975,54 @@
         <item name="android:minWidth">50.0dip</item>
         <item name="android:minHeight">30.0dip</item>
     </style>
+    <style name="common_top">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/group_common</item>
+        <item name="android:textColor">@color/group_common_color</item>
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
     <style name="deail_title_text_style" parent="@style/title_text_style">
         <item name="android:textColor">@color/detail_title_text_color</item>
     </style>
     <style name="detail_activity">
         <item name="android:background">@color/detail_activity_bg_color</item>
     </style>
+    <style name="detail_back_view" parent="@style/back_view">
+        <item name="android:background">@drawable/transparent</item>
+        <item name="android:drawableLeft">@drawable/btn_back_detail</item>
+    </style>
+    <style name="detail_title_bar_style" parent="@style/title_bar_style">
+        <item name="android:background">@drawable/detail_bg_titlebar</item>
+    </style>
     <style name="dislike_text">
         <item name="android:textSize">13.0sp</item>
         <item name="android:textColor">@color/dialog_listpage_text</item>
+    </style>
+    <style name="drop_down_list_footer_font_style">
+        <item name="android:textColor">@color/drop_down_list_footer_font_color</item>
+        <item name="android:textSize">@dimen/drop_down_list_footer_font_size</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    </style>
+    <style name="drop_down_list_footer_progress_bar_style">
+        <item name="android:minHeight">@dimen/drop_down_list_footer_progress_bar_height</item>
+        <item name="android:maxHeight">@dimen/drop_down_list_footer_progress_bar_height</item>
+    </style>
+    <style name="drop_down_list_header_font_style">
+        <item name="android:textColor">@color/drop_down_list_header_font_color</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    </style>
+    <style name="drop_down_list_header_progress_bar_style">
+        <item name="android:minHeight">@dimen/drop_down_list_header_progress_bar_height</item>
+        <item name="android:maxHeight">@dimen/drop_down_list_header_progress_bar_height</item>
+    </style>
+    <style name="drop_down_list_header_second_font_style">
+        <item name="android:textColor">@color/drop_down_list_header_second_font_color</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
     </style>
     <style name="full_image_progress_text">
         <item name="android:textSize">12.0sp</item>
@@ -1014,10 +1040,35 @@
         <item name="android:textSize">12.0sp</item>
         <item name="android:textColor">@color/default_text_night</item>
     </style>
+    <style name="item_content">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/ss_comment_from</item>
+    </style>
+    <style name="item_image">
+        <item name="android:background">@drawable/small_image_holder_listpage</item>
+        <item name="android:layout_width">@dimen/item_image_width</item>
+        <item name="android:layout_height">@dimen/item_image_height</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
     <style name="item_image_gap">
         <item name="android:layout_width">15.0dip</item>
         <item name="android:layout_height">1.0dip</item>
         <item name="android:layout_weight">1.0</item>
+    </style>
+    <style name="item_left">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">72dp</item>
+        <item name="android:background">@drawable/switch_check_selector</item>
+        <item name="android:drawablePadding">15dp</item>
+        <item name="android:paddingLeft">35dp</item>
+        <item name="android:gravity">left|center_vertical</item>
+    </style>
+    <style name="item_local">
+        <item name="android:textSize">10.0sp</item>
+        <item name="android:textColor">@color/item_local</item>
+        <item name="android:background">@drawable/list_item_local_bg</item>
     </style>
     <style name="item_secondary_text">
         <item name="android:textSize">11.0sp</item>
@@ -1049,6 +1100,18 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:drawablePadding">25.0dip</item>
+    </style>
+    <style name="loading_dialog_tran" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+    <style name="myProgressBarStyleLarge">
+        　　        <item name="android:indeterminateDrawable">@drawable/progress_large_white</item>
     </style>
     <style name="notify_view_divider">
         <item name="android:background">@color/notify_view_divider</item>
@@ -1145,6 +1208,17 @@
         <item name="android:textSize">20.0sp</item>
         <item name="android:textColor">@color/title_text_color</item>
     </style>
+    <style name="title_view" parent="@style/title_bar_button">
+        <item name="android:gravity">right|center</item>
+        <item name="android:background">@drawable/transparent</item>
+        <item name="android:paddingLeft">12.0dip</item>
+        <item name="android:paddingRight">0.0dip</item>
+        <item name="android:layout_marginLeft">0.0dip</item>
+        <item name="android:layout_marginRight">0.0dip</item>
+        <item name="android:minHeight">44.0dip</item>
+        <item name="android:clickable">true</item>
+        <item name="android:drawablePadding">0.0dip</item>
+    </style>
     <style name="toolbar_action">
         <item name="android:gravity">center</item>
         <item name="android:layout_gravity">center</item>
@@ -1172,7 +1246,7 @@
     </style>
     <style name="top_category_scroll_view_item_text">
         <item name="android:textSize">16.0sp</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:textStyle"/>
         <item name="android:gravity">center</item>
     </style>
     <style name="top_update_count">
@@ -1185,5 +1259,17 @@
     <style name="top_update_count_base">
         <item name="android:textSize">13.0sp</item>
         <item name="android:shadowDy">-1.0</item>
+    </style>
+    <style name="weacher_temp">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="weacher_title">
+        <item name="android:textSize">21.0sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="weacher_weather">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 </resources>

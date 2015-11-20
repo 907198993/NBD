@@ -10,6 +10,9 @@ import org.hjh.annomation.Table;
 
 import java.io.Serializable;
 
+/**
+ *快讯
+ */
 @Table(TableName = "ArticleDetailForQuick")
 public final class ArticleDetailForQuick implements Serializable{
 

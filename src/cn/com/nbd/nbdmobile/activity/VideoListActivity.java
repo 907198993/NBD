@@ -53,7 +53,7 @@ public class VideoListActivity extends BaseActivity implements
 
 	private int currentIndex = -1;
 
-	private String url1 = "http://ht-mobile.cdn.turner.com/nba/big/teams/kings/2014/12/12/HollinsGlassmov-3462827_8382664.mp4";
+	private String url1 = "http://player.youku.com/player.php/sid/XMTMwMTc2NTM2OA==/partnerid/1a32674d7fb2e24a/v.swf";
 	private String url2 = "http://www.iqiyi.com/dianshiju/20110418/48af82e3012faac7.html";
 
 	private VideoView mVideoView;
@@ -280,7 +280,6 @@ public class VideoListActivity extends BaseActivity implements
 
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-		// TODO Auto-generated method stub
 
 	}
 

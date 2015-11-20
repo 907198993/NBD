@@ -14,8 +14,6 @@ import java.io.Serializable;
 public final class ArticleDetail implements Serializable{
 
 
-
-
 	@ColumnPrimaryKey(TYPE= PrimaryKeyType.DEFINE)
 	@ColumnInt
     private  int ids;

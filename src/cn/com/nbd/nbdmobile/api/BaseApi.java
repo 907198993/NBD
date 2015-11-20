@@ -54,7 +54,7 @@ public abstract class BaseApi {
 
 	protected  String buildPostUrl(String action,String apiInterface){
 		StringBuilder builder = new StringBuilder();
-		builder.append("http://").append(BaseConfig.MALL_WEB_HOST).append(BaseConfig.MALL_WEB_BISUNESS);
+		builder.append("http://").append(BaseConfig.NEWS_ACTIVITY_HOST).append(BaseConfig.NEWS_ACTIVITY_WEB_BISUNESS);
 		
 		builder.append("act=").append(action);
 		builder.append("&op=").append(apiInterface);
@@ -264,7 +264,7 @@ public abstract class BaseApi {
 	public static String buildUrl(String action,String apiInterface,String userKey,boolean config){
 		StringBuilder builder = new StringBuilder();
 		if(config){
-			builder.append("http://").append(BaseConfig.MALL_WEB_HOST).append(BaseConfig.MALL_WEB_BISUNESS);
+			builder.append("http://").append(BaseConfig.NEWS_ACTIVITY_HOST).append(BaseConfig.NEWS_ACTIVITY_WEB_BISUNESS);
 		}
 		
 		builder.append("act=").append(action);

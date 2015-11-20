@@ -6,12 +6,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 
-/**
- * Add click event, disallow parent to intercept touch event when drag
- * 
- * @author Tank
- * 
- */
+
 public class DisallowInterceptTouchViewPager extends ViewPager {
 	private float mPressedX;
 	private float mPreesedY;

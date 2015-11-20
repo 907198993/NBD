@@ -1,6 +1,8 @@
 package cn.com.nbd.nbdmobile.api;
 
-public enum ApiInterface {
+public enum
+
+		ApiInterface {
 
 	/**
 	 * 点击条目数

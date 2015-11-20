@@ -1,9 +1,5 @@
 package cn.com.nbd.nbdmobile.view;
 
-import org.hjh.refresh.ILoadingLayout.State;
-import org.hjh.refresh.LoadingLayout;
-import org.hjh.refresh.PullToRefreshBase;
-
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
@@ -11,15 +7,18 @@ import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.Adapter;
 import android.widget.ListView;
+
+import org.hjh.refresh.ILoadingLayout.State;
+import org.hjh.refresh.LoadingLayout;
+import org.hjh.refresh.PullToRefreshBase;
+
 import cn.com.nbd.nbdmobile.R;
 
 public class PullToRefreshListView extends PullToRefreshBase<ListView> implements OnScrollListener{
 
 	/**ListView*/
     private ListView mListView;
-    /**用于滑到底部自动加载的Footer*/
     private LoadingLayout mLoadMoreFooterLayout;
-    /**滚动的监听器*/
     private OnScrollListener mScrollListener;
     
     public PullToRefreshListView(Context context) {
@@ -27,10 +26,9 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     }
     
     public PullToRefreshListView(Context context, AttributeSet attrs) {
-//        this(context, attrs, 0);//2.3系统无此方法
     	super(context, attrs);
     	setPullLoadEnabled(false);
-    	mListView.setBackgroundColor(getResources().getColor(R.color.whites));
+    	mListView.setBackgroundColor(getResources().getColor(R.color.white));
     }
     
     public PullToRefreshListView(Context context, AttributeSet attrs, int defStyle) {
@@ -49,11 +47,6 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
         return listView;
     }
     
-    /**
-     * 设置是否有更多数据的标志
-     * 
-     * @param hasMoreData true表示还有更多的数据，false表示没有更多数据了
-     */
     public void setHasMoreData(boolean hasMoreData) {
         if (!hasMoreData) {
             if (null != mLoadMoreFooterLayout) {
@@ -67,7 +60,6 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
         }
     }
 
-    /**设置滑动的监听器*/
     public void setOnScrollListener(OnScrollListener l) {
         mScrollListener = l;
     }
@@ -105,7 +97,7 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
         super.setScrollLoadEnabled(scrollLoadEnabled);
         
         if (scrollLoadEnabled) {
-            // 设置Footer
+            // 锟斤拷锟斤拷Footer
             if (null == mLoadMoreFooterLayout) {
                 mLoadMoreFooterLayout = new FooterLoadingLayout(getContext());
             }
@@ -158,10 +150,6 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
         return new HeaderLoadingLayout(context);
     }
     
-    /**
-     * 表示是否还有更多数据
-     * @return true表示还有更多数据
-     */
     private boolean hasMoreData() {
         if ((null != mLoadMoreFooterLayout) && (mLoadMoreFooterLayout.getState() == State.NO_MORE_DATA)) {
             return false;
@@ -170,11 +158,6 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
         return true;
     }
     
-    /**
-     * 判断第一个child是否完全显示出来
-     * 
-     * @return true完全显示出来，否则false
-     */
     private boolean isFirstItemVisible() {
         final Adapter adapter = mListView.getAdapter();
 
@@ -190,10 +173,6 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
         return false;
     }
 
-    /**
-     * 判断最后一个child是否完全显示出来
-     * @return true完全显示出来，否则false
-     */
     private boolean isLastItemVisible() {
         final Adapter adapter = mListView.getAdapter();
 

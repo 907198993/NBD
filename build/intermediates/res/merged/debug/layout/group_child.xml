@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+
+                android:padding="10dip"
+    >
+
+    <TextView
+        android:id="@+id/childLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/imageView_navigation_next_item"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="标题"
+        android:textSize="18dip"/>
+
+    <ImageView
+        android:id="@+id/imageView_navigation_next_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dip"
+        android:adjustViewBounds="true"
+        android:maxHeight="20dp"
+        android:maxWidth="20dp"
+        android:src="@drawable/navigation_next_item"
+        />
+
+
+</RelativeLayout><!-- From: file:/D:/ASTEST/as/NBD/res/layout/group_child.xml -->

@@ -2,17 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:orientation="vertical"
-              android:fitsSystemWindows="true"
-              android:clipToPadding="true">
+              android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/head_top_bar_layout"
         android:layout_width="fill_parent"
         android:layout_height="@dimen/title_bar_height"
-        android:background="@drawable/home_title_background"
+        android:background="@color/activity_bg_color"
         android:paddingLeft="10dp"
         android:paddingRight="10dp">
+
 
         <TextView
             android:id="@+id/head_top_bar_left"
@@ -48,7 +47,7 @@
             android:layout_centerInParent="true"
             android:gravity="center_horizontal"
             android:singleLine="true"
-            android:textColor="@color/white"
+            android:textColor="@color/red"
             android:textSize="20sp"/>
     </RelativeLayout>
 

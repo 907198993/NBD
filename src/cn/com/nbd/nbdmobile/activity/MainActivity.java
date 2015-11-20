@@ -26,8 +26,8 @@ import cn.com.nbd.nbdmobile.adapter.NewsFragmentPagerAdapter;
 import cn.com.nbd.nbdmobile.base.AppActivityManager;
 import cn.com.nbd.nbdmobile.bean.TitleItem;
 import cn.com.nbd.nbdmobile.config.AppPresences;
-import cn.com.nbd.nbdmobile.fragment.ClientManageFragment;
-import cn.com.nbd.nbdmobile.fragment.CodeFragment;
+import cn.com.nbd.nbdmobile.fragment.InformationFragment;
+import cn.com.nbd.nbdmobile.fragment.QuickInformaionFragment;
 import cn.com.nbd.nbdmobile.tool.BaseTools;
 import cn.com.nbd.nbdmobile.view.ColumnHorizontalScrollView;
 
@@ -45,63 +45,26 @@ public class MainActivity extends BaseActivity {
 	private ViewPager mViewPager;
 	private ImageView button_more_columns;
 	LinearLayout linear;
-	/**
-	 * 栏目
-	 */
 	private ArrayList<TitleItem> userChannelList = new ArrayList<TitleItem>();
-	/**
-	 * ?????е????
-	 */
 	private int columnSelectIndex = 0;
-	/**
-	 * ?????????
-	 */
 	public ImageView shade_left;
-	/**
-	 * ?????????
-	 */
 	public ImageView shade_right;
-	/**
-	 * ??????
-	 */
 	private int mScreenWidth = 0;
-	/**
-	 * Item???
-	 */
 	private int mItemWidth = 0;
 	private ArrayList<Fragment> fragments = new ArrayList<Fragment>();
 	private FragmentPagerAdapter adapter;
 	// protected SlidingMenu side_drawer;
 
-	/**
-	 * head ??? ???м??loading
-	 */
 	private ProgressBar top_progress;
-	/**
-	 * head ??? ?м????°??
-	 */
 	private ImageView top_refresh;
-	/**
-	 * head ??? ??????? ???
-	 */
 	private ImageView top_head;
-	/**
-	 * head ??? ??????? ???
-	 */
-	private ImageView top_more;
-	/**
-	 * ????CODE
-	 */
+	private ImageView personCenter;//个人中心
 	public final static int CHANNELREQUEST = 1;
-	/**
-	 * ??????RESULTCODE
-	 */
 	public final static int CHANNELRESULT = 10;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		setContentView(R.layout.main);
 		mScreenWidth = BaseTools.getWindowsWidth(this);
 		mItemWidth = mScreenWidth / 6;//     1/6
@@ -128,7 +91,8 @@ public class MainActivity extends BaseActivity {
 		// shade_left = (ImageView) findViewById(R.id.shade_left);
 		// shade_right = (ImageView) findViewById(R.id.shade_right);
 		// top_head = (ImageView) findViewById(R.id.top_head);
-		// top_more = (ImageView) findViewById(R.id.top_more);
+		personCenter = (ImageView) findViewById(R.id.person_center);
+		personCenter.setOnClickListener(this);
 		// top_refresh = (ImageView) findViewById(R.id.top_refresh);
 		// top_progress = (ProgressBar) findViewById(R.id.top_progress);
 		// initColumnData();
@@ -213,14 +177,13 @@ public class MainActivity extends BaseActivity {
 			params.rightMargin = 5;
 
 
-
 			// TextView localTextView = (TextView)
 			// mInflater.inflate(R.layout.column_radio_item, null);
 			TextView columnTextView = new TextView(this);
 			columnTextView.setTextAppearance(this,
 					R.style.top_category_scroll_view_item_text);
 			// localTextView.setBackground(getResources().getDrawable(R.drawable.top_category_scroll_text_view_bg));
-			columnTextView.setBackgroundResource(R.drawable.radio_buttong_bg);
+			//columnTextView.setBackgroundResource(R.drawable.radio_buttong_bg);
 			columnTextView.setGravity(Gravity.CENTER);
 			columnTextView.setPadding(5, 5, 5, 5);
 			columnTextView.setId(i);
@@ -291,13 +254,12 @@ public class MainActivity extends BaseActivity {
 			data.putString("text", userChannelList.get(i).getName());
 			data.putInt("id", userChannelList.get(i).getId());
 
-			ClientManageFragment clientManageFragment = new ClientManageFragment();
-			CodeFragment newfragment = new CodeFragment();
-			clientManageFragment.setArguments(data);
+			QuickInformaionFragment quickInformaionFragment = new QuickInformaionFragment();
+			InformationFragment InformationFragment = new InformationFragment();
+			quickInformaionFragment.setArguments(data);
 
-			// fragments.add(sfragment);
-			fragments.add(clientManageFragment);
-			//	fragments.add(newfragment);
+			fragments.add(quickInformaionFragment);
+			fragments.add(InformationFragment);
 		}
 
 		NewsFragmentPagerAdapter mAdapetr = new NewsFragmentPagerAdapter(
@@ -374,4 +336,15 @@ public class MainActivity extends BaseActivity {
 		super.onActivityResult(requestCode, resultCode, data);
 	}
 
+	@Override
+	public void onClick(View v) {
+		super.onClick(v);
+		switch (v.getId()) {
+			case R.id.person_center:
+				Intent intent = new Intent(mActivity, CenterActivity.class);
+				startActivityWithAnim(mActivity, intent);
+				break;
+
+		}
+	}
 }

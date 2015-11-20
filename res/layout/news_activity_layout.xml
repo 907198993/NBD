@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:orientation="vertical" >
+
+    <cn.com.nbd.nbdmobile.view.TitleLayout
+        android:id="@+id/title_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/title_bar_height"
+        />
+
+    <cn.com.nbd.nbdmobile.view.PullToRefreshListView
+        android:id="@+id/pullview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/title_bar"
+        android:cacheColorHint="@null"
+        android:divider="@null"
+        android:listSelector="@null" />
+
+
+
+</RelativeLayout>
