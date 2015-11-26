@@ -7,16 +7,16 @@ import org.hjh.db.BaseDao;
 import java.util.List;
 
 import cn.com.nbd.nbdmobile.base.DBManager;
-import cn.com.nbd.nbdmobile.bean.ArticleDetailForQuick;
+import cn.com.nbd.nbdmobile.bean.ArticleDetailForRoll;
 
 
-public final class ArticleDetailForQuickDao extends BaseDao<ArticleDetailForQuick> {
+public final class ArticleDetailForRollDao extends BaseDao<ArticleDetailForRoll> {
 
-	private static ArticleDetailForQuickDao instance;
+	private static ArticleDetailForRollDao instance;
 	private static DBManager dbManager;
 	private static boolean 		isTrans;
 
-	protected ArticleDetailForQuickDao(Context context) {
+	protected ArticleDetailForRollDao(Context context) {
 		super(context, dbManager.openSystemDatabase(), isTrans);
 	}
 
@@ -25,11 +25,11 @@ public final class ArticleDetailForQuickDao extends BaseDao<ArticleDetailForQuic
 			String databaseName = "system";
 			dbManager =	DBManager.getInstance(context, databaseName);
 			isTrans = isTransaction;
-			instance = new ArticleDetailForQuickDao(context);
+			instance = new ArticleDetailForRollDao(context);
 		}
 	}
 	
-	public static ArticleDetailForQuickDao getInstance(Context context,boolean isTransaction){
+	public static ArticleDetailForRollDao getInstance(Context context,boolean isTransaction){
 		if(instance == null){
 			init(context,isTransaction);
 		}
@@ -48,7 +48,7 @@ public final class ArticleDetailForQuickDao extends BaseDao<ArticleDetailForQuic
 	 * 插入数据
 	 * @param
 	 */
-	public void insert(ArticleDetailForQuick mallCore){
+	public void insert(ArticleDetailForRoll mallCore){
 		
 		if(mallCore == null){
 			return;
@@ -58,12 +58,12 @@ public final class ArticleDetailForQuickDao extends BaseDao<ArticleDetailForQuic
 		save(mallCore);
 	}
 	
-	public void insertList(List<ArticleDetailForQuick> list){
+	public void insertList(List<ArticleDetailForRoll> list){
 		if(list == null){
 			return;
 		}
 		
-		for(ArticleDetailForQuick item : list){
+		for(ArticleDetailForRoll item : list){
 			insert(item);
 		}
 	}
@@ -72,10 +72,10 @@ public final class ArticleDetailForQuickDao extends BaseDao<ArticleDetailForQuic
 	 * 查询信息
 	 * @return
 	 */
-	public List<ArticleDetailForQuick> queryAllArticleDetailForQuick(){
+	public List<ArticleDetailForRoll> queryAllArticleDetailForRoll(){
 		
 		openCurrentDataBase();
-		List<ArticleDetailForQuick> list = queryPageData("select * from ArticleDetailForQuick", null);
+		List<ArticleDetailForRoll> list = queryPageData("select * from ArticleDetailForRoll", null);
 		
 		return list;
 	}
@@ -83,8 +83,8 @@ public final class ArticleDetailForQuickDao extends BaseDao<ArticleDetailForQuic
 	/**
 	 * 删除所有信息
 	 */
-	public void deleteAllArticleDetailForQuick(){
+	public void deleteAllArticleDetailForRoll(){
 		openCurrentDataBase();
-		removeBySQL("delete from ArticleDetailForQuick");
+		removeBySQL("delete from ArticleDetailForRoll");
 	}
 }

@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="httpmime-4.2.5">
+  <library name="playerBase">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/libs/httpmime-4.2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/YoukuPlayerOpenSDK/libs/playerBase.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

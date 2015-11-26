@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="16"
         android:targetSdkVersion="23" />
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -20,6 +20,25 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <!-- uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS" / -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <!-- <uses-permission android:name="android.permission.INTERNAL_SYSTEM_WINDOW"/> -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <!-- client_id及client_secret配置  这里需要切换为自己的id和secret -->
 
     <application
         android:name="cn.com.nbd.nbdmobile.app.AppApplication"
@@ -45,6 +64,47 @@
         <activity android:name="cn.com.nbd.nbdmobile.activity.NewsPaperActivity" >
         </activity>
         <activity android:name="cn.com.nbd.nbdmobile.activity.NewsActivityActivity" >
+        </activity>
+        <!-- <activity -->
+        <!-- android:name="cn.com.nbd.nbdmobile.activity.PlayerActivity" -->
+        <!-- android:configChanges="orientation|keyboardHidden|screenSize" -->
+        <!-- android:launchMode="singleTask" -->
+        <!-- android:screenOrientation="landscape" -->
+        <!-- android:theme="@android:style/Theme.Black.NoTitleBar"/> -->
+        <meta-data
+            android:name="client_id"
+            android:value="1a32674d7fb2e24a" />
+        <meta-data
+            android:name="client_secret"
+            android:value="aca08c6166bc8cee544e60fefa637c1e" />
+
+        <activity
+            android:name="com.youku.ui.activity.CachePageActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="download"
+                    android:scheme="youku" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.youku.ui.activity.CacheSeriesActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name="com.youku.ui.activity.CacheActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan" >
         </activity>
     </application>
 

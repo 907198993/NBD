@@ -13,11 +13,13 @@ import java.util.Map;
 
 import cn.com.nbd.nbdmobile.bean.ActivityArticle;
 import cn.com.nbd.nbdmobile.bean.ActivityArticleList;
+import cn.com.nbd.nbdmobile.bean.ActivityArticleRollList;
 import cn.com.nbd.nbdmobile.bean.Article;
 import cn.com.nbd.nbdmobile.bean.ArticleForAd;
 import cn.com.nbd.nbdmobile.bean.NewsPaper;
 import cn.com.nbd.nbdmobile.bean.ResultObject;
 import cn.com.nbd.nbdmobile.dao.ArticleDetailDao;
+import cn.com.nbd.nbdmobile.dao.ArticleDetailForRollDao;
 
 
 public final class HomeComponent extends BaseComponent {
@@ -119,6 +121,60 @@ public final class HomeComponent extends BaseComponent {
 		});
 	}
 
+
+	/**
+	 *  滚动
+	 *
+	 * @param page
+	 * @param count
+	 * @param handler
+	 */
+	public void queryRollArticle(final int page, final int count, final AppHandler handler) {
+		AsyncTaskExecutor.executeTask(new AsyncCacheWork(handler) {
+
+			@Override
+			public void onQueryCache() {
+				ActivityArticleRollList article = new ActivityArticleRollList();
+				try {
+					article.setArticles(ArticleDetailForRollDao.getInstance(context, false).queryAllArticleDetailForRoll());
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				if (article.getArticles().size() < 1) {
+					sendMessage(AppConstants.RESULT_QUERY_ROLL_FAILED);
+				} else {
+					sendMessage(AppConstants.RESULT_QUERY_ROLL_SUCCESS, article);
+				}
+			}
+
+			@Override
+			public void onQueryWebApi() {
+				{
+					ResultObject temp = result.clone();
+					ActivityArticleRollList article = (ActivityArticleRollList) HomeApi.getInstance().queryRollArticle(page, count, temp, new TypeToken<ActivityArticleRollList>() {
+					}.getType(), null);
+					//	List<ArticleDetailForQuick> ArticleDetailForQuick  = (List<ArticleDetailForQuick>) HomeApi.getInstance().queryArticle(page,count,temp,new  TypeToken<Article>(){}.getType(),null);
+					if (null == article) {
+						onQueryCache();//获取失败则通过本地获取
+					} else {
+						sendMessage(AppConstants.RESULT_QUERY_ROLL_SUCCESS, article);
+						/////数据库操
+						ArticleDetailForRollDao.getInstance(context, false).deleteAllArticleDetailForRoll();
+						//	ArticleDetailForQuickDao.getInstance(context, false).insertList(ArticleDetailForQuick);
+						ArticleDetailForRollDao.getInstance(context, false).insertList(article.getArticles());
+
+					}
+//					if(null == list){
+//						sendMessage(AppConstants.RESULT_QUERY_ARTICLE_FAILED,temp);
+//					}else{
+//						sendMessage(AppConstants.RESULT_QUERY_ARTICLE_SUCCESS,list);
+//					}
+				}
+
+			}
+
+		});
+	}
 	//文章
 	public void queryArticle(final int page, final int count, final AppHandler handler) {
 		AsyncTaskExecutor.executeTask(new AsyncCacheWork(handler) {

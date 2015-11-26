@@ -36,7 +36,9 @@ import cn.com.nbd.nbdmobile.view.TitleLayout;
  * 活动列表
  */
 @InjectLayout(layout = R.layout.news_activity_layout)
-public final class NewsActivityActivity extends BaseActivity implements
+public final class
+
+		NewsActivityActivity extends BaseActivity implements
 		OnItemClickListener, AppPublicAdapter.IFillValue {
 
 	@InjectView(id = R.id.title_bar)

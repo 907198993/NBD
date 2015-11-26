@@ -27,7 +27,7 @@ import cn.com.nbd.nbdmobile.base.AppActivityManager;
 import cn.com.nbd.nbdmobile.bean.TitleItem;
 import cn.com.nbd.nbdmobile.config.AppPresences;
 import cn.com.nbd.nbdmobile.fragment.InformationFragment;
-import cn.com.nbd.nbdmobile.fragment.QuickInformaionFragment;
+import cn.com.nbd.nbdmobile.fragment.RollFragment;
 import cn.com.nbd.nbdmobile.tool.BaseTools;
 import cn.com.nbd.nbdmobile.view.ColumnHorizontalScrollView;
 
@@ -68,7 +68,7 @@ public class MainActivity extends BaseActivity {
 		setContentView(R.layout.main);
 		mScreenWidth = BaseTools.getWindowsWidth(this);
 		mItemWidth = mScreenWidth / 6;//     1/6
-		userChannelList.add(new TitleItem(1, "快讯", 1, 1));
+		userChannelList.add(new TitleItem(1, "滚动", 1, 1));
 		userChannelList.add(new TitleItem(2, "资讯", 2, 1));
 		userChannelList.add(new TitleItem(3, "理财", 3, 1));
 		userChannelList.add(new TitleItem(4, "证券", 4, 1));
@@ -254,11 +254,11 @@ public class MainActivity extends BaseActivity {
 			data.putString("text", userChannelList.get(i).getName());
 			data.putInt("id", userChannelList.get(i).getId());
 
-			QuickInformaionFragment quickInformaionFragment = new QuickInformaionFragment();
+			RollFragment RollFragment = new RollFragment();
 			InformationFragment InformationFragment = new InformationFragment();
-			quickInformaionFragment.setArguments(data);
+			RollFragment.setArguments(data);
 
-			fragments.add(quickInformaionFragment);
+			fragments.add(RollFragment);
 			fragments.add(InformationFragment);
 		}
 

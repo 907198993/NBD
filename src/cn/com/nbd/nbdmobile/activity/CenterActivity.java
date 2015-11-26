@@ -8,12 +8,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 
 import org.hjh.inject.InjectCore;
 import org.hjh.inject.InjectLayout;
@@ -21,7 +18,6 @@ import org.hjh.inject.InjectView;
 import org.hjh.view.RoundImageView;
 
 import cn.com.nbd.nbdmobile.R;
-import cn.com.nbd.nbdmobile.tool.SystemBarTintManager;
 
 /**
  * Created by Dell on 2015/10/26.
@@ -40,7 +36,7 @@ public class CenterActivity extends BaseActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setTranslucentStatus();
+	//	setTranslucentStatus();
 		InjectCore.injectUI(this);
 	}
 
@@ -75,21 +71,5 @@ public class CenterActivity extends BaseActivity {
 		return cursor.getString(column_index);
 	}
 
-	/**
-	 * 设置状态栏背景状态
-	 */
-	private void setTranslucentStatus() {
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-			Window win = getWindow();
-			WindowManager.LayoutParams winParams = win.getAttributes();
-			final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
-			winParams.flags |= bits;
-			win.setAttributes(winParams);
-
-		}
-		SystemBarTintManager tintManager = new SystemBarTintManager(this);
-		tintManager.setStatusBarTintEnabled(true);
-		tintManager.setStatusBarTintResource(0);//状态栏无背景
-	}
 
 }

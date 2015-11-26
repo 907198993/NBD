@@ -143,6 +143,35 @@ public final class HomeApi extends BaseApi {
 
 	}
 
+	/**
+	 *
+	 * @param page
+	 * @param count
+	 * @param result
+	 * @param type  滚动
+	 * @param clazz
+	 * @return
+	 */
+	public Object queryRollArticle(int page,int count ,ResultObject result,Type type,Class clazz){
+		//String url = "http://api.nbd.com.cn/v1/columns/3/articles.json?client_type=1&app_key=f4af4864997a00ddff7e1765e643f9ec&page="+page+"&count="+count;
+		String url="http://api.nbd.com.cn/375/articles/rolling_news.json?client_type=1&app_key=f4af4864997a00ddff7e1765e643f9ec&count=10&page=1";
+		Map<String, Object> paramter = withEmptyParamterMap();
+		boolean noerrer = httpExecutor.doGet(url, result);
+		if(noerrer){
+			try {
+				return gson.fromJson(result.getContent(),clazz == null ? type : clazz);
+			} catch (Exception e) {
+				e.printStackTrace();
+				result.setCode(BaseConstants.ERROR_API_PARSER_JSON);//解析错误
+				return null;
+			}
+		}else{
+			result.setCode(BaseConstants.ERROR_HTTP_EXECUTE);
+			return null;
+		}
+
+	}
+
 	public Object queryArticle(int page,int count ,ResultObject result,Type type,Class clazz){
 		//String url = "http://api.nbd.com.cn/v1/columns/3/articles.json?client_type=1&app_key=f4af4864997a00ddff7e1765e643f9ec&page="+page+"&count="+count;
 		String url="http://api.nbd.com.cn/2/columns/3/articles.json?client_type=1&app_key=f4af4864997a00ddff7e1765e643f9ec&count=10&page=0";

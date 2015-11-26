@@ -14,37 +14,77 @@
         >
 
 
-        <FrameLayout
+        <RelativeLayout
+
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            >
+            android:background="@drawable/center_background">
 
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="200dp"
-                android:background="@drawable/center_top"
-                >
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_margin="10dp"
+                android:background="@drawable/center_back"/>
 
-                <Button
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_margin="10dp"
+                android:background="@drawable/center_top_tool"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:orientation="vertical">
+
+                <FrameLayout
+
+                    android:id="@+id/frameLayout"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content">
+
+                    <org.hjh.view.RoundImageView
+                        android:id="@+id/user_photo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/center_photo"/>
+
+                    <ImageView
+                        android:id="@+id/unpay_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignEnd="@+id/user_photo"
+                        android:layout_alignRight="@+id/user_photo"
+                        android:layout_alignTop="@+id/user_photo"
+                        android:layout_gravity="right|top"
+                        android:layout_weight="1"
+                        android:background="@drawable/center_message"
+                        android:gravity="center"/>
+
+                </FrameLayout>
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_margin="25dp"
-                    android:background="@drawable/next_page"
-                    />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_margin="25dp"
-                    android:background="@drawable/next_page"
-                    />
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:text="点击登录"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size17"/>
+            </LinearLayout>
 
 
-            </RelativeLayout>
+        </RelativeLayout>
 
-        </FrameLayout>
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -55,106 +95,431 @@
 
             <LinearLayout
                 android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp">
+
+                <RelativeLayout
+                    android:id="@+id/unpay_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="10dp"
+                    >
+
+                    <ImageView
+                        android:id="@+id/image_collect"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/center_collection"/>
+
+                    <TextView
+                        android:id="@+id/collect_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/image_collect"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="4dp"
+                        android:text="12"
+                        android:textColor="#a984de"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/collect_text"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="4dp"
+                        android:text="收藏"
+                        android:textColor="@color/center_text_color"
+                        android:textSize="@dimen/text_size17"/>
+
+                    <View
+                        android:layout_width="1px"
+                        android:layout_height="50dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/gray"/>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/unuse_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="10dp"
+                    >
+
+                    <ImageView
+                        android:id="@+id/image_talk"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/center_talk"/>
+
+                    <TextView
+                        android:id="@+id/talk_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/image_talk"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="4dp"
+                        android:text="12"
+                        android:textColor="#72cfda"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/talk_text"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="4dp"
+                        android:text="评论"
+                        android:textColor="@color/center_text_color"
+                        android:textSize="@dimen/text_size17"/>
+
+                    <View
+                        android:layout_width="1px"
+                        android:layout_height="50dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/gray"/>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/uncomment_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="10dp"
+                    >
+
+                    <ImageView
+                        android:id="@+id/image_read"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/center_read"/>
+
+                    <TextView
+                        android:id="@+id/read_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/image_read"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="4dp"
+                        android:text="12"
+                        android:textColor="#ea6e6e"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/read_text"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="4dp"
+                        android:text="阅读"
+                        android:textColor="@color/center_text_color"
+                        android:textSize="@dimen/text_size17"/>
+
+                    <View
+                        android:layout_width="1px"
+                        android:layout_height="50dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/gray"/>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/refund_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <ImageView
+                        android:id="@+id/image_coin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/center_coin"/>
+
+                    <TextView
+                        android:id="@+id/coin_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/image_coin"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="4dp"
+                        android:text="12"
+                        android:textColor="#daa372"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/coin_text"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="4dp"
+                        android:text="金币"
+                        android:textColor="@color/center_text_color"
+                        android:textSize="@dimen/text_size17"/>
+
+                    <View
+                        android:layout_width="1px"
+                        android:layout_height="1px"
+                        android:layout_alignParentRight="true"
+                        android:background="@color/gray"
+                        android:visibility="invisible"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/gray"/>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_marginTop="40dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
                 android:orientation="vertical">
 
-                <LinearLayout
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1"
+                    >
+
+                    <ImageView
+                        android:id="@+id/image_night"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="15dp"
+                        android:src="@drawable/center_night"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_toRightOf="@+id/image_night"
+                        android:text="夜间模式"
+                        android:textColor="@color/black"
+
+                        android:textSize="@dimen/text_size17"/>
+
+                    <cn.com.nbd.nbdmobile.view.CheckSwitchButton
+                        android:id="@+id/mCheckSwithcButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:enabled="true"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1"
+                    >
+
+                    <ImageView
+                        android:id="@+id/image_outline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="15dp"
+                        android:src="@drawable/center_outline"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center_vertical"
+                        android:layout_toRightOf="@+id/image_outline"
+                        android:text="离线阅读"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size17"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/center_tangle"
+                        android:enabled="true"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1"
+                    >
+
+                    <ImageView
+                        android:id="@+id/image_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="15dp"
+                        android:src="@drawable/center_text"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center_vertical"
+                        android:layout_toRightOf="@+id/image_text"
+                        android:text="文字模式"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size17"/>
+
+                    <cn.com.nbd.nbdmobile.view.CheckSwitchButton
+                        android:id="@+id/textSwithcButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:enabled="true"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1"
+                    >
+
+                    <ImageView
+                        android:id="@+id/image_found"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="15dp"
+                        android:src="@drawable/center_found"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center_vertical"
+                        android:layout_toRightOf="@+id/image_found"
+                        android:text="新闻搜索"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size17"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/center_tangle"
+                        android:enabled="true"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1"
+                    >
+
+                    <ImageView
+                        android:id="@+id/image_push"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="15dp"
+                        android:src="@drawable/center_push"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center_vertical"
+                        android:layout_toRightOf="@+id/image_push"
+                        android:text="推送"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size17"/>
+
+                    <cn.com.nbd.nbdmobile.view.CheckSwitchButton
+                        android:id="@+id/pushSwithcButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:enabled="true"/>
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:layout_marginLeft="30dp"
+                    android:background="@color/gray"/>
+
+                <RelativeLayout
                     android:layout_width="fill_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:orientation="horizontal">
+                    android:gravity="center_vertical"
+                    >
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="fill_parent"
-                        android:layout_weight="1"
-                        android:gravity="center_horizontal"
-                        android:orientation="horizontal"
-                        >
+                    <ImageView
+                        android:id="@+id/image_tool"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="15dp"
+                        android:src="@drawable/center_tool"/>
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="bottom|center"
-                            android:background="@drawable/login_user"
-                            />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center_vertical"
+                        android:layout_toRightOf="@+id/image_tool"
+                        android:text="设置"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size17"/>
 
-                    </LinearLayout>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/center_tangle"
+                        android:enabled="true"/>
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="fill_parent"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center|top"
-                            android:background="@drawable/login_user"
-                            />
-
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="fill_parent"
-                        android:layout_weight="1"
-                        android:gravity="right"
-                        android:orientation="horizontal"
-                        >
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="right|center"
-                            android:background="@drawable/login_user"
-                            />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="fill_parent"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center|top"
-                            android:background="@drawable/login_user"
-                            />
-
-                    </LinearLayout>
-                </LinearLayout>
-
+                </RelativeLayout>
             </LinearLayout>
 
         </LinearLayout>
 
+
     </LinearLayout>
 
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="150dp">
-
-        <org.hjh.view.RoundImageView
-            android:id="@+id/user_photo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/login_user"
-            />
-    </FrameLayout>
 
 </FrameLayout>
 <!-- From: file:/D:/ASTEST/as/NBD/res/layout/center_layout.xml -->

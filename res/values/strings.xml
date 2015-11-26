@@ -12,7 +12,7 @@
     <string name="bottom3">原创</string>
     <string name="bottom4">活动</string>
 
-
+    <string name="roll_date_format">HH:mm</string>
 
 
     <string name="drawer_btn_rss">频道管理</string>

@@ -3,6 +3,7 @@ package cn.com.nbd.nbdmobile.bean;
 import com.google.gson.annotations.Expose;
 
 import org.hjh.annomation.ColumnInt;
+import org.hjh.annomation.ColumnLong;
 import org.hjh.annomation.ColumnPrimaryKey;
 import org.hjh.annomation.ColumnString;
 import org.hjh.annomation.PrimaryKeyType;
@@ -11,10 +12,10 @@ import org.hjh.annomation.Table;
 import java.io.Serializable;
 
 /**
- *快讯
+ *滚动
  */
-@Table(TableName = "ArticleDetailForQuick")
-public final class ArticleDetailForQuick implements Serializable{
+@Table(TableName = "ArticleDetailForRoll")
+public final class ArticleDetailForRoll implements Serializable{
 
 
 
@@ -48,9 +49,9 @@ public final class ArticleDetailForQuick implements Serializable{
 	@Expose
 	private String url;
 
-	@ColumnString(length = 64)
+	@ColumnLong
 	@Expose
-	private String created_at;
+	private long created_at;
 
 	@ColumnString(length = 64)
 	@Expose
@@ -68,7 +69,17 @@ public final class ArticleDetailForQuick implements Serializable{
 	@Expose
 	private String mobile_click_count;
 
-    public int getIds() {
+	private boolean check;
+
+	public boolean isCheck() {
+		return check;
+	}
+
+	public void setCheck(boolean check) {
+		this.check = check;
+	}
+
+	public int getIds() {
         return ids;
     }
 
@@ -112,12 +123,15 @@ public final class ArticleDetailForQuick implements Serializable{
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	public String getCreated_at() {
+
+	public long getCreated_at() {
 		return created_at;
 	}
-	public void setCreated_at(String created_at) {
+
+	public void setCreated_at(long created_at) {
 		this.created_at = created_at;
 	}
+
 	public String getColumnist_id() {
 		return columnist_id;
 	}
