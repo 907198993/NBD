@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="playerBase">
+  <library name="picasso-2.3.1">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/YoukuPlayerOpenSDK/libs/playerBase.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/picasso-2.3.1.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

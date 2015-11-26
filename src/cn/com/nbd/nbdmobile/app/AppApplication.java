@@ -4,7 +4,7 @@ package cn.com.nbd.nbdmobile.app;
 import android.app.Application;
 import android.os.Environment;
 
-import com.youku.player.YoukuPlayerBaseConfiguration;
+
 
 import org.hjh.tools.FileTools;
 
@@ -25,7 +25,7 @@ import cn.com.nbd.nbdmobile.db.SQLHelper;
 
 public class AppApplication extends Application {
 	private static AppApplication mAppApplication;
-	public static YoukuPlayerBaseConfiguration configuration;
+//	public static YoukuPlayerBaseConfiguration configuration;
 	private SQLHelper sqlHelper;
 	/** 缓存路径 */
 	private static String cacheDir;

@@ -5,14 +5,7 @@
               android:layout_height="match_parent"
               android:background="@color/activity_bg_color"
               android:orientation="vertical"
-
-
     >
-    <cn.com.nbd.nbdmobile.view.TitleLayout
-        android:id="@+id/title_bar"
-        android:layout_width="fill_parent"
-        android:layout_height="@dimen/title_bar_height"
-        />
 
     <cn.com.nbd.nbdmobile.view.PullToRefreshListView
         android:id="@+id/pullview"

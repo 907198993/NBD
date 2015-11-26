@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/NBD.iml" filepath="$PROJECT_DIR$/NBD.iml" />
-      <module fileurl="file://$PROJECT_DIR$/YoukuPlayerOpenSDK/YouKuPlayerOpenSDK.iml" filepath="$PROJECT_DIR$/YoukuPlayerOpenSDK/YouKuPlayerOpenSDK.iml" />
     </modules>
   </component>
 </project>

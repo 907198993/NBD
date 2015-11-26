@@ -1,9 +1,6 @@
 package cn.com.nbd.nbdmobile.activity;
 
 
-
-
-
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -11,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
 
 import org.hjh.inject.InjectCore;
 import org.hjh.inject.InjectLayout;
@@ -28,6 +26,12 @@ public class CenterActivity extends BaseActivity {
 
 	public static final int REQUEST_CODE_SELECT_PHOTO = 1;
 
+	@InjectView(id = R.id.back_button, onClick = "this")
+	private Button backButton;
+
+	@InjectView(id = R.id.top_button, onClick = "this")
+	private Button topButton;
+
 	@InjectView(id = R.id.user_photo, onClick = "this")
 	private RoundImageView userPhoto;
 
@@ -36,7 +40,7 @@ public class CenterActivity extends BaseActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-	//	setTranslucentStatus();
+		//	setTranslucentStatus();
 		InjectCore.injectUI(this);
 	}
 

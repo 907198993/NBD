@@ -72,7 +72,7 @@ public class HomeActivity extends TabActivity {
 		tabHost.addTab(tabHost.newTabSpec("news").setIndicator("News")
 				.setContent(new Intent(this, MainActivity.class)));
 		tabHost.addTab(tabHost.newTabSpec("video").setIndicator("video")
-				.setContent(new Intent(this, PlayerActivity.class)));
+				.setContent(new Intent(this, NewsPaperActivity.class)));
 		tabHost.addTab(tabHost.newTabSpec("newsPaper").setIndicator("newsPaper")
 				.setContent(new Intent(this, NewsPaperActivity.class)));
 		tabHost.addTab(tabHost.newTabSpec("activity").setIndicator("activity")
