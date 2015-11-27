@@ -5,31 +5,21 @@ import com.google.gson.annotations.Expose;
 import java.io.Serializable;
 import java.util.List;
 
-
+/**
+ *  活动列表
+ */
 public class ActivityArticleList implements Serializable{
 
 
-//	@Expose
-//	private String msg;
-
 	@Expose
-	private List<ActivityArticle>  articles;
+	private List<ActivityArticle>  data;
 
 
-//	public String getMsg() {
-//		return msg;
-//	}
-//
-//	public void setMsg(String msg) {
-//		this.msg = msg;
-//	}
-
-
-	public List<ActivityArticle> getArticles() {
-		return articles;
+	public List<ActivityArticle> getData() {
+		return data;
 	}
 
-	public void setArticles(List<ActivityArticle> articles) {
-		this.articles = articles;
+	public void setData(List<ActivityArticle> data) {
+		this.data = data;
 	}
 }

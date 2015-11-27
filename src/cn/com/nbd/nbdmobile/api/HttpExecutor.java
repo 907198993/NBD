@@ -86,7 +86,7 @@ public final class HttpExecutor {
 //			}
 			
 		} catch (Exception e) {
-			result.setCode(BaseConstants.ERROR_HTTP_PARAM) ;
+			result.setStatus_code(BaseConstants.ERROR_HTTP_PARAM); ;
 			return false ;
 		}
 		
@@ -175,10 +175,10 @@ public final class HttpExecutor {
 			
 			if (stausCode != HttpStatus.SC_OK) {
 				
-				result.setCode(stausCode) ;
-				result.setContent(EntityUtils.toString(response.getEntity())) ;
+				result.setStatus_code(stausCode) ;
+				result.setData(EntityUtils.toString(response.getEntity())); ;
 				
-				Log.v(TAG, "hjh ==> 2 >>content= " + result.getContent());
+				Log.v(TAG, "hjh ==> 2 >>content= " + result.getData());
     			Log.v(TAG, "hjh ==> ��������Ӧ�����ܹ����=" + (System.currentTimeMillis()- enter));
 				
 				return false ;
@@ -191,13 +191,13 @@ public final class HttpExecutor {
 //			Logger.d(TAG, "hjh ==> 3 >>responseBody= " + responseBody);
 			
 			// set body to content
-			result.setContent(responseBody) ;
+			result.setData(responseBody) ;
 			
 			return true ;
 		} catch (Exception e) {
 			e.printStackTrace() ;
-			result.setCode(BaseConstants.ERROR_HTTP_EXECUTE) ;
-			result.setContent(e.toString()); // for debug
+			result.setStatus_code(BaseConstants.ERROR_HTTP_EXECUTE) ;
+			result.setData(e.toString()); // for debug
 			
 		//Logger.d(TAG, "hjh ==> 3 >>responseBody= " + result.getContent());
 			return false ;
@@ -228,19 +228,19 @@ public final class HttpExecutor {
 			if(code == HttpStatus.SC_OK){
 				////////////////
 				InputStream is = conn.getInputStream();
-				result.setContent(readString(is));
-				result.setCode(code);
+				result.setData(readString(is));
+				result.setStatus_code(code);
 				
 				return true;
 			}else{
-				result.setCode(code);
-				result.setContent(readString(conn.getInputStream()));
+				result.setStatus_code(code);
+				result.setData(readString(conn.getInputStream()));
 				return false;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			result.setCode(BaseConstants.ERROR_HTTP_EXECUTE) ;
-			result.setContent(e.toString()); // for debug
+			result.setStatus_code(BaseConstants.ERROR_HTTP_EXECUTE) ;
+			result.setData(e.toString()); // for debug
 			return false;
 		}
 	}
@@ -264,20 +264,20 @@ public final class HttpExecutor {
 			if(code == HttpStatus.SC_OK){
 				////////////////
 				InputStream is = conn.getInputStream();
-				result.setContent(readString(is));
-				result.setCode(code);
+				result.setData(readString(is));
+				result.setStatus_code(code);
 				
 				return true;
 				
 			}else{
-				result.setCode(code);
-				result.setContent(readString(conn.getInputStream()));
+				result.setStatus_code(code);
+				result.setData(readString(conn.getInputStream()));
 				return false;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			result.setCode(BaseConstants.ERROR_HTTP_EXECUTE) ;
-			result.setContent(e.toString()); // for debug
+			result.setStatus_code(BaseConstants.ERROR_HTTP_EXECUTE) ;
+			result.setData(e.toString()); // for debug
 			return false;
 		} 
 	

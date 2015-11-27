@@ -208,17 +208,17 @@ public abstract class BaseFragment extends Fragment implements
 	}
 
 	protected boolean isConnectTimeOut(ResultObject result, String text) {
-		if (result.getCode() == BaseConstants.ERROR_HTTP_EXECUTE) {
-			showToast(text + " :���ӳ�ʱ");
+		if (result.getStatus_code() == BaseConstants.ERROR_HTTP_EXECUTE) {
+			showToast(text + " :连接超时");
 			return true;
-		} else if (result.getCode() == BaseConstants.ERROR_API_PARSER_JSON) {
-			showToast(text + " :json ��������");
+		} else if (result.getStatus_code() == BaseConstants.ERROR_API_PARSER_JSON) {
+			showToast(text + " :json 解析错误");
 			return true;
-		} else if (result.getCode() == BaseConstants.ERROR_INPUT_PARAMETER) {
-			showToast(text + " :" + result.getError());
+		} else if (result.getStatus_code() == BaseConstants.ERROR_INPUT_PARAMETER) {
+			showToast(text + " :" + result.getMsg());
 			return true;
-		} else if (result.getCode() == -1) {
-			showToast(text + " :���޸�����");
+		} else if (result.getStatus_code() == -1) {
+			showToast(text + " :暂无更多数据");
 			return true;
 		}
 

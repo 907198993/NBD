@@ -18,6 +18,7 @@ import cn.com.nbd.nbdmobile.bean.Article;
 import cn.com.nbd.nbdmobile.bean.ArticleForAd;
 import cn.com.nbd.nbdmobile.bean.NewsPaper;
 import cn.com.nbd.nbdmobile.bean.ResultObject;
+import cn.com.nbd.nbdmobile.dao.ActivityArticleDao;
 import cn.com.nbd.nbdmobile.dao.ArticleDetailDao;
 import cn.com.nbd.nbdmobile.dao.ArticleDetailForRollDao;
 
@@ -248,17 +249,18 @@ public final class HomeComponent extends BaseComponent {
 			public void onQueryWebApi() {
 				{
 					ResultObject temp = result.clone();
+
 					ActivityArticleList article = (ActivityArticleList) HomeApi.getInstance().queryNewsActivityList(page, count, temp, new TypeToken<ActivityArticleList>() {
 					}.getType(), null);
 					//	List<ArticleDetailForQuick> ArticleDetailForQuick  = (List<ArticleDetailForQuick>) HomeApi.getInstance().queryArticle(page,count,temp,new  TypeToken<Article>(){}.getType(),null);
 					if (null == article) {
 						onQueryCache();//获取失败则通过本地获取
 					} else {
-						sendMessage(AppConstants.RESULT_QUERY_ACTIVITY_ARTICLE_SUCCESS, article.getArticles());
+						sendMessage(AppConstants.RESULT_QUERY_ACTIVITY_ARTICLE_SUCCESS, article.getData());
 						/////数据库操
-//						ActivityArticleDao.getInstance(context, false).deleteAllActivityArticle();
-//						//	ArticleDetailForQuickDao.getInstance(context, false).insertList(ArticleDetailForQuick);
-//						ActivityArticleDao.getInstance(context, false).insertList(article.getArticles());
+						ActivityArticleDao.getInstance(context, false).deleteAllActivityArticle();
+						//	ArticleDetailForQuickDao.getInstance(context, false).insertList(ArticleDetailForQuick);
+						ActivityArticleDao.getInstance(context, false).insertList(article.getData());
 
 					}
 //					if(null == list){

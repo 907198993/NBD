@@ -1,8 +1,6 @@
 package cn.com.nbd.nbdmobile.activity;
 
 
-import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Message;
@@ -40,7 +38,7 @@ import cn.com.nbd.nbdmobile.view.TitleLayout;
 @InjectLayout(layout = R.layout.news_activity_layout)
 public final class
 
-		NewsActivityActivity extends BaseActivity implements
+		NewsActivityDetailActivity extends BaseActivity implements
 		OnItemClickListener, AppPublicAdapter.IFillValue {
 
 	@InjectView(id = R.id.title_bar)
@@ -58,7 +56,6 @@ public final class
 
 	private String keywords = "";
 	private String ArticleType;
-	Context context;
 
 	@Override
 	protected void onDestroy() {
@@ -79,12 +76,11 @@ public final class
 		titleLayout.enableRightButtonImage(R.drawable.user);
 		titleLayout.setTitleClickListener(this);
 		initPullView();
-
 		HomeComponent.getInstance().queryNewsActivityList(currentPage, 10, mHandler);
 	}
 
 	private void initPullView() {
-		RelativeLayout.LayoutParams params = (android.widget.RelativeLayout.LayoutParams) mPullListView
+		RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) mPullListView
 				.getLayoutParams();
 		int tabhight = AppPresences.getInstance().getInt("tabhight");
 		int titlehight = AppPresences.getInstance().getInt("titlehight");
@@ -180,10 +176,7 @@ public final class
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 							long id) {
-		ActivityArticle data = list.get(position);
-		Intent intent = new Intent(mActivity, NewsActivityDetailActivity.class);
-		intent.putExtra("article_id", data.getId());
-		startActivityWithAnim(mActivity, intent);
+
 	}
 
 	@Override

@@ -77,22 +77,22 @@ public final class HomeApi extends BaseApi {
 		boolean noerrer = httpExecutor.doPost(url, paramter, result);
 		if(noerrer){
 			try {
-				ResponseListJson<Object> response = ResponseListJson.fromJson(result.getContent(),clazz);
+				ResponseListJson<Object> response = ResponseListJson.fromJson(result.getData(),clazz);
 				if(response.getStatus() != 1){
-					result.setError(response.getInfo());
-					result.setCode(BaseConstants.ERROR_INPUT_PARAMETER);//一般为参数错误
+					result.setMsg(response.getInfo());
+					result.setStatus_code(BaseConstants.ERROR_INPUT_PARAMETER);//一般为参数错误
 					return null;
 				}else{
 					return response.getData();//code 为-1
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
-				result.setCode(BaseConstants.ERROR_API_PARSER_JSON);//解析错误
+				result.setStatus_code(BaseConstants.ERROR_API_PARSER_JSON);//解析错误
 				return null;
 			}
 			
 		}else{
-			result.setCode(BaseConstants.ERROR_HTTP_EXECUTE);
+			result.setStatus_code(BaseConstants.ERROR_HTTP_EXECUTE);
 			return null;//连接超时
 		}
 	}
@@ -159,14 +159,14 @@ public final class HomeApi extends BaseApi {
 		boolean noerrer = httpExecutor.doGet(url, result);
 		if(noerrer){
 			try {
-				return gson.fromJson(result.getContent(),clazz == null ? type : clazz);
+				return gson.fromJson(result.getData(),clazz == null ? type : clazz);
 			} catch (Exception e) {
 				e.printStackTrace();
-				result.setCode(BaseConstants.ERROR_API_PARSER_JSON);//解析错误
+				result.setStatus_code(BaseConstants.ERROR_API_PARSER_JSON);//解析错误
 				return null;
 			}
 		}else{
-			result.setCode(BaseConstants.ERROR_HTTP_EXECUTE);
+			result.setStatus_code(BaseConstants.ERROR_HTTP_EXECUTE);
 			return null;
 		}
 
@@ -179,33 +179,33 @@ public final class HomeApi extends BaseApi {
 		boolean noerrer = httpExecutor.doGet(url, result);
 		if(noerrer){
 			try {
-				return gson.fromJson(result.getContent(),clazz == null ? type : clazz);
+				return gson.fromJson(result.getData(),clazz == null ? type : clazz);
 			} catch (Exception e) {
 				e.printStackTrace();
-				result.setCode(BaseConstants.ERROR_API_PARSER_JSON);//解析错误
+				result.setStatus_code(BaseConstants.ERROR_API_PARSER_JSON);//解析错误
 				return null;
 			}
 		}else{
-			result.setCode(BaseConstants.ERROR_HTTP_EXECUTE);
+			result.setStatus_code(BaseConstants.ERROR_HTTP_EXECUTE);
 			return null;
 		}
 
 	}
 	public Object queryNewsActivityList(int page,int count ,ResultObject result,Type type,Class clazz){
 		//String url=  BA "http://api.nbd.com.cn/2/columns/3/articles.json?client_type=1&app_key=f4af4864997a00ddff7e1765e643f9ec&count=10&page=0";
-		String url= "http://api.nbd.com.cn/3/columns/183/articles";
+		String url= "http://api.nbd.com.cn/3/app_features.json";
 		Map<String, Object> paramter = withEmptyParamterMap();
 		boolean noerrer = httpExecutor.doGet(url, result);
 		if(noerrer){
 			try {
-				return gson.fromJson(result.getContent(),clazz == null ? type : clazz);
+				return gson.fromJson(result.getData(),clazz == null ? type : clazz);
 			} catch (Exception e) {
 				e.printStackTrace();
-				result.setCode(BaseConstants.ERROR_API_PARSER_JSON);//解析错误
+				result.setStatus_code(BaseConstants.ERROR_API_PARSER_JSON);//解析错误
 				return null;
 			}
 		}else{
-			result.setCode(BaseConstants.ERROR_HTTP_EXECUTE);
+			result.setStatus_code(BaseConstants.ERROR_HTTP_EXECUTE);
 			return null;
 		}
 
@@ -218,14 +218,14 @@ public final class HomeApi extends BaseApi {
 		boolean noerrer =httpExecutor.doGet(url, result);
 		if(noerrer){
 			try {
-				return gson.fromJson(result.getContent(),clazz == null ? type : clazz);
+				return gson.fromJson(result.getData(),clazz == null ? type : clazz);
 			} catch (Exception e) {
 				e.printStackTrace();
-				result.setCode(BaseConstants.ERROR_API_PARSER_JSON);//解析错误
+				result.setStatus_code(BaseConstants.ERROR_API_PARSER_JSON);//解析错误
 				return null;
 			}
 		}else{
-			result.setCode(BaseConstants.ERROR_HTTP_EXECUTE);
+			result.setStatus_code(BaseConstants.ERROR_HTTP_EXECUTE);
 			return null;
 		}
 	}

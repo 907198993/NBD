@@ -5,7 +5,6 @@ import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.os.Message;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -218,22 +217,21 @@ public abstract class BaseLinearLayout extends LinearLayout implements View.OnCl
 		
 	}
 
-	protected boolean isConnectTimeOut(Message msg,String text){
-		ResultObject result = (ResultObject) msg.obj;
-		if(result.getCode() == BaseConstants.ERROR_HTTP_EXECUTE){
-			showToast(text+" :连接超时");
+	protected boolean isConnectTimeOut(ResultObject result, String text) {
+		if (result.getStatus_code() == BaseConstants.ERROR_HTTP_EXECUTE) {
+			showToast(text + " :连接超时");
 			return true;
-		}else if(result.getCode() == BaseConstants.ERROR_API_PARSER_JSON){
-			showToast(text+" :json 解析错误");
+		} else if (result.getStatus_code() == BaseConstants.ERROR_API_PARSER_JSON) {
+			showToast(text + " :json 解析错误");
 			return true;
-		}else if (result.getCode() == BaseConstants.ERROR_INPUT_PARAMETER) {
-			showToast(text+" :"+result.getError());
+		} else if (result.getStatus_code() == BaseConstants.ERROR_INPUT_PARAMETER) {
+			showToast(text + " :" + result.getMsg());
 			return true;
-		}else if (result.getCode() == -1) {
-			showToast(text+" :暂无数据");
+		} else if (result.getStatus_code() == -1) {
+			showToast(text + " :暂无更多数据");
 			return true;
 		}
-		
+
 		return false;
 	}
 }

@@ -12,123 +12,65 @@ import org.hjh.annomation.PrimaryKeyType;
 import org.hjh.annomation.Table;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+/**
+ * 活动
+ */
 @Table(TableName = "ActivityArticle")
-public final class ActivityArticle implements Serializable,Parcelable {
+public final class ActivityArticle implements Serializable, Parcelable {
 
 
-	@ColumnPrimaryKey(TYPE= PrimaryKeyType.DEFINE)
+	@ColumnPrimaryKey(TYPE = PrimaryKeyType.DEFINE)
 	@ColumnInt
-    private  int ids;
-
-    @ColumnString(length = 64)
-    @Expose
-	private  String id;
-
-	@ColumnInt
-	private int is_rolling_news;
-
-	@ColumnString(length = 64)
-	@Expose
-	private String pos;
-
-	@ColumnInt
-	private int special;
-
-	@ColumnString(length = 64)
-	@Expose
-	private String type;
-
+//	private int ids;
+//	@ColumnInt
+	private int id;
 	@ColumnString(length = 64)
 	@Expose
 	private String title;
 
 	@ColumnString(length = 64)
 	@Expose
-	private String digest;
+	private String lead;
 
 	@ColumnString(length = 64)
 	@Expose
-	private String url;
+	private String click_count;
 
+	@ColumnString(length = 64)
+	@Expose
+	private String type;
 	@ColumnString(length = 64)
 	@Expose
 	private String created_at;
 
 	@ColumnString(length = 64)
 	@Expose
-	private String column_id;
+	private String updated_at;
 
 	@ColumnString(length = 64)
 	@Expose
-	private String columnist_id;
+	private String avatar;
 
-	@ColumnString(length = 256)
 	@Expose
-	private String content;
+	private List<ActivityLabelForTitle> app_feature_labels;
 
-	@ColumnString(length = 64)
-	@Expose
-	private String image;
+//	public int getIds() {
+//		return ids;
+//	}
+//
+//	public void setIds(int ids) {
+//		this.ids = ids;
+//	}
 
-	@ColumnString(length = 64)
-	@Expose
-	private String mobile_click_count;
-
-	public int getIds() {
-		return ids;
-	}
-
-	public void setIds(int ids) {
-		this.ids = ids;
-	}
-
-	public String getMobile_click_count() {
-		return mobile_click_count;
-	}
-
-	public void setMobile_click_count(String mobile_click_count) {
-		this.mobile_click_count = mobile_click_count;
-	}
-
-	public int getSpecial() {
-		return special;
-	}
-
-	public void setSpecial(int special) {
-		this.special = special;
-	}
-
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getIs_rolling_news() {
-		return is_rolling_news;
-	}
-
-	public void setIs_rolling_news(int is_rolling_news) {
-		this.is_rolling_news = is_rolling_news;
-	}
-
-	public String getPos() {
-		return pos;
-	}
-
-	public void setPos(String pos) {
-		this.pos = pos;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
 	}
 
 	public String getTitle() {
@@ -139,20 +81,28 @@ public final class ActivityArticle implements Serializable,Parcelable {
 		this.title = title;
 	}
 
-	public String getDigest() {
-		return digest;
+	public String getLead() {
+		return lead;
 	}
 
-	public void setDigest(String digest) {
-		this.digest = digest;
+	public void setLead(String lead) {
+		this.lead = lead;
 	}
 
-	public String getUrl() {
-		return url;
+	public String getClick_count() {
+		return click_count;
 	}
 
-	public void setUrl(String url) {
-		this.url = url;
+	public void setClick_count(String click_count) {
+		this.click_count = click_count;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public String getCreated_at() {
@@ -163,36 +113,28 @@ public final class ActivityArticle implements Serializable,Parcelable {
 		this.created_at = created_at;
 	}
 
-	public String getColumn_id() {
-		return column_id;
+	public String getUpdated_at() {
+		return updated_at;
 	}
 
-	public void setColumn_id(String column_id) {
-		this.column_id = column_id;
+	public void setUpdated_at(String updated_at) {
+		this.updated_at = updated_at;
 	}
 
-	public String getColumnist_id() {
-		return columnist_id;
+	public String getAvatar() {
+		return avatar;
 	}
 
-	public void setColumnist_id(String columnist_id) {
-		this.columnist_id = columnist_id;
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
 	}
 
-	public String getContent() {
-		return content;
+	public List<ActivityLabelForTitle> getApp_feature_labels() {
+		return app_feature_labels;
 	}
 
-	public void setContent(String content) {
-		this.content = content;
-	}
-
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
+	public void setApp_feature_labels(List<ActivityLabelForTitle> app_feature_labels) {
+		this.app_feature_labels = app_feature_labels;
 	}
 
 
@@ -203,42 +145,33 @@ public final class ActivityArticle implements Serializable,Parcelable {
 
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
-		dest.writeInt(this.ids);
-		dest.writeString(this.id);
-		dest.writeInt(this.is_rolling_news);
-		dest.writeString(this.pos);
-		dest.writeInt(this.special);
-		dest.writeString(this.type);
+	//	dest.writeInt(this.ids);
+		dest.writeInt(this.id);
 		dest.writeString(this.title);
-		dest.writeString(this.digest);
-		dest.writeString(this.url);
+		dest.writeString(this.lead);
+		dest.writeString(this.click_count);
+		dest.writeString(this.type);
 		dest.writeString(this.created_at);
-		dest.writeString(this.column_id);
-		dest.writeString(this.columnist_id);
-		dest.writeString(this.content);
-		dest.writeString(this.image);
-		dest.writeString(this.mobile_click_count);
+		dest.writeString(this.updated_at);
+		dest.writeString(this.avatar);
+		dest.writeList(this.app_feature_labels);
 	}
 
 	public ActivityArticle() {
 	}
 
 	protected ActivityArticle(Parcel in) {
-		this.ids = in.readInt();
-		this.id = in.readString();
-		this.is_rolling_news = in.readInt();
-		this.pos = in.readString();
-		this.special = in.readInt();
-		this.type = in.readString();
+	//	this.ids = in.readInt();
+		this.id = in.readInt();
 		this.title = in.readString();
-		this.digest = in.readString();
-		this.url = in.readString();
+		this.lead = in.readString();
+		this.click_count = in.readString();
+		this.type = in.readString();
 		this.created_at = in.readString();
-		this.column_id = in.readString();
-		this.columnist_id = in.readString();
-		this.content = in.readString();
-		this.image = in.readString();
-		this.mobile_click_count = in.readString();
+		this.updated_at = in.readString();
+		this.avatar = in.readString();
+		this.app_feature_labels = new ArrayList<ActivityLabelForTitle>();
+		in.readList(this.app_feature_labels, List.class.getClassLoader());
 	}
 
 	public static final Creator<ActivityArticle> CREATOR = new Creator<ActivityArticle>() {

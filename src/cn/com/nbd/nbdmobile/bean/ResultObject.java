@@ -8,9 +8,9 @@ public final class ResultObject implements Serializable{
 	private static final long serialVersionUID = 7169396560390695615L;
 
 	
-	private int 	code ;
-	private String 	content ;
-	private String 	error ;
+	private int 	status_code ;
+	private String 	data ;
+	private String 	msg ;
 	private int     totalPage;
 	private int		currentPage;
 	
@@ -36,34 +36,34 @@ public final class ResultObject implements Serializable{
 		this.currentPage = currentPage;
 	}
 
-	public int getCode() {
-		return code;
+	public int getStatus_code() {
+		return status_code;
 	}
 
-	public void setCode(int code) {
-		this.code = code;
+	public void setStatus_code(int status_code) {
+		this.status_code = status_code;
 	}
 
-	public String getContent() {
-		return content;
+	public String getData() {
+		return data;
 	}
 
-	public void setContent(String content) {
-		this.content = content;
-	}
-	
-	public String getError() {
-		return error;
+	public void setData(String data) {
+		this.data = data;
 	}
 
-	public void setError(String error) {
-		this.error = error;
+	public String getMsg() {
+		return msg;
+	}
+
+	public void setMsg(String msg) {
+		this.msg = msg;
 	}
 
 	public void clear(){
-		setCode(-1) ;
-		setContent("");
-		setError("");
+		setStatus_code(-1); ;
+		setData("");
+		setMsg("");
 	}
 
 	@Override
