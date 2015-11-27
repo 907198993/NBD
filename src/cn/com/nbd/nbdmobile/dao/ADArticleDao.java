@@ -22,7 +22,7 @@ public final class ADArticleDao extends BaseDao<ADArticle> {
 
 	private synchronized static void init(Context context,boolean isTransaction){
 		if(instance == null){
-			String databaseName = "system";
+			String databaseName = "ADArticle";
 			dbManager =	DBManager.getInstance(context, databaseName);
 			isTrans = isTransaction;
 			instance = new ADArticleDao(context);
@@ -85,6 +85,6 @@ public final class ADArticleDao extends BaseDao<ADArticle> {
 	 */
 	public void deleteAllADArticle(){
 		openCurrentDataBase();
-		removeBySQL("delete from ArticleDetail");
+		removeBySQL("delete from ADArticle");
 	}
 }

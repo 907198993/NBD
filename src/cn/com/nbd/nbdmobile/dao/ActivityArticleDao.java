@@ -17,12 +17,12 @@ public final class ActivityArticleDao extends BaseDao<ActivityArticle> {
 	private static boolean 		isTrans;
 
 	protected ActivityArticleDao(Context context) {
-		super(context, dbManager.openSystemDatabase(), isTrans);
+		super(context, dbManager.openPrivateDatabase(), isTrans);
 	}
 
 	private synchronized static void init(Context context,boolean isTransaction){
 		if(instance == null){
-			String databaseName = "system";
+			String databaseName = "xyp";
 			dbManager =	DBManager.getInstance(context, databaseName);
 			isTrans = isTransaction;
 			instance = new ActivityArticleDao(context);
@@ -41,7 +41,7 @@ public final class ActivityArticleDao extends BaseDao<ActivityArticle> {
 	 * 使用前需要打开数据库
 	 */
 	public  void openCurrentDataBase () {
-		openDataBase(dbManager.openSystemDatabase(), isTrans);
+		openDataBase(dbManager.openPrivateDatabase(), isTrans);
 	}
 	
 	/**
