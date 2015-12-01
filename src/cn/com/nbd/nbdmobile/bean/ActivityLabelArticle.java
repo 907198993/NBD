@@ -7,6 +7,7 @@ import com.google.gson.annotations.Expose;
 
 import org.hjh.annomation.ColumnInt;
 import org.hjh.annomation.ColumnString;
+import org.hjh.annomation.Table;
 
 import java.io.Serializable;
 
@@ -14,7 +15,7 @@ import java.io.Serializable;
  * Created by Dell on 2015/11/27.
  * 专题标签
  */
-
+@Table(TableName = "ActivityLabelArticle")
 public class ActivityLabelArticle  implements Serializable, Parcelable {
 
 	@ColumnInt

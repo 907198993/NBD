@@ -3,13 +3,13 @@ package cn.com.nbd.nbdmobile.bean;
 import com.google.gson.annotations.Expose;
 
 import org.hjh.annomation.ColumnInt;
-import org.hjh.annomation.ColumnLong;
 import org.hjh.annomation.ColumnPrimaryKey;
 import org.hjh.annomation.ColumnString;
 import org.hjh.annomation.PrimaryKeyType;
 import org.hjh.annomation.Table;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  *滚动
@@ -21,11 +21,11 @@ public final class ArticleDetailForRoll implements Serializable{
 
 	@ColumnPrimaryKey(TYPE= PrimaryKeyType.DEFINE)
 	@ColumnInt
-    private  int ids;
+    private  int site_id;
 
-    @ColumnString(length = 64)
+    @ColumnInt
     @Expose
-	private  String id;
+	private  int id;
 
 	@ColumnInt
 	private int is_rolling_news;
@@ -49,9 +49,9 @@ public final class ArticleDetailForRoll implements Serializable{
 	@Expose
 	private String url;
 
-	@ColumnLong
+	@ColumnString(length = 64)
 	@Expose
-	private long created_at;
+	private String created_at;
 
 	@ColumnString(length = 64)
 	@Expose
@@ -69,7 +69,17 @@ public final class ArticleDetailForRoll implements Serializable{
 	@Expose
 	private String mobile_click_count;
 
+	private List<RollLabel> children_articles;
+
 	private boolean check;
+
+	public List<RollLabel> getChildren_articles() {
+		return children_articles;
+	}
+
+	public void setChildren_articles(List<RollLabel> children_articles) {
+		this.children_articles = children_articles;
+	}
 
 	public boolean isCheck() {
 		return check;
@@ -78,14 +88,6 @@ public final class ArticleDetailForRoll implements Serializable{
 	public void setCheck(boolean check) {
 		this.check = check;
 	}
-
-	public int getIds() {
-        return ids;
-    }
-
-    public void setIds(int ids) {
-        this.ids = ids;
-    }
 
     public int getIs_rolling_news() {
 		return is_rolling_news;
@@ -124,11 +126,27 @@ public final class ArticleDetailForRoll implements Serializable{
 		this.url = url;
 	}
 
-	public long getCreated_at() {
+	public int getSite_id() {
+		return site_id;
+	}
+
+	public void setSite_id(int site_id) {
+		this.site_id = site_id;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getCreated_at() {
 		return created_at;
 	}
 
-	public void setCreated_at(long created_at) {
+	public void setCreated_at(String created_at) {
 		this.created_at = created_at;
 	}
 
@@ -137,12 +155,6 @@ public final class ArticleDetailForRoll implements Serializable{
 	}
 	public void setColumnist_id(String columnist_id) {
 		this.columnist_id = columnist_id;
-	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
 	}
 	public String getContent() {
 		return content;

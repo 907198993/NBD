@@ -154,7 +154,7 @@ public final class HomeApi extends BaseApi {
 	 */
 	public Object queryRollArticle(int page,int count ,ResultObject result,Type type,Class clazz){
 		//String url = "http://api.nbd.com.cn/v1/columns/3/articles.json?client_type=1&app_key=f4af4864997a00ddff7e1765e643f9ec&page="+page+"&count="+count;
-		String url="http://api.nbd.com.cn/375/articles/rolling_news.json?client_type=1&app_key=f4af4864997a00ddff7e1765e643f9ec&count=10&page=1";
+		String url="http://api.nbd.com.cn/3/columns/375/articles?client_type=1&app_key=f4af4864997a00ddff7e1765e643f9ec&count=10&page=1";
 		Map<String, Object> paramter = withEmptyParamterMap();
 		boolean noerrer = httpExecutor.doGet(url, result);
 		if(noerrer){

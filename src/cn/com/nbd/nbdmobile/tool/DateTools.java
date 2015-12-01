@@ -1,12 +1,9 @@
 package cn.com.nbd.nbdmobile.tool;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
 import android.text.TextUtils;
-import android.util.Log;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 /*
  * ʱ�乤����
  */
@@ -45,10 +42,10 @@ public class DateTools {
 	 */
 	public static String getStrTime_ymd(String cc_time) {
 		String re_StrTime = null;
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
 		// ���磺cc_time=1291778220
 		long lcc_time = Long.valueOf(cc_time);
-		re_StrTime = sdf.format(new Date(lcc_time * 1000L));
+		re_StrTime = sdf.format(new Date(lcc_time ));
 		return re_StrTime;
 	}
 
@@ -127,9 +124,15 @@ public class DateTools {
 		return re_time;
 	}
 	
+	/*
+	 * ��ʱ���תΪ�ַ� ����ʽ��yyyy.MM.dd  ���ڼ�
+	 */
 	public static String getSection(String cc_time) {
 		String re_StrTime = null;
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd  EEEE");
+//		���ڴ���SimpleDateFormat����Ĳ���EEEE������ڣ��硰�����ġ���MMMM��������·ݣ��硰ʮһ�¡���MM����·ݣ��硰11����
+//		yyyy�����ݣ��硰2010����dd����죬�硰25��
+		// ���磺cc_time=1291778220
 		long lcc_time = Long.valueOf(cc_time);
 		re_StrTime = sdf.format(new Date(lcc_time * 1000L));
 		return re_StrTime;
@@ -138,7 +141,6 @@ public class DateTools {
 //	public static String getTodayDate(){
 //		SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd");
 //		String nowTime=format.format(new Date());
-	
 //		return 
 //	}
 }

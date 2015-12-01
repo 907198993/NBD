@@ -18,7 +18,7 @@ import cn.com.nbd.nbdmobile.bean.Article;
 import cn.com.nbd.nbdmobile.bean.ArticleForAd;
 import cn.com.nbd.nbdmobile.bean.NewsPaper;
 import cn.com.nbd.nbdmobile.bean.ResultObject;
-import cn.com.nbd.nbdmobile.dao.ActivityArticleDao;
+import cn.com.nbd.nbdmobile.dao.ActivityMainArticleDao;
 import cn.com.nbd.nbdmobile.dao.ArticleDetailDao;
 import cn.com.nbd.nbdmobile.dao.ArticleDetailForRollDao;
 
@@ -137,11 +137,11 @@ public final class HomeComponent extends BaseComponent {
 			public void onQueryCache() {
 				ActivityArticleRollList article = new ActivityArticleRollList();
 				try {
-					article.setArticles(ArticleDetailForRollDao.getInstance(context, false).queryAllArticleDetailForRoll());
+					article.setData(ArticleDetailForRollDao.getInstance(context, false).queryAllArticleDetailForRoll());
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				if (article.getArticles().size() < 1) {
+				if (article.getData().size() < 1) {
 					sendMessage(AppConstants.RESULT_QUERY_ROLL_FAILED);
 				} else {
 					sendMessage(AppConstants.RESULT_QUERY_ROLL_SUCCESS, article);
@@ -162,7 +162,7 @@ public final class HomeComponent extends BaseComponent {
 						/////数据库操
 						ArticleDetailForRollDao.getInstance(context, false).deleteAllArticleDetailForRoll();
 						//	ArticleDetailForQuickDao.getInstance(context, false).insertList(ArticleDetailForQuick);
-						ArticleDetailForRollDao.getInstance(context, false).insertList(article.getArticles());
+						ArticleDetailForRollDao.getInstance(context, false).insertList(article.getData());
 
 					}
 //					if(null == list){
@@ -258,9 +258,11 @@ public final class HomeComponent extends BaseComponent {
 					} else {
 						sendMessage(AppConstants.RESULT_QUERY_ACTIVITY_ARTICLE_SUCCESS, article.getData());
 						/////数据库操
-						ActivityArticleDao.getInstance(context, false).deleteAllActivityArticle();
+
+						//ActivityMainArticleDao.getInstance(context, false).deleteAllActivityMainArticle();
 						//	ArticleDetailForQuickDao.getInstance(context, false).insertList(ArticleDetailForQuick);
-						ActivityArticleDao.getInstance(context, false).insertList(article.getData());
+						ActivityMainArticleDao.getInstance(context, false).insertList(article.getData());
+						ActivityMainArticleDao.getInstance(context, false).deleteRepeatActivityMainArticle();
 
 					}
 //					if(null == list){

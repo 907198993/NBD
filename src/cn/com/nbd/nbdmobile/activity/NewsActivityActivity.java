@@ -26,7 +26,7 @@ import cn.com.nbd.nbdmobile.R;
 import cn.com.nbd.nbdmobile.api.AppConstants;
 import cn.com.nbd.nbdmobile.api.HomeComponent;
 import cn.com.nbd.nbdmobile.base.AppPublicAdapter;
-import cn.com.nbd.nbdmobile.bean.ActivityArticle;
+import cn.com.nbd.nbdmobile.bean.ActivityMainArticle;
 import cn.com.nbd.nbdmobile.config.AppPresences;
 import cn.com.nbd.nbdmobile.holder.ActivityArticleHolder;
 import cn.com.nbd.nbdmobile.tool.BaseTools;
@@ -51,7 +51,7 @@ public final class
 
 	private ListView mListView;
 	private AppPublicAdapter adapter;
-	private List<ActivityArticle> list = new ArrayList<ActivityArticle>();
+	private List<ActivityMainArticle> list = new ArrayList<ActivityMainArticle>();
 
 	private int currentPage = 2;
 	private boolean loadMore = false;// 当前是否为加载更多
@@ -147,7 +147,7 @@ public final class
 					case AppConstants.RESULT_QUERY_ACTIVITY_ARTICLE_SUCCESS:
 						endPull(mPullListView, true);
 						currentPage++;
-						List<ActivityArticle> lists = (List<ActivityArticle>) msg.obj;
+						List<ActivityMainArticle> lists = (List<ActivityMainArticle>) msg.obj;
 						if (lists.size() != 0) {
 							loadView(lists);
 						} else {
@@ -163,7 +163,7 @@ public final class
 		};
 	}
 
-	protected void loadView(List<ActivityArticle> data) {
+	protected void loadView(List<ActivityMainArticle> data) {
 		if (data == null || data.isEmpty()) {
 			return;
 		}
@@ -180,7 +180,7 @@ public final class
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 							long id) {
-		ActivityArticle data = list.get(position);
+		ActivityMainArticle data = list.get(position);
 		Intent intent = new Intent(mActivity, NewsActivityDetailActivity.class);
 		intent.putExtra("article_id", data.getId());
 		startActivityWithAnim(mActivity, intent);

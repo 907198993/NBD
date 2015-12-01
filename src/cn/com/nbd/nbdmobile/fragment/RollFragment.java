@@ -25,9 +25,7 @@ import org.hjh.inject.InjectView;
 import org.hjh.refresh.PullToRefreshBase;
 import org.hjh.refresh.PullToRefreshBase.OnRefreshListener;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import cn.com.nbd.nbdmobile.R;
@@ -40,6 +38,7 @@ import cn.com.nbd.nbdmobile.bean.ResultObject;
 import cn.com.nbd.nbdmobile.config.AppPresences;
 import cn.com.nbd.nbdmobile.holder.RollHolder;
 import cn.com.nbd.nbdmobile.tool.BaseTools;
+import cn.com.nbd.nbdmobile.tool.DateTools;
 import cn.com.nbd.nbdmobile.view.PullToRefreshListView;
 
 @InjectLayout(layout = R.layout.client_layout)
@@ -193,7 +192,7 @@ public class RollFragment extends BaseFragment implements AppPublicAdapter.IFill
 						refreshView.setHasMoreData(true);
 						setLastUpdateTime(refreshView);
 						ActivityArticleRollList ActivityArticleRollList = (ActivityArticleRollList) msg.obj;
-						loadArticle(ActivityArticleRollList.getArticles());
+						loadArticle(ActivityArticleRollList.getData());
 						break;
 					default:
 						break;
@@ -208,13 +207,23 @@ public class RollFragment extends BaseFragment implements AppPublicAdapter.IFill
 		final RollHolder holder = (RollHolder) object;
 		final ArticleDetailForRoll article = (ArticleDetailForRoll) adapter
 				.getList().get(position);
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(
-				"HH:mm");
-		java.util.Date dt = new Date(article.getCreated_at());
-		String sDateTime = simpleDateFormat.format(dt);
+		String sDateTime = DateTools.getStrTime_hm(article.getCreated_at());
+		String titleDate = DateTools.getStrTime_ymd(article.getCreated_at());
+
 		if (position == 0) {
 			holder.view_1.setVisibility(View.INVISIBLE);
+			holder.linear.setVisibility(View.VISIBLE);
+		} else {
+			ArticleDetailForRoll article1 = (ArticleDetailForRoll) adapter
+					.getList().get(position - 1);
+			String titleDateBefore = DateTools.getStrTime_ymd(article1.getCreated_at());
+			if (titleDate.equals(titleDateBefore)) {
+				holder.linear.setVisibility(View.GONE);
+			} else {
+				holder.linear.setVisibility(View.VISIBLE);
+			}
 		}
+		holder.header.setText(titleDate);
 		holder.readText.setText(article.getMobile_click_count() + "");
 		holder.description.setText(sDateTime);
 		holder.description

@@ -42,7 +42,7 @@ public final class AppPublicAdapter extends AppBaseAdapter {
 		
 		return convertView;
 	}
-	
+
 	public interface IFillValue{
 		void fillData(int position, Object object);
 	}

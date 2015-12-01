@@ -13,23 +13,14 @@ public class ActivityArticleRollList implements Serializable{
 //	private String msg;
 
 	@Expose
-	private List<ArticleDetailForRoll>  articles;
+	private List<ArticleDetailForRoll>  data;
 
 
-//	public String getMsg() {
-//		return msg;
-//	}
-//
-//	public void setMsg(String msg) {
-//		this.msg = msg;
-//	}
-
-
-	public List<ArticleDetailForRoll> getArticles() {
-		return articles;
+	public List<ArticleDetailForRoll> getData() {
+		return data;
 	}
 
-	public void setArticles(List<ArticleDetailForRoll> articles) {
-		this.articles = articles;
+	public void setData(List<ArticleDetailForRoll> data) {
+		this.data = data;
 	}
 }

@@ -7,16 +7,18 @@ import org.hjh.db.BaseDao;
 import java.util.List;
 
 import cn.com.nbd.nbdmobile.base.DBManager;
-import cn.com.nbd.nbdmobile.bean.ActivityArticle;
+import cn.com.nbd.nbdmobile.bean.ActivityMainArticle;
 
+/**
+ * 活动首页
+ */
+public final class ActivityMainArticleDao extends BaseDao<ActivityMainArticle> {
 
-public final class ActivityArticleDao extends BaseDao<ActivityArticle> {
-
-	private static ActivityArticleDao instance;
+	private static ActivityMainArticleDao instance;
 	private static DBManager dbManager;
 	private static boolean 		isTrans;
 
-	protected ActivityArticleDao(Context context) {
+	protected ActivityMainArticleDao(Context context) {
 		super(context, dbManager.openSystemDatabase(), isTrans);
 	}
 
@@ -25,11 +27,11 @@ public final class ActivityArticleDao extends BaseDao<ActivityArticle> {
 			String databaseName = "system";
 			dbManager =	DBManager.getInstance(context, databaseName);
 			isTrans = isTransaction;
-			instance = new ActivityArticleDao(context);
+			instance = new ActivityMainArticleDao(context);
 		}
 	}
 	
-	public static ActivityArticleDao getInstance(Context context,boolean isTransaction){
+	public static ActivityMainArticleDao getInstance(Context context,boolean isTransaction){
 		if(instance == null){
 			init(context,isTransaction);
 		}
@@ -48,22 +50,22 @@ public final class ActivityArticleDao extends BaseDao<ActivityArticle> {
 	 * 插入数据
 	 * @param
 	 */
-	public void insert(ActivityArticle ActivityArticle){
+	public void insert(ActivityMainArticle ActivityMainArticle){
 		
-		if(ActivityArticle == null){
+		if(ActivityMainArticle == null){
 			return;
 		}
 		
 		openCurrentDataBase();
-		save(ActivityArticle);
+		save(ActivityMainArticle);
 	}
 	
-	public void insertList(List<ActivityArticle> list){
+	public void insertList(List<ActivityMainArticle> list){
 		if(list == null){
 			return;
 		}
 		
-		for(ActivityArticle item : list){
+		for(ActivityMainArticle item : list){
 			insert(item);
 		}
 	}
@@ -72,10 +74,10 @@ public final class ActivityArticleDao extends BaseDao<ActivityArticle> {
 	 * 查询信息
 	 * @return
 	 */
-	public List<ActivityArticle> queryAllActivityArticle(){
+	public List<ActivityMainArticle> queryAllActivityMainArticle(){
 		
 		openCurrentDataBase();
-		List<ActivityArticle> list = queryPageData("select * from ActivityArticle", null);
+		List<ActivityMainArticle> list = queryPageData("select * from ActivityMainArticle", null);
 		
 		return list;
 	}
@@ -83,8 +85,12 @@ public final class ActivityArticleDao extends BaseDao<ActivityArticle> {
 	/**
 	 * 删除所有信息
 	 */
-	public void deleteAllActivityArticle(){
+
+
+	public void deleteRepeatActivityMainArticle(){
 		openCurrentDataBase();
-		removeBySQL("delete from ActivityArticle");
+
+		removeBySQL("delete from ActivityMainArticle where rowid not in(select max(rowid) from ActivityMainArticle group by id)");
 	}
+
 }

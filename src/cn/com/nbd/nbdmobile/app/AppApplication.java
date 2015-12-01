@@ -14,6 +14,8 @@ import cn.com.nbd.nbdmobile.api.BaseApi;
 import cn.com.nbd.nbdmobile.api.BaseComponent;
 import cn.com.nbd.nbdmobile.base.DataBaseHelper;
 import cn.com.nbd.nbdmobile.bean.ActivityArticle;
+import cn.com.nbd.nbdmobile.bean.ActivityMainArticle;
+import cn.com.nbd.nbdmobile.bean.ArticleDetailForRoll;
 import cn.com.nbd.nbdmobile.config.AppPresences;
 import cn.com.nbd.nbdmobile.config.BaseConfig;
 import cn.com.nbd.nbdmobile.db.SQLHelper;
@@ -37,8 +39,10 @@ public class AppApplication extends Application {
 		FileTools.init(BaseConfig.PATH_IMAGE, BaseConfig.PATH_TEMP);
 //		publicList.add(ADArticleDao.class);
 //		publicList.add(ArticleDetail.class);
-//		publicList.add(ArticleDetailForRoll.class);
-		privateList.add(ActivityArticle.class);//活动
+		publicList.add(ArticleDetailForRoll.class);
+		publicList.add(ActivityArticle.class);//活动
+
+		publicList.add(ActivityMainArticle.class);//活动首页
 		DataBaseHelper.addSystemTable(publicList);
 		DataBaseHelper.addPrivateTable(privateList);
 		initCacheDirPath();

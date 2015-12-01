@@ -16,26 +16,20 @@ import java.io.Serializable;
 /**
  * 活动
  */
-@Table(TableName = "ActivityArticle")
-public final class ActivityArticle implements Serializable, Parcelable {
+@Table(TableName = "ActivityMainArticle")
+public final class ActivityMainArticle implements Serializable, Parcelable {
 
 
 	@ColumnPrimaryKey(TYPE = PrimaryKeyType.DEFINE)
 	@ColumnInt
-	private int ids;
+	private int siteId;
+
 	@ColumnInt
 	private int id;
 	@ColumnString(length = 64)
 	@Expose
 	private String title;
 
-	public int getIds() {
-		return ids;
-	}
-
-	public void setIds(int ids) {
-		this.ids = ids;
-	}
 
 	@ColumnString(length = 64)
 	@Expose
@@ -60,16 +54,13 @@ public final class ActivityArticle implements Serializable, Parcelable {
 	@Expose
 	private String avatar;
 
-	@Expose
-	private ActivityLabelForTitle   app_feature_labels;
+	public int getSiteId() {
+		return siteId;
+	}
 
-//	public int getIds() {
-//		return ids;
-//	}
-//
-//	public void setIds(int ids) {
-//		this.ids = ids;
-//	}
+	public void setSiteId(int siteId) {
+		this.siteId = siteId;
+	}
 
 	public int getId() {
 		return id;
@@ -135,14 +126,6 @@ public final class ActivityArticle implements Serializable, Parcelable {
 		this.avatar = avatar;
 	}
 
-	public ActivityLabelForTitle getApp_feature_labels() {
-		return app_feature_labels;
-	}
-
-	public void setApp_feature_labels(ActivityLabelForTitle app_feature_labels) {
-		this.app_feature_labels = app_feature_labels;
-	}
-
 
 	@Override
 	public int describeContents() {
@@ -151,7 +134,7 @@ public final class ActivityArticle implements Serializable, Parcelable {
 
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
-		dest.writeInt(this.ids);
+		dest.writeInt(this.siteId);
 		dest.writeInt(this.id);
 		dest.writeString(this.title);
 		dest.writeString(this.lead);
@@ -160,14 +143,13 @@ public final class ActivityArticle implements Serializable, Parcelable {
 		dest.writeString(this.created_at);
 		dest.writeString(this.updated_at);
 		dest.writeString(this.avatar);
-		dest.writeParcelable(this.app_feature_labels, 0);
 	}
 
-	public ActivityArticle() {
+	public ActivityMainArticle() {
 	}
 
-	protected ActivityArticle(Parcel in) {
-		this.ids = in.readInt();
+	protected ActivityMainArticle(Parcel in) {
+		this.siteId = in.readInt();
 		this.id = in.readInt();
 		this.title = in.readString();
 		this.lead = in.readString();
@@ -176,16 +158,15 @@ public final class ActivityArticle implements Serializable, Parcelable {
 		this.created_at = in.readString();
 		this.updated_at = in.readString();
 		this.avatar = in.readString();
-		this.app_feature_labels = in.readParcelable(ActivityLabelForTitle.class.getClassLoader());
 	}
 
-	public static final Creator<ActivityArticle> CREATOR = new Creator<ActivityArticle>() {
-		public ActivityArticle createFromParcel(Parcel source) {
-			return new ActivityArticle(source);
+	public static final Creator<ActivityMainArticle> CREATOR = new Creator<ActivityMainArticle>() {
+		public ActivityMainArticle createFromParcel(Parcel source) {
+			return new ActivityMainArticle(source);
 		}
 
-		public ActivityArticle[] newArray(int size) {
-			return new ActivityArticle[size];
+		public ActivityMainArticle[] newArray(int size) {
+			return new ActivityMainArticle[size];
 		}
 	};
 }

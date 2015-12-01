@@ -3,142 +3,186 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     >
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:layout_marginLeft="10dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        >
+        android:id="@+id/linear"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <View
-            android:id="@+id/view_1"
-            android:layout_width="1px"
-            android:layout_height="15dip"
-            android:background="#DCDCDC"/>
-
-        <ImageView
-            android:id="@+id/mgView_logistic_tracking_status"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/red_dot"
-            />
+            android:orientation="horizontal"
+
+            android:paddingTop="5dp">
+
+            <View
+
+                android:layout_width="5dp"
+                android:layout_height="25dip"
+                android:background="#cf2118"/>
+
+            <TextView
+                android:id="@+id/header"
+                android:layout_width="fill_parent"
+                android:layout_height="25dip"
+
+                android:layout_marginLeft="8dp"
+                android:gravity="center_vertical"
+                android:text="header"
+                android:textColor="#cf2118"
+                android:textSize="18sp"
+                />
+
+        </LinearLayout>
 
         <View
-            android:id="@+id/view_2"
-            android:layout_width="1px"
-            android:layout_height="0dip"
-            android:layout_weight="1"
-            android:background="#DCDCDC"/>
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+
+            android:background="@color/gray"/>
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/ll_logistic_tracking_timeline"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="vertical"
-        >
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/description"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:ellipsize="end"
-            android:paddingBottom="10dp"
-            android:text="9:21xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-            android:textColor="@color/list_item_title_color"
-            android:textSize="18sp"/>
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            >
 
+            <View
+                android:id="@+id/view_1"
+                android:layout_width="1px"
+                android:layout_height="15dip"
+                android:background="#DCDCDC"/>
 
-        <RelativeLayout
+            <ImageView
+                android:id="@+id/mgView_logistic_tracking_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/red_dot"
+                />
+
+            <View
+                android:id="@+id/view_2"
+                android:layout_width="1px"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="#DCDCDC"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_logistic_tracking_timeline"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical"
+            >
 
-            <LinearLayout
-                android:id="@+id/share"
+            <TextView
+                android:id="@+id/description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:gravity="center"
-                android:orientation="horizontal">
+                android:layout_gravity="top"
+                android:ellipsize="end"
+                android:paddingBottom="10dp"
+                android:text="9:21xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+                android:textColor="@color/list_item_title_color"
+                android:textSize="18sp"/>
 
-                <ImageView
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/share"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/share"
-                    />
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text=" 分享"
-                    android:textColor="@color/gray"
-                    android:textSize="14sp"
-                    />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/share"
+                        />
 
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=" 分享"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp"
+                        />
+
+                </LinearLayout>
 
 
-            <LinearLayout
-                android:id="@+id/talk"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toLeftOf="@+id/share"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingRight="20dp">
-
-                <ImageView
+                <LinearLayout
+                    android:id="@+id/talk"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/talk"
-                    />
+                    android:layout_toLeftOf="@+id/share"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingRight="20dp">
 
-                <TextView
-                    android:id="@+id/talk_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text=" 12"
-                    android:textColor="@color/gray"
-                    android:textSize="14sp"
-                    />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/talk"
+                        />
 
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/talk_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=" 12"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp"
+                        />
 
-            <LinearLayout
-                android:id="@+id/read"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toLeftOf="@+id/talk"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingRight="20dp">
+                </LinearLayout>
 
-                <ImageView
+                <LinearLayout
+                    android:id="@+id/read"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/read"
-                    />
+                    android:layout_toLeftOf="@+id/talk"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingRight="20dp">
 
-                <TextView
-                    android:id="@+id/read_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="1"
-                    android:textColor="@color/gray"
-                    android:textSize="14sp"
-                    />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/read"
+                        />
 
-            </LinearLayout>
-        </RelativeLayout>
+                    <TextView
+                        android:id="@+id/read_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp"
+                        />
+
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
     </LinearLayout>
-
 
 </LinearLayout>
 

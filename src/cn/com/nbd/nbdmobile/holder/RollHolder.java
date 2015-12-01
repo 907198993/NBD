@@ -1,6 +1,7 @@
 package cn.com.nbd.nbdmobile.holder;
 
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.hjh.inject.InjectLayout;
@@ -26,5 +27,11 @@ public class RollHolder {
 	//阅读量
 	@InjectView(id = R.id.read_text)
 	public TextView readText;
+
+	@InjectView(id = R.id.header)
+	public TextView header;
+
+	@InjectView(id = R.id.linear)
+	public LinearLayout linear;
 
 }
